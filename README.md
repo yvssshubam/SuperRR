@@ -2,7 +2,7 @@
 
 A data-driven system that rates IPL and T20I batters and bowlers in **high-pressure match situations** against how an average player performs in the same situation. It produces two separate ratings and a ranked top 10 of each.
 
-Built for Round 1 of Rajasthan Royals' *SupeRR Selector Season 2* using only the supplied data pack: 883 matches from January 2022 to 1 November 2026 and 201k deliveries. The analysis was rerun on the updated ball-by-ball dataset published during Round 1: the file at the update link is byte-for-byte identical to the one used here (MD5 `c5bbd29fe98b35a46d83c7dc7072a27d`).
+Built for Round 1 of Rajasthan Royals' *SupeRR Selector Season 2* using only the supplied data pack: 883 matches from January 2022 to 1 November 2026 and 201k deliveries. 
 
 ---
 
