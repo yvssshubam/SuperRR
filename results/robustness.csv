@@ -1,0 +1,29 @@
+scenario,role,overlap_top10,spearman,main_top10_median_rank
+Pressure = top 20% leverage,bat,9,0.908,5.5
+Pressure = top 20% leverage,bowl,9,0.948,6.5
+Pressure = top 30% leverage,bat,9,0.941,5.5
+Pressure = top 30% leverage,bowl,8,0.965,5.5
+Pressure = top 10% (extreme),bat,7,0.808,5.5
+Pressure = top 10% (extreme),bowl,4,0.845,15.5
+Conventional RRR/wickets index,bat,5,0.663,12.0
+Conventional RRR/wickets index,bowl,4,0.741,13.5
+Career Ability (all matches equal),bat,8,0.941,5.5
+Career Ability (all matches equal),bowl,9,0.975,5.5
+Older matches weight 0.25,bat,8,0.926,5.5
+Older matches weight 0.25,bowl,8,0.971,5.5
+Older matches weight 0.75,bat,9,0.974,5.5
+Older matches weight 0.75,bowl,9,0.99,5.5
+Last 12 months only,bat,5,0.538,10.0
+Last 12 months only,bowl,4,0.703,15.5
+Previous recency (18-month half-life),bat,8,0.933,5.5
+Previous recency (18-month half-life),bowl,8,0.963,6.0
+Equal component weights,bat,9,0.934,6.5
+Equal component weights,bowl,9,0.968,5.5
+Pressure rating only,bat,9,0.932,5.5
+Pressure rating only,bowl,6,0.93,7.0
+Without bowler execution component,bat,10,1.0,5.5
+Without bowler execution component,bowl,9,0.989,5.5
+IPL only,bat,8,0.799,5.0
+IPL only,bowl,5,0.811,6.0
+T20I only,bat,5,0.785,4.5
+T20I only,bowl,7,0.851,4.5

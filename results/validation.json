@@ -1,0 +1,36 @@
+{
+ "validation": {
+  "pressure_share_close": 0.374,
+  "pressure_share_one_sided": 0.18,
+  "n_close": 260,
+  "n_one_sided": 528,
+  "leverage_share_wp_below_10": 0.03,
+  "conventional_share_wp_below_10": 0.636
+ },
+ "behaviour": [
+  {
+   "pressure": false,
+   "SR": 137.1,
+   "out_pct": 5.12,
+   "dot_pct": 37.23,
+   "abs_wpa": 0.94
+  },
+  {
+   "pressure": true,
+   "SR": 147.97,
+   "out_pct": 6.34,
+   "dot_pct": 36.25,
+   "abs_wpa": 2.23
+  }
+ ],
+ "abs_wpa_conventional": [
+  {
+   "alt_pressure": false,
+   "abs_wpa": 1.19
+  },
+  {
+   "alt_pressure": true,
+   "abs_wpa": 1.47
+  }
+ ]
+}

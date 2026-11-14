@@ -1,0 +1,6 @@
+role,feature,players,split_half_r,t
+bat,excess_unusual,134,0.161,1.9
+bat,dev_z,134,0.277,3.3
+bowl,excess_error,143,0.295,3.7
+bowl,error_z,143,0.365,4.6
+bowl,dev_z,143,0.533,7.5

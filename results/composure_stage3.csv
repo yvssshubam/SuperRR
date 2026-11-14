@@ -1,0 +1,18 @@
+role,variant,predicts_other_half,players
+bat,current model,0.233,119
+bat,composure alone,0.061,119
+bat,excess_unusual alone (sign: lower is better),0.037,119
+bat,dev_z alone (sign: lower is better),0.055,119
+bat,current + composure (0.1),0.236,119
+bat,current + composure (0.25),0.237,119
+bat,current + composure (0.5),0.229,119
+bat,(corr composure vs current rating),0.067,119
+bowl,current model,0.253,119
+bowl,composure alone,0.144,119
+bowl,excess_error alone (sign: lower is better),0.165,119
+bowl,error_z alone (sign: lower is better),0.133,119
+bowl,dev_z alone (sign: lower is better),0.065,119
+bowl,current + composure (0.1),0.264,119
+bowl,current + composure (0.25),0.276,119
+bowl,current + composure (0.5),0.284,119
+bowl,(corr composure vs current rating),0.035,119

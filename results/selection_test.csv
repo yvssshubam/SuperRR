@@ -1,0 +1,11 @@
+role,flag,share,effect_all,t_all,effect_pressure,t_pressure,players,split_half_r
+bat,recalled,2.9,-12.03,-2.7,-5.2,-0.7,6,
+bat,bubble,7.5,-8.88,-3.1,-6.0,-1.2,36,-0.044
+bat,early,15.5,-11.24,-5.7,-11.66,-3.2,54,0.033
+bat,impact_in,2.5,-6.45,-1.4,-1.91,-0.2,13,0.56
+bat,selection,21.7,-10.99,-6.1,-8.97,-2.7,83,-0.019
+bowl,recalled,6.1,-3.87,-1.3,-8.69,-1.7,22,0.055
+bowl,bubble,13.2,-4.18,-2.1,-1.95,-0.5,57,0.02
+bowl,early,21.2,-4.06,-2.4,-6.67,-2.3,98,0.146
+bowl,impact_in,2.5,-3.26,-0.8,0.42,0.1,7,
+bowl,selection,31.8,-2.63,-1.8,-4.71,-1.8,117,0.134

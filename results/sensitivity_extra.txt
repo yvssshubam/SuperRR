@@ -1,0 +1,25 @@
+submitted bowlers: spinners 9  eligible bowlers spin share 0.3
+Eligibility floor 100 pressure balls           bat  keeps  9/10  rho 1.00  n=123 IN: Harry Brook  OUT: Rajat Patidar
+Eligibility floor 150 pressure balls           bat  keeps  9/10  rho 1.00  n=91  IN: Ashutosh Sharma  OUT: Vaibhav Sooryavanshi
+Eligibility floor 200 pressure balls           bat  keeps  7/10  rho 1.00  n=59  IN: Virat Kohli, Cameron Green, Rovman Powell  OUT: Vaibhav Sooryavanshi, Tim Seifert, Rajat Patidar
+Pressure rating only                           bat  keeps  9/10  rho 0.93  n=108 IN: Finn Allen  OUT: Tim Seifert
+Rating + win impact (no clutch, consistency)   bat  keeps  9/10  rho 0.96  n=108 IN: Finn Allen  OUT: Tim Seifert
+   single threshold: LI >= 1.15  share of pressure balls from innings 1: 0.069  share of innings-1 balls flagged: 0.033
+One leverage threshold for both innings        bat  keeps  8/10  rho 0.83  n=108 IN: Virat Kohli, Ashutosh Sharma  OUT: Tim Seifert, Rajat Patidar
+Addition: match+venue conditions               bat  keeps 10/10  rho 0.98  n=108 IN: -  OUT: -
+Addition: required-rate band (4)               bat  keeps 10/10  rho 1.00  n=108 IN: -  OUT: -
+Addition: opponent team-level prior            bat  keeps 10/10  rho 1.00  n=108 IN: -  OUT: -
+All three additions                            bat  keeps 10/10  rho 0.98  n=108 IN: -  OUT: -
+Eligibility floor 100 pressure balls           bowl keeps 10/10  rho 1.00  n=119 IN: -  OUT: - | spinners in top 10: 9
+Eligibility floor 150 pressure balls           bowl keeps 10/10  rho 1.00  n=93  IN: -  OUT: - | spinners in top 10: 9
+Eligibility floor 200 pressure balls           bowl keeps 10/10  rho 1.00  n=72  IN: -  OUT: - | spinners in top 10: 9
+Pressure rating only                           bowl keeps  6/10  rho 0.93  n=107 IN: Bhuvneshwar Kumar, Mohammad Nawaz, Jasprit Bumrah, Noor Ahmad  OUT: Mujeeb Ur Rahman, Akeal Hosein, Krunal Pandya, Abrar Ahmed | spinners in top 10: 7
+Rating + execution (no clutch, cons., impact)  bowl keeps  7/10  rho 0.95  n=107 IN: Mohammad Nawaz, Jasprit Bumrah, Noor Ahmad  OUT: Mujeeb Ur Rahman, Akeal Hosein, Krunal Pandya | spinners in top 10: 8
+Composite without clutch delta                 bowl keeps  9/10  rho 0.99  n=107 IN: Mohammad Nawaz  OUT: Akeal Hosein | spinners in top 10: 9
+One leverage threshold for both innings        bowl keeps  6/10  rho 0.87  n=107 IN: Mohammad Nawaz, Axar Patel, Mitchell Santner, Patrick Cummins  OUT: Mujeeb Ur Rahman, Akeal Hosein, Wanindu Hasaranga, Varun Chakravarthy | spinners in top 10: 8
+Addition: match+venue conditions               bowl keeps  9/10  rho 0.99  n=107 IN: Adam Zampa  OUT: Abrar Ahmed | spinners in top 10: 9
+Addition: required-rate band (4)               bowl keeps  9/10  rho 1.00  n=107 IN: Adam Zampa  OUT: Varun Chakravarthy | spinners in top 10: 9
+Addition: opponent team-level prior            bowl keeps 10/10  rho 1.00  n=107 IN: -  OUT: - | spinners in top 10: 9
+All three additions                            bowl keeps  9/10  rho 0.99  n=107 IN: Adam Zampa  OUT: Abrar Ahmed | spinners in top 10: 9
+bat match+venue level on pressure balls, runs/100 (own-view): SD across eligible 3.0  top10: [('Tim David', -3.9), ('Vaibhav Sooryavanshi', -4.1), ('Abhishek Sharma', -2.0), ('Suryakumar Yadav', -6.6), ('Heinrich Klaasen', -3.3), ('Namboori Tilak Varma', -6.4), ('Phil Salt', -3.9), ('Tim Seifert', -2.4), ('Shreyas Iyer', -3.2), ('Rajat Patidar', -5.9)]
+bowl match+venue level on pressure balls, runs/100 (own-view): SD across eligible 2.6  top10: [('Rashid Khan', 2.4), ('Kuldeep Yadav', -3.4), ('Josh Hazlewood', 0.3), ('Sunil Narine', -1.5), ('Mujeeb Ur Rahman', 2.8), ('Akeal Hosein', 0.4), ('Krunal Pandya', 1.0), ('Wanindu Hasaranga', 1.9), ('Varun Chakravarthy', 1.1), ('Abrar Ahmed', 3.9)]

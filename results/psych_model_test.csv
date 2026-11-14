@@ -1,0 +1,17 @@
+role,factor_set,weight_on_psych,predicts_other_half,n
+bat,all factors,0.0,0.239,119
+bat,all factors,0.1,0.229,119
+bat,all factors,0.25,0.212,119
+bat,all factors,0.5,0.179,119
+bat,stage-1 passers,0.0,0.239,119
+bat,stage-1 passers,0.1,0.239,119
+bat,stage-1 passers,0.25,0.236,119
+bat,stage-1 passers,0.5,0.222,119
+bowl,all factors,0.0,0.255,119
+bowl,all factors,0.1,0.256,119
+bowl,all factors,0.25,0.253,119
+bowl,all factors,0.5,0.236,119
+bowl,stage-1 passers,0.0,0.255,119
+bowl,stage-1 passers,0.1,0.245,119
+bowl,stage-1 passers,0.25,0.225,119
+bowl,stage-1 passers,0.5,0.185,119

@@ -1,0 +1,90 @@
+{
+ "ready_old_weight": 0.5,
+ "weights": {
+  "bat": {
+   "press_skill": 0.6,
+   "clutch_delta": 0.13333333333333333,
+   "consistency": 0.13333333333333333,
+   "win_impact": 0.13333333333333333
+  },
+  "bowl": {
+   "press_skill": 0.4390243902439024,
+   "clutch_delta": 0.16463414634146342,
+   "consistency": 0.1097560975609756,
+   "win_impact": 0.16463414634146342,
+   "execution": 0.12195121951219512
+  }
+ },
+ "res": {
+  "readiness": {
+   "bat": {
+    "prior": {
+     "beta": 1.049,
+     "clutch_sd_per100": 12.82
+    },
+    "eligible": 108
+   },
+   "bowl": {
+    "prior": {
+     "beta": 0.702,
+     "clutch_sd_per100": 10.67
+    },
+    "eligible": 107
+   }
+  },
+  "career": {
+   "bat": {
+    "prior": {
+     "beta": 1.159,
+     "clutch_sd_per100": 12.4
+    },
+    "eligible": 108
+   },
+   "bowl": {
+    "prior": {
+     "beta": 0.745,
+     "clutch_sd_per100": 9.44
+    },
+    "eligible": 107
+   }
+  }
+ },
+ "reliability": {
+  "readiness": {
+   "bat": {
+    "press_skill": 0.358,
+    "baseline": 0.256,
+    "clutch_delta": 0.1,
+    "win_impact": 0.153,
+    "consistency": 0.047,
+    "n_players": 119
+   },
+   "bowl": {
+    "press_skill": 0.392,
+    "baseline": 0.326,
+    "clutch_delta": 0.272,
+    "win_impact": 0.202,
+    "consistency": 0.234,
+    "n_players": 119
+   }
+  },
+  "career": {
+   "bat": {
+    "press_skill": 0.395,
+    "baseline": 0.291,
+    "clutch_delta": 0.103,
+    "win_impact": 0.209,
+    "consistency": 0.091,
+    "n_players": 119
+   },
+   "bowl": {
+    "press_skill": 0.372,
+    "baseline": 0.298,
+    "clutch_delta": 0.195,
+    "win_impact": 0.148,
+    "consistency": 0.284,
+    "n_players": 119
+   }
+  }
+ }
+}
