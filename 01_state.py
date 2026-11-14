@@ -44,11 +44,13 @@ b["total_runs"] = b.bat_runs + b.extras
 # runs charged to bowler: bat runs + wide/no-ball penalty runs (not byes/leg-byes)
 b["bowler_runs"] = b.bat_runs + np.where(b.is_wide | b.is_nb, b.extras1_runs.astype(int), 0)
 b["is_wicket"] = b.is_wicket.astype(str).str.lower().eq("true")
-not_wkt = b.dismissal_type.isin(["Retire Out"])
-b["wkt"] = b.is_wicket & ~not_wkt
+# Retired out counts as a wicket for the batting side (it reduces wickets in hand, as in the Laws),
+# but it is neither credited to the bowler nor charged to the batter as a dismissal.
+retired = b.dismissal_type.isin(["Retire Out"])
+b["wkt"] = b.is_wicket
 bowler_modes = ["Caught", "Bowled", "LBW", "Stump", "Hit Wicket"]
 b["bowler_wkt"] = b.wkt & b.dismissal_type.isin(bowler_modes)
-b["striker_out"] = b.wkt & (b.dismissed_player_id.astype(float) == b.striker_id.astype(float))
+b["striker_out"] = b.wkt & ~retired & (b.dismissed_player_id.astype(float) == b.striker_id.astype(float))
 b["is_four"] = b.is_four.astype(str).str.lower().eq("true")
 b["is_six"] = b.is_six.astype(str).str.lower().eq("true")
 

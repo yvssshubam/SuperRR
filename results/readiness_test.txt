@@ -1,0 +1,49 @@
+players per fold: {('cross-half', 'bat'): 116.0, ('cross-half', 'bowl'): 117.0, ('out-of-time', 'bat'): 55.0, ('out-of-time', 'bowl'): 57.0}
+
+out-of-time: mean gain over previous model (folds better)
+variant                     a0=0.0        a0=0.1       a0=0.25        a0=0.5        a0=1.0
+role predictor                                                                            
+bat  composite        +0.042 (1/3)  -0.002 (1/3)  -0.021 (1/3)  -0.015 (2/3)  -0.007 (1/3)
+     pressure rating  +0.067 (1/3)  +0.022 (1/3)  +0.003 (1/3)  +0.009 (1/3)  +0.017 (2/3)
+bowl composite        -0.049 (1/3)  -0.064 (1/3)  -0.036 (1/3)  -0.008 (0/3)  +0.011 (1/3)
+     pressure rating  -0.020 (1/3)  -0.027 (1/3)  -0.007 (1/3)  +0.009 (2/3)  +0.015 (1/3)
+
+cross-half: mean gain over previous model (folds better)
+variant                      a0=0.0         a0=0.1        a0=0.25          a0=0.5          a0=1.0
+role predictor                                                                                   
+bat  composite        -0.114 (1/20)  -0.029 (6/20)  +0.005 (9/20)  +0.037 (17/20)  +0.070 (19/20)
+     pressure rating  -0.136 (0/20)  -0.054 (3/20)  -0.019 (7/20)  +0.013 (14/20)  +0.045 (19/20)
+bowl composite        -0.148 (1/20)  -0.038 (3/20)  -0.002 (6/20)  +0.019 (16/20)  +0.024 (15/20)
+     pressure rating  -0.170 (3/20)  -0.056 (5/20)  -0.011 (5/20)  +0.008 (11/20)  +0.012 (12/20)
+
+out-of-time (mean r over folds)
+ role                        bat   bowl
+predictor       variant               
+composite       a0=0.0    0.096  0.137
+                a0=0.1    0.051  0.122
+                a0=0.25   0.032  0.150
+                a0=0.5    0.039  0.178
+                a0=1.0    0.047  0.197
+                previous  0.054  0.186
+pressure rating a0=0.0    0.096  0.140
+                a0=0.1    0.051  0.133
+                a0=0.25   0.032  0.153
+                a0=0.5    0.039  0.169
+                a0=1.0    0.047  0.175
+                previous  0.029  0.160
+
+cross-half (mean r over folds)
+ role                        bat   bowl
+predictor       variant               
+composite       a0=0.0    0.023  0.063
+                a0=0.1    0.108  0.172
+                a0=0.25   0.142  0.209
+                a0=0.5    0.175  0.229
+                a0=1.0    0.207  0.234
+                previous  0.137  0.210
+pressure rating a0=0.0    0.025  0.034
+                a0=0.1    0.108  0.147
+                a0=0.25   0.142  0.192
+                a0=0.5    0.175  0.211
+                a0=1.0    0.207  0.215
+                previous  0.162  0.203

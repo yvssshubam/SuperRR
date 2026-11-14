@@ -1,7 +1,7 @@
 {
  "validation": {
-  "pressure_share_close": 0.374,
-  "pressure_share_one_sided": 0.18,
+  "pressure_share_close": 0.341,
+  "pressure_share_one_sided": 0.2,
   "n_close": 260,
   "n_one_sided": 528,
   "leverage_share_wp_below_10": 0.03,
@@ -10,17 +10,17 @@
  "behaviour": [
   {
    "pressure": false,
-   "SR": 137.1,
-   "out_pct": 5.12,
-   "dot_pct": 37.23,
+   "SR": 137.04,
+   "out_pct": 5.13,
+   "dot_pct": 37.27,
    "abs_wpa": 0.94
   },
   {
    "pressure": true,
-   "SR": 147.97,
-   "out_pct": 6.34,
-   "dot_pct": 36.25,
-   "abs_wpa": 2.23
+   "SR": 148.15,
+   "out_pct": 6.33,
+   "dot_pct": 36.14,
+   "abs_wpa": 2.22
   }
  ],
  "abs_wpa_conventional": [

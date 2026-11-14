@@ -14,7 +14,13 @@ top = {role: list(main[role].index[:10]) for role in main}
 elig = {role: list(main[role].index) for role in main}
 EXEC = pd.read_csv(f"{OUT}/bowl_execution.csv", index_col=0)[["execution"]]
 
-EQUAL = None   # equal weights are set per role below
+EQUAL = None   # equal weights over every rated component, set per role below
+ALLC = {"bat": ["press_skill", "clutch_delta", "consistency", "win_impact"],
+        "bowl": ["press_skill", "clutch_delta", "consistency", "win_impact", "execution"]}
+def no_knockout(d):
+    d = d.copy(); d["li"] = np.where(d.knock_out == 1, d.li / 1.2, d.li)
+    d["pressure"] = d.groupby("innings").li.rank(pct=True) >= 0.75
+    return d
 RW = lambda d, a0: r.rating_weights(d, a0)
 scen = {
     "Pressure = top 20% leverage":  dict(pressure=lambda d: d.li_pct >= 0.80),
@@ -26,8 +32,11 @@ scen = {
     "Older matches weight 0.75":    dict(w=lambda d: RW(d, 0.75)),
     "Last 12 months only":          dict(w=lambda d: RW(d, 0.0)),
     "Previous recency (18-month half-life)": dict(w=lambda d: 0.5 ** (d.age_days / 548)),
-    "Equal component weights":      dict(weights=EQUAL),
+    "No knockout multiplier (1.0)": dict(transform=no_knockout),
+    "Equal weights, all components": dict(weights=EQUAL),
     "Pressure rating only":         dict(weights={"press_skill": 1.0}),
+    "Previous batting composite (45/10/10/10)": dict(weights_bat={"press_skill": 0.45 / 0.75, "clutch_delta": 0.10 / 0.75, "consistency": 0.10 / 0.75, "win_impact": 0.10 / 0.75}),
+    "With separate clutch component (bowlers)": dict(weights_bowl={k: v / 0.82 for k, v in {"press_skill": 0.36, "clutch_delta": 0.135, "consistency": 0.09, "win_impact": 0.135, "execution": 0.10}.items()}),
     "Without bowler execution component": dict(weights_bowl={k: v / (1 - r.WEIGHTS["bowl"]["execution"])
                                                              for k, v in r.WEIGHTS["bowl"].items() if k != "execution"}),
     "IPL only":                     dict(filt=lambda d: d.league == "IPL"),
@@ -38,12 +47,15 @@ for name, s in scen.items():
     d = b.copy()
     if "filt" in s: d = d[s["filt"](d)]
     if "pressure" in s: d["pressure"] = s["pressure"](d)
+    if "transform" in s: d = s["transform"](d)
     d["w"] = s["w"](d) if "w" in s else RW(d, r.READY_OLD_WEIGHT)
     for role in ["bat", "bowl"]:
         t, _, _ = r.player_table(d, role)
         if role == "bowl": t = t.join(EXEC)
-        wts = s.get("weights", s.get("weights_bowl") if role == "bowl" and "weights_bowl" in s else r.WEIGHTS[role])
-        if wts is None: wts = {k: 1 / len(r.WEIGHTS[role]) for k in r.WEIGHTS[role]}
+        if f"weights_{role}" in s: wts = s[f"weights_{role}"]
+        elif "weights_bat" in s or "weights_bowl" in s: wts = r.WEIGHTS[role]
+        else: wts = s.get("weights", r.WEIGHTS[role])
+        if wts is None: wts = {k: 1 / len(ALLC[role]) for k in ALLC[role]}
         e = r.composite(t, wts, elig[role])
         e = e[e.pb >= 30] if "filt" in s else e
         new_top = list(e.index[:10])
@@ -63,7 +75,7 @@ last2 = b[b.innings == 2].groupby("match_id").agg(r2=("total_runs", "sum"), wl=(
 m = m.join(last2)
 m["chase_won"] = m.bat2 == m.win
 m["close"] = np.where(m.chase_won, (m.bl >= 114) | (m.wl >= 7), (m["first"] - m.r2) <= 12)
-press_share = b.groupby("match_id").li.apply(lambda s: (s >= b.li.quantile(0.75)).mean())
+press_share = b.groupby("match_id").pressure.mean()          # the actual per-innings pressure flag
 val = dict(pressure_share_close=round(float(press_share[m.close[m.close].index.intersection(press_share.index)].mean()), 3),
            pressure_share_one_sided=round(float(press_share[m.close[~m.close].index.intersection(press_share.index)].mean()), 3),
            n_close=int(m.close.sum()), n_one_sided=int((~m.close).sum()))

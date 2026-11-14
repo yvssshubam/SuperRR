@@ -2,32 +2,28 @@
  "ready_old_weight": 0.5,
  "weights": {
   "bat": {
-   "press_skill": 0.6,
-   "clutch_delta": 0.13333333333333333,
-   "consistency": 0.13333333333333333,
-   "win_impact": 0.13333333333333333
+   "press_skill": 1.0
   },
   "bowl": {
-   "press_skill": 0.4390243902439024,
-   "clutch_delta": 0.16463414634146342,
-   "consistency": 0.1097560975609756,
-   "win_impact": 0.16463414634146342,
-   "execution": 0.12195121951219512
+   "press_skill": 0.5255474452554744,
+   "consistency": 0.1313868613138686,
+   "win_impact": 0.19708029197080293,
+   "execution": 0.145985401459854
   }
  },
  "res": {
   "readiness": {
    "bat": {
     "prior": {
-     "beta": 1.049,
-     "clutch_sd_per100": 12.82
+     "beta": 1.03,
+     "clutch_sd_per100": 12.74
     },
-    "eligible": 108
+    "eligible": 107
    },
    "bowl": {
     "prior": {
-     "beta": 0.702,
-     "clutch_sd_per100": 10.67
+     "beta": 0.711,
+     "clutch_sd_per100": 9.96
     },
     "eligible": 107
    }
@@ -35,15 +31,15 @@
   "career": {
    "bat": {
     "prior": {
-     "beta": 1.159,
-     "clutch_sd_per100": 12.4
+     "beta": 1.138,
+     "clutch_sd_per100": 12.25
     },
-    "eligible": 108
+    "eligible": 107
    },
    "bowl": {
     "prior": {
-     "beta": 0.745,
-     "clutch_sd_per100": 9.44
+     "beta": 0.75,
+     "clutch_sd_per100": 8.92
     },
     "eligible": 107
    }
@@ -52,38 +48,38 @@
  "reliability": {
   "readiness": {
    "bat": {
-    "press_skill": 0.358,
-    "baseline": 0.256,
-    "clutch_delta": 0.1,
-    "win_impact": 0.153,
-    "consistency": 0.047,
-    "n_players": 119
+    "press_skill": 0.313,
+    "baseline": 0.229,
+    "clutch_delta": 0.102,
+    "win_impact": 0.171,
+    "consistency": 0.034,
+    "n_players": 116
    },
    "bowl": {
-    "press_skill": 0.392,
-    "baseline": 0.326,
-    "clutch_delta": 0.272,
-    "win_impact": 0.202,
-    "consistency": 0.234,
-    "n_players": 119
+    "press_skill": 0.38,
+    "baseline": 0.312,
+    "clutch_delta": 0.263,
+    "win_impact": 0.213,
+    "consistency": 0.186,
+    "n_players": 122
    }
   },
   "career": {
    "bat": {
-    "press_skill": 0.395,
-    "baseline": 0.291,
-    "clutch_delta": 0.103,
-    "win_impact": 0.209,
-    "consistency": 0.091,
-    "n_players": 119
+    "press_skill": 0.343,
+    "baseline": 0.265,
+    "clutch_delta": 0.094,
+    "win_impact": 0.221,
+    "consistency": 0.089,
+    "n_players": 116
    },
    "bowl": {
-    "press_skill": 0.372,
-    "baseline": 0.298,
-    "clutch_delta": 0.195,
-    "win_impact": 0.148,
-    "consistency": 0.284,
-    "n_players": 119
+    "press_skill": 0.352,
+    "baseline": 0.286,
+    "clutch_delta": 0.188,
+    "win_impact": 0.164,
+    "consistency": 0.281,
+    "n_players": 122
    }
   }
  }

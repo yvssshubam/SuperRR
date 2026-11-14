@@ -1,15 +1,15 @@
-pressure balls: spin share by phase {0: 0.213, 1: 0.58, 2: 0.2}  overall 0.283  non-pressure 0.412
-share of pressure balls bowled to a batter on <5 balls: spin 0.288 pace 0.318
+pressure balls: spin share by phase {0: 0.212, 1: 0.58, 2: 0.2}  overall 0.283  non-pressure 0.412
+share of pressure balls bowled to a batter on <5 balls: spin 0.287 pace 0.316
                                          control  spin - pace (runs/100 balls)  se
-            context cell only (current baseline)                          15.8 3.0
-                       + opponent batter quality                          15.3 3.0
-                             + match/venue level                          14.8 3.0
-             + batter new/settled (within phase)                          15.6 3.1
-                        + same match and innings                          15.1 3.3
-+ same match, innings, phase, batter new/settled                          15.7 3.9
-powerplay n spin 3274 gap raw [np.float64(14.2), np.float64(6.6)]  within match+innings+settled [np.float64(24.4), np.float64(8.6)]
-middle n spin 5666 gap raw [np.float64(20.9), np.float64(5.6)]  within match+innings+settled [np.float64(9.3), np.float64(7.1)]
-death n spin 4379 gap raw [np.float64(18.5), np.float64(4.2)]  within match+innings+settled [np.float64(14.1), np.float64(4.8)]
+            context cell only (current baseline)                          15.6 3.0
+                       + opponent batter quality                          15.1 3.0
+                             + match/venue level                          14.6 3.0
+             + batter new/settled (within phase)                          15.4 3.1
+                        + same match and innings                          14.9 3.3
++ same match, innings, phase, batter new/settled                          16.1 3.9
+powerplay n spin 3237 gap raw [np.float64(14.0), np.float64(6.6)]  within match+innings+settled [np.float64(24.6), np.float64(8.7)]
+middle n spin 5681 gap raw [np.float64(20.8), np.float64(5.6)]  within match+innings+settled [np.float64(11.0), np.float64(7.0)]
+death n spin 4396 gap raw [np.float64(18.2), np.float64(4.2)]  within match+innings+settled [np.float64(13.8), np.float64(4.8)]
 non-pressure balls: raw gap [np.float64(8.0), np.float64(1.6)]  within match+innings+phase+settled [np.float64(5.7), np.float64(1.9)]
-pressure {0: {'runs': 151.5, 'wkt': 5.8, 'wide_nb': 5.9, 'dot': 31.9}, 1: {'runs': 135.4, 'wkt': 5.9, 'wide_nb': 2.7, 'dot': 33.6}}
-non-pressure {0: {'runs': 141.7, 'wkt': 5.0, 'wide_nb': 5.2, 'dot': 35.5}, 1: {'runs': 130.1, 'wkt': 4.6, 'wide_nb': 2.4, 'dot': 32.4}}
+pressure {0: {'runs': 151.7, 'wkt': 5.8, 'wide_nb': 5.9, 'dot': 31.8}, 1: {'runs': 135.5, 'wkt': 5.9, 'wide_nb': 2.7, 'dot': 33.5}}
+non-pressure {0: {'runs': 141.6, 'wkt': 5.0, 'wide_nb': 5.2, 'dot': 35.5}, 1: {'runs': 130.1, 'wkt': 4.6, 'wide_nb': 2.4, 'dot': 32.5}}

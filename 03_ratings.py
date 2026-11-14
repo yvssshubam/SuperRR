@@ -33,12 +33,13 @@ def rating_weights(b, old_weight, recent_days=RECENT_DAYS):
 USE_MATCHUP = {"bat": True, "bowl": False}
 
 def _wsums(df, key, val, w):
-    """Weighted sums per key. A ball's weight w = f x a: f is a bootstrap frequency (column 'f', default 1:
-    a resampled copy is a real extra observation) and a is the rating weight (1 recent, READY_OLD_WEIGHT older).
-    The effective number of balls of the weighted mean is (sum w)^2 / sum(f a^2) = (sum w)^2 / sum(w^2 / f):
-    with a = 1 it is the plain ball count, with f = 1 it is Kish's effective sample size."""
-    f = df["f"] if "f" in df else 1.0
-    return df.assign(_wv=df[val] * df[w], _w=df[w], _w2f=df[w] ** 2 / f).groupby(key)[["_wv", "_w", "_w2f"]].sum()
+    """Weighted sums per key. A ball's weight w = f x a: f is a bootstrap frequency (Poisson(1) per match) and
+    a is the rating weight (1 recent, READY_OLD_WEIGHT older). The effective number of balls of the weighted
+    mean is Kish's (sum w)^2 / sum w^2, over the combined weight. In a bootstrap resample this counts a
+    duplicated match as only partly new evidence, which matches the extra noise that resampling adds to every
+    player's mean; counting copies as fully independent inflated tau and deflated beta in the resamples
+    (README section 9.13). On the full data (f = 1) it is the plain ball count when a = 1."""
+    return df.assign(_wv=df[val] * df[w], _w=df[w], _w2f=df[w] ** 2).groupby(key)[["_wv", "_w", "_w2f"]].sum()
 
 def shrink_mean(df, key, val, w, k=None):
     """Empirical-Bayes shrunk weighted mean per key (toward 0). Returns series, k, n_eff."""
@@ -125,69 +126,57 @@ def player_table(b, role, wcol="w", role_hl=None):
     t["n_matches_all"] = d.groupby(pid).match_id.nunique()
     return t, kA, d
 
-# Component weights, the same in both ratings. They are the earlier weights with the separate
-# 12-month form component (25% batting, 18% bowling) removed and the rest rescaled to sum to 1:
-# recency now enters only through the Readiness ball weights, so each ball is counted once.
-# Weights are role-specific: components that failed the split-half test for a role get less weight.
-# Bowlers also get an execution-under-pressure component; it passed all three tests
-# (experiments/composure_test.py, experiments/composure_splits.py), the batting equivalent did not.
-_W0 = {"bat":  {"press_skill": 0.45, "clutch_delta": 0.10, "consistency": 0.10, "win_impact": 0.10},
-       "bowl": {"press_skill": 0.36, "clutch_delta": 0.135, "consistency": 0.09, "win_impact": 0.135, "execution": 0.10}}
+# Component weights, the same in both ratings (README sections 6.3 and 9.13).
+# - No separate 12-month form component: recency enters only through the Readiness ball weights.
+# - No separate clutch-delta component: clutch delta is already inside the pressure rating
+#   (beta x usual level + shrunk clutch delta), so adding it again counted it twice.
+# - Batters: the pressure rating alone. Consistency and win impact did not improve held-out prediction
+#   for batters (experiments/review_test.py), so by the section 9 rule they are reported, not scored.
+# - Bowlers: consistency, win impact and the rebuilt execution component each improve held-out
+#   prediction, so they stay, with the earlier relative weights.
+_W0 = {"bat":  {"press_skill": 1.0},
+       "bowl": {"press_skill": 0.36, "consistency": 0.09, "win_impact": 0.135, "execution": 0.10}}
 WEIGHTS = {r: {k: v / sum(w.values()) for k, v in w.items()} for r, w in _W0.items()}
 
 # ---------------------------------------------------------------------------------------------
-# Execution under pressure (bowlers). An execution error is a wide, a no-ball, a full toss or a
-# beamer. A bowler's EXPECTED error rate and delivery mix under pressure are simulated from his
-# own non-pressure record re-weighted by the league-wide pressure shift for the same phase, so
-# only deviation beyond what an average bowler shows counts. z-scores use a Monte Carlo null.
+# Execution under pressure (bowlers). An execution error is a wide, a no-ball, a full toss or a beamer.
+# A bowler's EXPECTED error count on his pressure balls is built phase by phase from his own normal
+# (non-pressure) error rate IN THE SAME PHASE, shrunk toward the league's normal rate for that phase,
+# times the league-wide pressure/normal ratio within that phase. The death overs carry far more
+# errors for everyone (about 16.6% of normal balls, against about 6% earlier), so comparing a death
+# bowler with his own all-phase rate would penalise workload, not execution. The score is the shrunk
+# excess error rate (observed minus expected, divided by pressure balls + ALPHA_EXEC), so a small
+# sample is pulled toward zero instead of growing with sample size as a z-score would.
+# (The previous version also scored delivery-mix deviation; that term was direction-blind and
+# mostly measured workload, so it is dropped: README section 9.13.)
 # ---------------------------------------------------------------------------------------------
-EXEC_SEED = 5
-def _jsd_rows(P, q):
-    """Jensen-Shannon divergence of each row of P against distribution q."""
-    M = (P + q) / 2
-    with np.errstate(divide="ignore", invalid="ignore"):
-        a = np.where(P > 0, P * np.log(P / M), 0).sum(1); c = np.where(q > 0, q * np.log(q / M), 0).sum(1)
-    return (a + c) / 2
-def execution_component(b, minP=30, minN=100, alpha=20, nsim=200, wcol=None):
-    """wcol: optional per-ball rating weight (e.g. Readiness weights); None = every ball counts 1.
-    Counts, rates and the size of the simulated pressure spell use the weighted ball counts."""
-    rng = np.random.default_rng(EXEC_SEED)
+ALPHA_EXEC = 20          # pseudo-balls, the same smoothing strength the previous version used
+def execution_component(b, minP=30, minN=100, alpha=ALPHA_EXEC, wcol=None):
+    """wcol: optional per-ball rating weight (e.g. Readiness weights); None = every ball counts 1."""
     d = b[b.legal | b.is_wide | b.is_nb].copy()
     d["_w"] = 1.0 if wcol is None else d[wcol].astype(float)
     d = d[d._w > 0]
-    d["dlv"] = d.delivery_style.fillna("Unknown")
-    d["error"] = d.is_wide | d.is_nb | d.dlv.isin(["Full Toss", "Beamer"])
-    cats = sorted(d.dlv.unique()); ci = {c: i for i, c in enumerate(cats)}; K = len(cats); d["_c"] = d.dlv.map(ci)
-    bc = lambda g: np.bincount(g._c, weights=g._w, minlength=K)
-    wmean = lambda g, c: float(np.average(g[c], weights=g._w))
-    lgN = bc(d[~d.pressure]) + 1.0; lgN /= lgN.sum()
-    L, LR = {}, {}
-    for ph, g in d.groupby("ph"):
-        pP = bc(g[g.pressure]) + 1.0; pN = bc(g[~g.pressure]) + 1.0
-        L[ph] = (pP / pP.sum()) / (pN / pN.sum())
-        LR[ph] = wmean(g[g.pressure], "error") / wmean(g[~g.pressure], "error")
-    errN = wmean(d[~d.pressure], "error"); rows = {}
-    for p, g in d.groupby("bowler_id"):
-        N, P = g[~g.pressure], g[g.pressure]
-        if len(P) < minP or len(N) < minN: continue
-        nPw = P._w.sum(); nNw = N._w.sum(); nS = max(int(round(nPw)), 1)   # weighted spell size
-        phc = P.groupby("ph")._w.sum()
-        # delivery-mix deviation vs simulated expectation
-        cN = bc(N); pN = (cN + alpha * lgN) / (cN.sum() + alpha)
-        q = sum(n * (pN * L[ph] / (pN * L[ph]).sum()) for ph, n in phc.items()) / nPw
-        obs = bc(P) / nPw
-        null = _jsd_rows(rng.multinomial(nS, q, size=nsim) / nS, q)
-        dev_z = (_jsd_rows(obs[None, :], q)[0] - null.mean()) / (null.std() + 1e-12)
-        # execution-error rate vs simulated expectation
-        eN = ((N.error * N._w).sum() + 20 * errN) / (nNw + 20)
-        e_exp = float(np.clip(sum(n * eN * LR[ph] for ph, n in phc.items()) / nPw, 1e-4, 0.99))
-        sims = rng.binomial(nS, e_exp, size=2000) / nS; e_obs = wmean(P, "error")
-        rows[p] = dict(err_P=e_obs, err_expected=e_exp, excess_error=e_obs - e_exp,
-                       error_z=(e_obs - sims.mean()) / (sims.std() + 1e-12), delivery_dev_z=dev_z)
+    d["error"] = (d.is_wide | d.is_nb | d.delivery_style.fillna("").isin(["Full Toss", "Beamer"])).astype(float)
+    d["_we"] = d._w * d.error
+    lg = d.groupby(["ph", "pressure"])[["_we", "_w"]].sum()
+    rate = (lg._we / lg._w).unstack()                       # league error rate by phase x pressure
+    errN_ph = rate[False]; LR = rate[True] / rate[False]    # normal rate per phase; within-phase pressure shift
+    by = d.groupby(["bowler_id", "pressure", "ph"])[["_we", "_w"]].sum()
+    cnt = d.groupby(["bowler_id", "pressure"]).size().unstack(fill_value=0)
+    rows = {}
+    for p in cnt.index[(cnt.get(True, 0) >= minP) & (cnt.get(False, 0) >= minN)]:
+        g = by.loc[p]
+        P = g.loc[True] if True in g.index.get_level_values(0) else None
+        N = g.loc[False]
+        exp_cnt, obs_cnt, nP = 0.0, float(P._we.sum()), float(P._w.sum())
+        for ph, row in P.iterrows():
+            nN, eN = (N.loc[ph, "_w"], N.loc[ph, "_we"]) if ph in N.index else (0.0, 0.0)
+            e_ph = (eN + alpha * errN_ph[ph]) / (nN + alpha)          # his normal rate in this phase, shrunk
+            exp_cnt += row._w * e_ph * LR[ph]
+        rows[p] = dict(err_P=obs_cnt / nP, err_expected=exp_cnt / nP, excess_error=(obs_cnt - exp_cnt) / nP,
+                       excess_shrunk=(obs_cnt - exp_cnt) / (nP + alpha))
     F = pd.DataFrame.from_dict(rows, orient="index")
-    zf = lambda s: (s - s.mean()) / s.std()
-    # higher = better execution under pressure
-    F["execution"] = -(zf(F.excess_error) + zf(F.error_z) + zf(F.delivery_dev_z)) / 3
+    F["execution"] = -(F.excess_shrunk - F.excess_shrunk.mean()) / F.excess_shrunk.std()   # higher = better
     return F
 def composite(t, weights, elig=None):
     if elig is None:

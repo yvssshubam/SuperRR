@@ -141,15 +141,16 @@ for ax, r in zip(axs, ["bat", "bowl"]):
         c = BLUE if x.top10_freq >= 0.7 else GREY_D
         ax.plot([x.rank_p10, x.rank_p90], [y, y], color=c, linewidth=2, solid_capstyle="round")
         ax.scatter(x.median_rank, y, s=52, color=c, zorder=3, edgecolor=SURF, linewidth=1.5)
-        ax.text(74, y, f"{100 * x.top10_freq:.0f}%", va="center", ha="right", fontsize=9, color=INK, fontweight="bold" if x.top10_freq >= 0.7 else "normal")
+        ax.text(84, y, f"{100 * x.top10_freq:.0f}%", va="center", ha="right", fontsize=9, color=INK, fontweight="bold" if x.top10_freq >= 0.7 else "normal")
     ax.set_yticks(ys, [f"{i}. {short(n)}" for i, n in enumerate(e.name, 1)], fontsize=9)
-    ax.set_xlim(0, 75); ax.set_xticks([1, 10, 20, 30, 40, 50, 60]); hgrid(ax, "x")
+    ax.set_xlim(0, 85); ax.set_xticks([1, 10, 20, 30, 40, 50, 60, 70]); hgrid(ax, "x")
     ax.text(5.5, 10.1, "top 10", ha="center", fontsize=8.5, color=BLUE)
-    ax.text(74, 10.1, "in top 10", ha="right", fontsize=8.5, color=INK2)
+    ax.text(84, 10.1, "in top 10", ha="right", fontsize=8.5, color=INK2)
     ax.set_xlabel("Rank in resamples")
     ax.set_title("Batters" if r == "bat" else "Bowlers", fontsize=10.5, fontweight="bold", color=INK, pad=14)
     ax.set_ylim(-0.6, 10.4)
-frame(fig, "Seven picks hold their place in at least 70% of resamples; the rest are close calls",
+n70 = sum(int((fin[("readiness", r)].head(10).top10_freq >= 0.7).sum()) for r in ["bat", "bowl"])
+frame(fig, f"{n70} of the 20 picks hold their place in at least 70% of resamples; the rest are close calls",
       "Readiness top 10, matches resampled 300 times: dot = median rank, line = 10th-90th percentile (blue = top 10 in at least 70%)",
       "Source: 03_ratings.py bootstrap, out/bat_final.csv and out/bowl_final.csv")
 save(fig, "fig05_bootstrap_ranks.png")
@@ -239,14 +240,21 @@ if have("readiness_test.csv"):
 
 # ---------- 9. robustness of the submitted lists ----------
 R = pd.read_csv(f"{OUT}/robustness.csv")
-order = ["Pressure = top 30% leverage", "Pressure = top 20% leverage", "Older matches weight 0.75", "Older matches weight 0.25",
-         "Career Ability (all matches equal)", "Previous recency (18-month half-life)", "Equal component weights", "Pressure rating only",
-         "Without bowler execution component", "Pressure = top 10% (extreme)", "IPL only", "T20I only", "Conventional RRR/wickets index", "Last 12 months only"]
+order = ["Pressure = top 30% leverage", "Pressure = top 20% leverage", "No knockout multiplier (1.0)", "Older matches weight 0.75", "Older matches weight 0.25",
+         "Career Ability (all matches equal)", "Previous recency (18-month half-life)", "Equal weights, all components", "Previous batting composite (45/10/10/10)",
+         "With separate clutch component (bowlers)", "Pressure rating only", "Without bowler execution component", "Pressure = top 10% (extreme)",
+         "IPL only", "T20I only", "Conventional RRR/wickets index", "Last 12 months only"]
+NA = {("Previous batting composite (45/10/10/10)", "bowl"), ("With separate clutch component (bowlers)", "bat"),
+      ("Without bowler execution component", "bat"), ("Pressure rating only", "bat")}   # change does not apply to that role
+order = [o for o in order if o in set(R.scenario)]
 P = R.set_index(["scenario", "role"])
-fig, ax = plt.subplots(figsize=(8.2, 6.2)); fig.subplots_adjust(left=0.42, right=0.95, top=0.82, bottom=0.07)
+fig, ax = plt.subplots(figsize=(8.6, 7.2)); fig.subplots_adjust(left=0.45, right=0.95, top=0.84, bottom=0.06)
 cmap = matplotlib.colors.LinearSegmentedColormap.from_list("seq", ["#e8f1fc", "#9ec5f4", "#3987e5", "#184f95"])
 for i, s in enumerate(order):
     for k, role in enumerate(["bat", "bowl"]):
+        if (s, role) in NA:
+            ax.add_patch(plt.Rectangle((k + 0.03, i + 0.05), 0.94, 0.9, color="#f1f0ec", linewidth=0))
+            ax.text(k + 0.5, i + 0.5, "does not apply", ha="center", va="center", fontsize=8.5, color=INK2); continue
         ov = P.loc[(s, role), "overlap_top10"]; rho = P.loc[(s, role), "spearman"]
         ax.add_patch(plt.Rectangle((k + 0.03, i + 0.05), 0.94, 0.9, color=cmap((ov - 3) / 7), linewidth=0))
         tc = SURF if ov >= 8 else INK
@@ -255,7 +263,7 @@ for i, s in enumerate(order):
 ax.set_xlim(0, 2); ax.set_ylim(len(order), 0); ax.set_xticks([0.5, 1.5], ["Batters", "Bowlers"]); ax.xaxis.tick_top()
 ax.set_yticks(np.arange(len(order)) + 0.5, order, fontsize=9); ax.tick_params(length=0)
 for sp in ax.spines.values(): sp.set_visible(False)
-frame(fig, "Thresholds, weights and recency barely move the submitted lists",
+frame(fig, "Thresholds, recency and the knockout boost barely move the submitted lists",
       "Players of the submitted top 10 still in the top 10 when one modelling choice changes (ρ = rank correlation)",
       "Source: 04_robustness.py, out/robustness.csv")
 save(fig, "fig09_robustness.png")

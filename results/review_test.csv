@@ -1,0 +1,300 @@
+test,role,variant,r,n,fold
+cross-half,bat,previous composite (60/13/13/13),0.09749984266326185,113,00
+cross-half,bat,composite without separate clutch,0.11390992212188136,113,00
+cross-half,bat,pressure rating only,0.16637451864809985,113,00
+cross-half,bat,previous composite (60/13/13/13),0.07949257707462251,113,01
+cross-half,bat,composite without separate clutch,0.08857111722984612,113,01
+cross-half,bat,pressure rating only,0.10371482240579927,113,01
+cross-half,bowl,previous execution,0.2910952466461983,111,00
+cross-half,bowl,rebuilt execution,0.28282720956779983,111,00
+cross-half,bowl,no execution,0.29606609536297,111,00
+cross-half,bowl,"rebuilt execution, no separate clutch",0.29685917814562834,111,00
+cross-half,bowl,"previous execution, no separate clutch",0.3067404164991327,111,00
+cross-half,bowl,pressure rating only,0.3276234201835742,111,00
+cross-half,bowl,rebuilt execution alone,0.01175387237154137,111,00
+cross-half,bowl,previous execution alone,0.03618054296308968,111,00
+cross-half,bowl,previous mix term alone,0.034150622283207685,111,00
+cross-half,bowl,previous excess error alone,0.054250404898957355,111,00
+cross-half,bowl,previous execution,0.15966546748855903,111,01
+cross-half,bowl,rebuilt execution,0.15821360814552918,111,01
+cross-half,bowl,no execution,0.1434925078021619,111,01
+cross-half,bowl,"rebuilt execution, no separate clutch",0.1639793158005469,111,01
+cross-half,bowl,"previous execution, no separate clutch",0.16602659686033128,111,01
+cross-half,bowl,pressure rating only,0.15892292984892253,111,01
+cross-half,bowl,rebuilt execution alone,0.12760829257441944,111,01
+cross-half,bowl,previous execution alone,0.13329907416275258,111,01
+cross-half,bowl,previous mix term alone,0.10814002127930919,111,01
+cross-half,bowl,previous excess error alone,0.15107524722696292,111,01
+cross-half,bat,previous composite (60/13/13/13),0.2737232782197475,112,10
+cross-half,bat,composite without separate clutch,0.25899224256019876,112,10
+cross-half,bat,pressure rating only,0.2358749659168917,112,10
+cross-half,bat,previous composite (60/13/13/13),0.23382885860178984,112,11
+cross-half,bat,composite without separate clutch,0.23168084488498109,112,11
+cross-half,bat,pressure rating only,0.21277137210322952,112,11
+cross-half,bowl,previous execution,0.21775067568435114,120,10
+cross-half,bowl,rebuilt execution,0.20443399870827458,120,10
+cross-half,bowl,no execution,0.19118705897050073,120,10
+cross-half,bowl,"rebuilt execution, no separate clutch",0.21319675691995393,120,10
+cross-half,bowl,"previous execution, no separate clutch",0.22863853906397835,120,10
+cross-half,bowl,pressure rating only,0.1794776924135013,120,10
+cross-half,bowl,rebuilt execution alone,0.12101023718501042,120,10
+cross-half,bowl,previous execution alone,0.18551372744921346,120,10
+cross-half,bowl,previous mix term alone,0.1486856025179975,120,10
+cross-half,bowl,previous excess error alone,0.1715326405683302,120,10
+cross-half,bowl,previous execution,0.2037250235606468,120,11
+cross-half,bowl,rebuilt execution,0.20998619384530182,120,11
+cross-half,bowl,no execution,0.19790549391083861,120,11
+cross-half,bowl,"rebuilt execution, no separate clutch",0.21962503445647485,120,11
+cross-half,bowl,"previous execution, no separate clutch",0.21235511020961015,120,11
+cross-half,bowl,pressure rating only,0.20249706621779992,120,11
+cross-half,bowl,rebuilt execution alone,0.13008594754414404,120,11
+cross-half,bowl,previous execution alone,0.07703156790579868,120,11
+cross-half,bowl,previous mix term alone,0.0040445849420570066,120,11
+cross-half,bowl,previous excess error alone,0.1194377812697966,120,11
+cross-half,bat,previous composite (60/13/13/13),0.23408523888829136,121,20
+cross-half,bat,composite without separate clutch,0.22891990410670146,121,20
+cross-half,bat,pressure rating only,0.21047153396594134,121,20
+cross-half,bat,previous composite (60/13/13/13),0.2667299571692873,121,21
+cross-half,bat,composite without separate clutch,0.25898463396545635,121,21
+cross-half,bat,pressure rating only,0.22442917936494827,121,21
+cross-half,bowl,previous execution,0.2231842335455227,118,20
+cross-half,bowl,rebuilt execution,0.22678818320975686,118,20
+cross-half,bowl,no execution,0.2088025406179069,118,20
+cross-half,bowl,"rebuilt execution, no separate clutch",0.20116163275074936,118,20
+cross-half,bowl,"previous execution, no separate clutch",0.19861827820169217,118,20
+cross-half,bowl,pressure rating only,0.13163958702200193,118,20
+cross-half,bowl,rebuilt execution alone,0.15867524224391566,118,20
+cross-half,bowl,previous execution alone,0.12813425449751098,118,20
+cross-half,bowl,previous mix term alone,0.009117183875546308,118,20
+cross-half,bowl,previous excess error alone,0.2108706120030681,118,20
+cross-half,bowl,previous execution,0.23456609116964794,118,21
+cross-half,bowl,rebuilt execution,0.2281354445564945,118,21
+cross-half,bowl,no execution,0.22316516309478804,118,21
+cross-half,bowl,"rebuilt execution, no separate clutch",0.22423383900309188,118,21
+cross-half,bowl,"previous execution, no separate clutch",0.23198491594242365,118,21
+cross-half,bowl,pressure rating only,0.22387144288668492,118,21
+cross-half,bowl,rebuilt execution alone,0.08589053477621657,118,21
+cross-half,bowl,previous execution alone,0.10784181982151424,118,21
+cross-half,bowl,previous mix term alone,0.09645921401517701,118,21
+cross-half,bowl,previous excess error alone,0.09002564277209672,118,21
+cross-half,bat,previous composite (60/13/13/13),0.19507292660678138,111,30
+cross-half,bat,composite without separate clutch,0.19385285405000127,111,30
+cross-half,bat,pressure rating only,0.2172085007751966,111,30
+cross-half,bat,previous composite (60/13/13/13),0.22873635890831642,111,31
+cross-half,bat,composite without separate clutch,0.23745977015348982,111,31
+cross-half,bat,pressure rating only,0.2581071130827816,111,31
+cross-half,bowl,previous execution,0.213601192587368,114,30
+cross-half,bowl,rebuilt execution,0.20670329049790062,114,30
+cross-half,bowl,no execution,0.20501162748944074,114,30
+cross-half,bowl,"rebuilt execution, no separate clutch",0.2127576334991893,114,30
+cross-half,bowl,"previous execution, no separate clutch",0.2210969901119174,114,30
+cross-half,bowl,pressure rating only,0.20719419008389375,114,30
+cross-half,bowl,rebuilt execution alone,0.06742314210441995,114,30
+cross-half,bowl,previous execution alone,0.0962627123909315,114,30
+cross-half,bowl,previous mix term alone,0.054942317718272696,114,30
+cross-half,bowl,previous excess error alone,0.11553664822840072,114,30
+cross-half,bowl,previous execution,0.2926804861221271,114,31
+cross-half,bowl,rebuilt execution,0.2920555176797811,114,31
+cross-half,bowl,no execution,0.2655691344501156,114,31
+cross-half,bowl,"rebuilt execution, no separate clutch",0.30705568748309586,114,31
+cross-half,bowl,"previous execution, no separate clutch",0.3084693664971702,114,31
+cross-half,bowl,pressure rating only,0.2790396275555137,114,31
+cross-half,bowl,rebuilt execution alone,0.22575796802259457,114,31
+cross-half,bowl,previous execution alone,0.20035665937912733,114,31
+cross-half,bowl,previous mix term alone,0.07808814931883555,114,31
+cross-half,bowl,previous excess error alone,0.25599622291265073,114,31
+cross-half,bat,previous composite (60/13/13/13),0.1465110994011383,119,40
+cross-half,bat,composite without separate clutch,0.16781616567151988,119,40
+cross-half,bat,pressure rating only,0.1886701395862744,119,40
+cross-half,bat,previous composite (60/13/13/13),-0.025886721736468915,119,41
+cross-half,bat,composite without separate clutch,-0.024397114085431958,119,41
+cross-half,bat,pressure rating only,-0.02541007869999609,119,41
+cross-half,bowl,previous execution,0.24623341434421167,116,40
+cross-half,bowl,rebuilt execution,0.23699710914735017,116,40
+cross-half,bowl,no execution,0.22762974047892962,116,40
+cross-half,bowl,"rebuilt execution, no separate clutch",0.23462586332120938,116,40
+cross-half,bowl,"previous execution, no separate clutch",0.24580573738742173,116,40
+cross-half,bowl,pressure rating only,0.20820238835447202,116,40
+cross-half,bowl,rebuilt execution alone,0.11846882992013956,116,40
+cross-half,bowl,previous execution alone,0.16031908553707946,116,40
+cross-half,bowl,previous mix term alone,0.09703589087923367,116,40
+cross-half,bowl,previous excess error alone,0.17700684179418927,116,40
+cross-half,bowl,previous execution,0.35261207986120086,116,41
+cross-half,bowl,rebuilt execution,0.358305964940209,116,41
+cross-half,bowl,no execution,0.3450839885630415,116,41
+cross-half,bowl,"rebuilt execution, no separate clutch",0.35786605839291713,116,41
+cross-half,bowl,"previous execution, no separate clutch",0.3509471866275229,116,41
+cross-half,bowl,pressure rating only,0.3001814386364823,116,41
+cross-half,bowl,rebuilt execution alone,0.16688244739547495,116,41
+cross-half,bowl,previous execution alone,0.11150028594944021,116,41
+cross-half,bowl,previous mix term alone,0.06438698464850598,116,41
+cross-half,bowl,previous excess error alone,0.12558625705190604,116,41
+cross-half,bat,previous composite (60/13/13/13),0.2384847655954339,115,50
+cross-half,bat,composite without separate clutch,0.21941828521853937,115,50
+cross-half,bat,pressure rating only,0.17171335863288684,115,50
+cross-half,bat,previous composite (60/13/13/13),0.20584110859602978,115,51
+cross-half,bat,composite without separate clutch,0.21444851341168428,115,51
+cross-half,bat,pressure rating only,0.21465811589326705,115,51
+cross-half,bowl,previous execution,0.3262219058606696,115,50
+cross-half,bowl,rebuilt execution,0.3407618507580954,115,50
+cross-half,bowl,no execution,0.29862897388307136,115,50
+cross-half,bowl,"rebuilt execution, no separate clutch",0.33604423854210724,115,50
+cross-half,bowl,"previous execution, no separate clutch",0.3188731596858489,115,50
+cross-half,bowl,pressure rating only,0.2398803995723099,115,50
+cross-half,bowl,rebuilt execution alone,0.2845347232213961,115,50
+cross-half,bowl,previous execution alone,0.19752052504837692,115,50
+cross-half,bowl,previous mix term alone,0.06724392429868183,115,50
+cross-half,bowl,previous excess error alone,0.2559557251468117,115,50
+cross-half,bowl,previous execution,0.21636711084041824,115,51
+cross-half,bowl,rebuilt execution,0.21680753685644413,115,51
+cross-half,bowl,no execution,0.21489172733939543,115,51
+cross-half,bowl,"rebuilt execution, no separate clutch",0.20208189722000702,115,51
+cross-half,bowl,"previous execution, no separate clutch",0.2018676443696201,115,51
+cross-half,bowl,pressure rating only,0.1430549472230179,115,51
+cross-half,bowl,rebuilt execution alone,0.05609845543347113,115,51
+cross-half,bowl,previous execution alone,0.04638259945846759,115,51
+cross-half,bowl,previous mix term alone,-0.0008494065380086355,115,51
+cross-half,bowl,previous excess error alone,0.07240766262649101,115,51
+cross-half,bat,previous composite (60/13/13/13),0.13234221722448594,121,60
+cross-half,bat,composite without separate clutch,0.11555541753356058,121,60
+cross-half,bat,pressure rating only,0.08532781319288359,121,60
+cross-half,bat,previous composite (60/13/13/13),0.1439323026396397,121,61
+cross-half,bat,composite without separate clutch,0.13539316228090045,121,61
+cross-half,bat,pressure rating only,0.15525934174376166,121,61
+cross-half,bowl,previous execution,0.19972826150835707,119,60
+cross-half,bowl,rebuilt execution,0.2061956214445404,119,60
+cross-half,bowl,no execution,0.19576033274460458,119,60
+cross-half,bowl,"rebuilt execution, no separate clutch",0.22306737255130443,119,60
+cross-half,bowl,"previous execution, no separate clutch",0.2163391885279383,119,60
+cross-half,bowl,pressure rating only,0.22277386582292874,119,60
+cross-half,bowl,rebuilt execution alone,0.11005741013604901,119,60
+cross-half,bowl,previous execution alone,0.054806167057319694,119,60
+cross-half,bowl,previous mix term alone,-0.0189407854163175,119,60
+cross-half,bowl,previous excess error alone,0.10657985271340735,119,60
+cross-half,bowl,previous execution,0.2413628306998236,119,61
+cross-half,bowl,rebuilt execution,0.24909939488508584,119,61
+cross-half,bowl,no execution,0.2307459755056641,119,61
+cross-half,bowl,"rebuilt execution, no separate clutch",0.257167983976818,119,61
+cross-half,bowl,"previous execution, no separate clutch",0.24872736913885388,119,61
+cross-half,bowl,pressure rating only,0.24502024031482575,119,61
+cross-half,bowl,rebuilt execution alone,0.1553742100765004,119,61
+cross-half,bowl,previous execution alone,0.09564221060812934,119,61
+cross-half,bowl,previous mix term alone,0.03599807106140329,119,61
+cross-half,bowl,previous excess error alone,0.14245213963404785,119,61
+cross-half,bat,previous composite (60/13/13/13),0.1665922674796457,113,70
+cross-half,bat,composite without separate clutch,0.15894416132070813,113,70
+cross-half,bat,pressure rating only,0.15033540479573404,113,70
+cross-half,bat,previous composite (60/13/13/13),0.13889447557593093,113,71
+cross-half,bat,composite without separate clutch,0.12399019258539079,113,71
+cross-half,bat,pressure rating only,0.1254489314784202,113,71
+cross-half,bowl,previous execution,0.24051424142629468,121,70
+cross-half,bowl,rebuilt execution,0.23292461533804532,121,70
+cross-half,bowl,no execution,0.21504120999025475,121,70
+cross-half,bowl,"rebuilt execution, no separate clutch",0.2632475737278057,121,70
+cross-half,bowl,"previous execution, no separate clutch",0.27213898189305125,121,70
+cross-half,bowl,pressure rating only,0.2722777408554654,121,70
+cross-half,bowl,rebuilt execution alone,0.1638149271225742,121,70
+cross-half,bowl,previous execution alone,0.20230316220460814,121,70
+cross-half,bowl,previous mix term alone,0.12008364560125669,121,70
+cross-half,bowl,previous excess error alone,0.23100486212266666,121,70
+cross-half,bowl,previous execution,0.07384750858177402,121,71
+cross-half,bowl,rebuilt execution,0.08180980286707791,121,71
+cross-half,bowl,no execution,0.06200625591303586,121,71
+cross-half,bowl,"rebuilt execution, no separate clutch",0.08043119627413935,121,71
+cross-half,bowl,"previous execution, no separate clutch",0.07116105313127148,121,71
+cross-half,bowl,pressure rating only,0.08750585075129912,121,71
+cross-half,bowl,rebuilt execution alone,0.14102862557647136,121,71
+cross-half,bowl,previous execution alone,0.08585634639702105,121,71
+cross-half,bowl,previous mix term alone,0.02651482765128965,121,71
+cross-half,bowl,previous excess error alone,0.12759027983569837,121,71
+cross-half,bat,previous composite (60/13/13/13),0.11889652004215696,116,80
+cross-half,bat,composite without separate clutch,0.12117932109470923,116,80
+cross-half,bat,pressure rating only,0.1312772265630782,116,80
+cross-half,bat,previous composite (60/13/13/13),0.16609693266996728,116,81
+cross-half,bat,composite without separate clutch,0.1825233458295844,116,81
+cross-half,bat,pressure rating only,0.21649510285782642,116,81
+cross-half,bowl,previous execution,0.18055169269462862,123,80
+cross-half,bowl,rebuilt execution,0.18564591039625766,123,80
+cross-half,bowl,no execution,0.1735730914418292,123,80
+cross-half,bowl,"rebuilt execution, no separate clutch",0.17984658968768832,123,80
+cross-half,bowl,"previous execution, no separate clutch",0.1743364816065086,123,80
+cross-half,bowl,pressure rating only,0.15290634186288252,123,80
+cross-half,bowl,rebuilt execution alone,0.12242076444840892,123,80
+cross-half,bowl,previous execution alone,0.08581320632480527,123,80
+cross-half,bowl,previous mix term alone,0.0005353810007987474,123,80
+cross-half,bowl,previous excess error alone,0.11492908806981156,123,80
+cross-half,bowl,previous execution,0.2781476993420147,123,81
+cross-half,bowl,rebuilt execution,0.27209952193383097,123,81
+cross-half,bowl,no execution,0.2640099655231625,123,81
+cross-half,bowl,"rebuilt execution, no separate clutch",0.27847533870107044,123,81
+cross-half,bowl,"previous execution, no separate clutch",0.2853193689370184,123,81
+cross-half,bowl,pressure rating only,0.2534004178791895,123,81
+cross-half,bowl,rebuilt execution alone,0.11217660405328224,123,81
+cross-half,bowl,previous execution alone,0.12044842604288708,123,81
+cross-half,bowl,previous mix term alone,0.05410024652590539,123,81
+cross-half,bowl,previous excess error alone,0.15880374469089414,123,81
+cross-half,bat,previous composite (60/13/13/13),0.25627479846168144,115,90
+cross-half,bat,composite without separate clutch,0.2616251252342677,115,90
+cross-half,bat,pressure rating only,0.23847801286712966,115,90
+cross-half,bat,previous composite (60/13/13/13),0.21762605854895745,115,91
+cross-half,bat,composite without separate clutch,0.2094331645668682,115,91
+cross-half,bat,pressure rating only,0.20893980331403172,115,91
+cross-half,bowl,previous execution,0.15460860597156198,111,90
+cross-half,bowl,rebuilt execution,0.15158722250115533,111,90
+cross-half,bowl,no execution,0.14205890437096014,111,90
+cross-half,bowl,"rebuilt execution, no separate clutch",0.16801816111507084,111,90
+cross-half,bowl,"previous execution, no separate clutch",0.171911145536633,111,90
+cross-half,bowl,pressure rating only,0.16160464253019655,111,90
+cross-half,bowl,rebuilt execution alone,0.09686166978241166,111,90
+cross-half,bowl,previous execution alone,0.11206261931049412,111,90
+cross-half,bowl,previous mix term alone,0.07351445419982189,111,90
+cross-half,bowl,previous excess error alone,0.11361202786799103,111,90
+cross-half,bowl,previous execution,0.13555992224832805,111,91
+cross-half,bowl,rebuilt execution,0.12088057910000671,111,91
+cross-half,bowl,no execution,0.11070111818857506,111,91
+cross-half,bowl,"rebuilt execution, no separate clutch",0.1603603821470763,111,91
+cross-half,bowl,"previous execution, no separate clutch",0.17943739849398657,111,91
+cross-half,bowl,pressure rating only,0.21941127196969254,111,91
+cross-half,bowl,rebuilt execution alone,0.11057991902158533,111,91
+cross-half,bowl,previous execution alone,0.19053251497767504,111,91
+cross-half,bowl,previous mix term alone,0.18801371872189457,111,91
+cross-half,bowl,previous excess error alone,0.16700543400488083,111,91
+out-of-time,bat,previous composite (60/13/13/13),0.12366086335117776,58,2024-01-01
+out-of-time,bat,composite without separate clutch,0.11363009441445647,58,2024-01-01
+out-of-time,bat,pressure rating only,0.13032172666815742,58,2024-01-01
+out-of-time,bowl,previous execution,0.1387722799941632,60,2024-01-01
+out-of-time,bowl,rebuilt execution,0.14977328475336474,60,2024-01-01
+out-of-time,bowl,no execution,0.14063669607412838,60,2024-01-01
+out-of-time,bowl,"rebuilt execution, no separate clutch",0.15355459776666602,60,2024-01-01
+out-of-time,bowl,"previous execution, no separate clutch",0.14116249255352958,60,2024-01-01
+out-of-time,bowl,pressure rating only,0.17600809785706284,60,2024-01-01
+out-of-time,bowl,rebuilt execution alone,0.10289485155653906,60,2024-01-01
+out-of-time,bowl,previous execution alone,0.04460294618014624,60,2024-01-01
+out-of-time,bowl,previous mix term alone,0.042833511209177444,60,2024-01-01
+out-of-time,bowl,previous excess error alone,0.019899973951158768,60,2024-01-01
+out-of-time,bat,previous composite (60/13/13/13),0.24746330160099508,70,2025-01-01
+out-of-time,bat,composite without separate clutch,0.20318674014138557,70,2025-01-01
+out-of-time,bat,pressure rating only,0.11605119266145697,70,2025-01-01
+out-of-time,bowl,previous execution,0.26671478413931443,71,2025-01-01
+out-of-time,bowl,rebuilt execution,0.25386595797400036,71,2025-01-01
+out-of-time,bowl,no execution,0.25384950733777295,71,2025-01-01
+out-of-time,bowl,"rebuilt execution, no separate clutch",0.273470235487146,71,2025-01-01
+out-of-time,bowl,"previous execution, no separate clutch",0.289165207700208,71,2025-01-01
+out-of-time,bowl,pressure rating only,0.2956453837731299,71,2025-01-01
+out-of-time,bowl,rebuilt execution alone,0.0740208458526021,71,2025-01-01
+out-of-time,bowl,previous execution alone,0.12850088320316583,71,2025-01-01
+out-of-time,bowl,previous mix term alone,0.1000143294124811,71,2025-01-01
+out-of-time,bowl,previous excess error alone,0.13260641766402975,71,2025-01-01
+out-of-time,bat,previous composite (60/13/13/13),-0.22339394865067458,38,2026-01-01
+out-of-time,bat,composite without separate clutch,-0.1855400027603327,38,2026-01-01
+out-of-time,bat,pressure rating only,-0.13083801723891778,38,2026-01-01
+out-of-time,bowl,previous execution,0.1560318702340619,40,2026-01-01
+out-of-time,bowl,rebuilt execution,0.14967893074087796,40,2026-01-01
+out-of-time,bowl,no execution,0.12487564066238137,40,2026-01-01
+out-of-time,bowl,"rebuilt execution, no separate clutch",0.107372691545597,40,2026-01-01
+out-of-time,bowl,"previous execution, no separate clutch",0.11354734973268173,40,2026-01-01
+out-of-time,bowl,pressure rating only,0.03440289603617966,40,2026-01-01
+out-of-time,bowl,rebuilt execution alone,0.18830899480514454,40,2026-01-01
+out-of-time,bowl,previous execution alone,0.19801338141832553,40,2026-01-01
+out-of-time,bowl,previous mix term alone,0.13035304894808372,40,2026-01-01
+out-of-time,bowl,previous excess error alone,0.23927330992227458,40,2026-01-01

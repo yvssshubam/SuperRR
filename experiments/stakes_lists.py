@@ -3,7 +3,7 @@ import sys, os, importlib.util, numpy as np, pandas as pd
 Usage (from the repo root): python -I experiments/stakes_lists.py out out/match_stakes.csv"""
 OUT, STK = sys.argv[1], sys.argv[2]; RMOD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "03_ratings.py"); sys.argv=[sys.argv[0], OUT]
 spec = importlib.util.spec_from_file_location("r", RMOD); r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)
-b = pd.read_pickle(f"{OUT}/balls_scored.pkl"); b["recent"] = b.age_days <= 365; b["w"] = b.w_recency
+b = pd.read_pickle(f"{OUT}/balls_scored.pkl"); b["recent"] = b.age_days <= 365; b["w"] = r.rating_weights(b, r.RATINGS["readiness"])
 st = pd.read_csv(STK).set_index(["match_id","team_id"])
 for side, col in (("bat","batting_team_id"),("bowl","bowling_team_id")):
     M = st.M.reindex(pd.MultiIndex.from_arrays([b.match_id, b[col]])).fillna(1.0).values
@@ -13,7 +13,7 @@ for role in ("bat","bowl"):
     cur = pd.read_csv(f"{OUT}/{role}_final.csv", index_col=0)
     bb = b.assign(pressure=b["press_"+role])
     t = r.player_table(bb, role)[0]
-    if role == "bowl": t = t.join(r.execution_component(bb))
+    if role == "bowl": t = t.join(r.execution_component(bb, wcol="w")[["execution"]])
     e = r.composite(t, r.WEIGHTS[role], list(cur.index))
     common = cur.index.intersection(e.index)
     print(role, "overlap", len(set(e.index[:10]) & set(cur.index[:10])), "spearman", round(cur.loc[common,"score"].rank().corr(e.loc[common,"score"].rank()),3))

@@ -28,6 +28,7 @@ OUTC = ["0", "1", "2", "3", "4", "6", "W", "wd", "nb"]
 RUNS = np.array([0, 1, 2, 3, 4, 6, 0, 1, 2]); CONS = np.array([1, 1, 1, 1, 1, 1, 1, 0, 0])
 WK = np.array([0, 0, 0, 0, 0, 0, 1, 0, 0])
 def _o(w, n, k, t):
+    if w and k: return "W"           # wicket off a wide (39 balls): the wicket matters far more than the extra run
     if w: return "wd"
     if n: return "nb"
     if k: return "W"
@@ -75,6 +76,7 @@ V2[:, :, :, 0] = 1.0
 for e in range(3):
     V = V2[e]
     V[0, 1:, 1] = 0.5                 # scores level after last ball -> super over ~ coin flip
+    V[:, 0, 1] = 0.5                  # all out with scores level -> tie -> super over ~ coin flip
     for br in range(1, 121):
         ph = ph_of(br)
         rbs = np.minimum(np.searchsorted(RRR_EDGES, NS / br), 7)
