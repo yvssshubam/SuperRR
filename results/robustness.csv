@@ -1,35 +1,36 @@
 scenario,role,overlap_top10,spearman,main_top10_median_rank
 Pressure = top 20% leverage,bat,10,0.954,5.5
-Pressure = top 20% leverage,bowl,9,0.969,5.5
+Pressure = top 20% leverage,bowl,8,0.98,5.5
 Pressure = top 30% leverage,bat,10,0.979,5.5
-Pressure = top 30% leverage,bowl,9,0.973,5.5
+Pressure = top 30% leverage,bowl,8,0.981,5.5
 Pressure = top 10% (extreme),bat,9,0.936,5.5
-Pressure = top 10% (extreme),bowl,6,0.897,8.0
+Pressure = top 10% (extreme),bowl,7,0.957,5.5
 Conventional RRR/wickets index,bat,6,0.806,8.0
-Conventional RRR/wickets index,bowl,4,0.838,12.0
+Conventional RRR/wickets index,bowl,5,0.865,8.5
 Career Ability (all matches equal),bat,9,0.952,5.5
-Career Ability (all matches equal),bowl,9,0.974,5.5
+Career Ability (all matches equal),bowl,10,0.976,5.5
 Older matches weight 0.25,bat,10,0.937,5.5
-Older matches weight 0.25,bowl,7,0.975,5.5
+Older matches weight 0.25,bowl,7,0.974,6.5
 Older matches weight 0.75,bat,9,0.979,5.5
-Older matches weight 0.75,bowl,9,0.989,5.5
+Older matches weight 0.75,bowl,10,0.991,5.5
 Last 12 months only,bat,6,0.51,9.5
-Last 12 months only,bowl,2,0.717,19.0
+Last 12 months only,bowl,5,0.767,14.5
 Previous recency (18-month half-life),bat,10,0.949,5.5
-Previous recency (18-month half-life),bowl,8,0.965,6.5
+Previous recency (18-month half-life),bowl,9,0.955,6.5
 No knockout multiplier (1.0),bat,9,0.991,5.5
-No knockout multiplier (1.0),bowl,10,0.991,5.5
+No knockout multiplier (1.0),bowl,9,0.991,5.5
 "Equal weights, all components",bat,8,0.761,7.0
-"Equal weights, all components",bowl,6,0.948,6.5
+"Equal weights, all components",bowl,7,0.933,6.5
 Pressure rating only,bat,10,1.0,5.5
-Pressure rating only,bowl,8,0.941,5.5
+Pressure rating only,bowl,8,0.93,5.5
 Previous batting composite (45/10/10/10),bat,9,0.934,5.5
 Previous batting composite (45/10/10/10),bowl,10,1.0,5.5
 With separate clutch component (bowlers),bat,10,1.0,5.5
-With separate clutch component (bowlers),bowl,8,0.991,5.5
+With separate clutch component (bowlers),bowl,8,0.988,5.5
 Without bowler execution component,bat,10,1.0,5.5
-Without bowler execution component,bowl,9,0.981,5.5
+Without bowler execution component,bowl,10,0.981,5.5
+Without psychological pooling (bowlers),bowl,9,0.99,5.5
 IPL only,bat,7,0.791,5.0
-IPL only,bowl,5,0.84,4.5
+IPL only,bowl,6,0.86,5.0
 T20I only,bat,5,0.802,7.5
-T20I only,bowl,6,0.852,5.5
+T20I only,bowl,5,0.859,6.0

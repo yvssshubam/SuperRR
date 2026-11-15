@@ -24,8 +24,8 @@ VAR = {"base": {}, "cond_match": dict(cond=True), "cond_venue": dict(cond="v"), 
 PID = {"bat": "striker_id", "bowl": "bowler_id"}
 def zcomp(j, wts): return sum(w * ((j[c] - j[c].mean()) / j[c].std()).fillna(0.0) for c, w in wts.items())
 def targets(h, role):
-    _, _, d = pt(r, h, role, cond="vm", oppteam=True); P = d[d.pressure]; g = P.groupby(PID[role])
-    _, _, d2 = pt(r, h, role, rbctx="rb4"); P2 = d2[d2.pressure]
+    _, _, d = pt(r, h, role, cond="vm", oppteam=True); P = d[d.pressure_real]; g = P.groupby(PID[role])
+    _, _, d2 = pt(r, h, role, rbctx="rb4"); P2 = d2[d2.pressure_real]
     return pd.DataFrame({"raw": g.r0.mean(), "cond": (P.r0 - P._m).groupby(P[PID[role]]).mean(),
                          "full": (P.r0 - P._m - P._o).groupby(P[PID[role]]).mean(),
                          "rb": P2.groupby(PID[role]).r0.mean(), "n": g.size()})

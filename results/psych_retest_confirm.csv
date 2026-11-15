@@ -1,0 +1,231 @@
+test,fold,role,variant,r
+cross-half,00,bat,current,0.22787991978390046
+cross-half,00,bat,pool 0.25,0.22474863032112227
+cross-half,00,bat,pool 0.5,0.22653510616181324
+cross-half,00,bat,control: pool any 0.25,0.23126834865107135
+cross-half,00,bat,control: pool any 0.5,0.2294223311511948
+cross-half,01,bat,current,0.3480149752596643
+cross-half,01,bat,pool 0.25,0.3735682530547225
+cross-half,01,bat,pool 0.5,0.3657081803646374
+cross-half,01,bat,control: pool any 0.25,0.33814187141806534
+cross-half,01,bat,control: pool any 0.5,0.33588067416250394
+cross-half,00,bowl,current,0.2472661100106531
+cross-half,00,bowl,pool 0.25,0.2633125690813878
+cross-half,00,bowl,pool 0.5,0.2668427646615286
+cross-half,00,bowl,control: pool any 0.25,0.26130541596102325
+cross-half,00,bowl,control: pool any 0.5,0.26098333804668966
+cross-half,01,bowl,current,0.20159709908390838
+cross-half,01,bowl,pool 0.25,0.2041029781086944
+cross-half,01,bowl,pool 0.5,0.21716044901813877
+cross-half,01,bowl,control: pool any 0.25,0.19937640909345852
+cross-half,01,bowl,control: pool any 0.5,0.20827766488256702
+cross-half,10,bat,current,0.042469034169070524
+cross-half,10,bat,pool 0.25,0.02784383179182113
+cross-half,10,bat,pool 0.5,0.037894147266702184
+cross-half,10,bat,control: pool any 0.25,0.028643351181708868
+cross-half,10,bat,control: pool any 0.5,0.02446451647178566
+cross-half,11,bat,current,0.23392097006257692
+cross-half,11,bat,pool 0.25,0.25248756928225446
+cross-half,11,bat,pool 0.5,0.24044724953108704
+cross-half,11,bat,control: pool any 0.25,0.23579606482076337
+cross-half,11,bat,control: pool any 0.5,0.23766398531266836
+cross-half,10,bowl,current,0.1675360004220457
+cross-half,10,bowl,pool 0.25,0.1657936671043598
+cross-half,10,bowl,pool 0.5,0.17539629074583485
+cross-half,10,bowl,control: pool any 0.25,0.15860866155511694
+cross-half,10,bowl,control: pool any 0.5,0.16400868595166435
+cross-half,11,bowl,current,0.21009651624184972
+cross-half,11,bowl,pool 0.25,0.21706817913676965
+cross-half,11,bowl,pool 0.5,0.2228011412621982
+cross-half,11,bowl,control: pool any 0.25,0.20790887626264107
+cross-half,11,bowl,control: pool any 0.5,0.21174197854047383
+cross-half,20,bat,current,0.21001880672016773
+cross-half,20,bat,pool 0.25,0.2096761921352938
+cross-half,20,bat,pool 0.5,0.2281130614009073
+cross-half,20,bat,control: pool any 0.25,0.21741451112767904
+cross-half,20,bat,control: pool any 0.5,0.23709818492354556
+cross-half,21,bat,current,0.19397634664100746
+cross-half,21,bat,pool 0.25,0.18965495333622978
+cross-half,21,bat,pool 0.5,0.18935028978476298
+cross-half,21,bat,control: pool any 0.25,0.19762422297637516
+cross-half,21,bat,control: pool any 0.5,0.1977122965373919
+cross-half,20,bowl,current,0.24183093619105678
+cross-half,20,bowl,pool 0.25,0.264090460837087
+cross-half,20,bowl,pool 0.5,0.2741341201233329
+cross-half,20,bowl,control: pool any 0.25,0.25693702039374033
+cross-half,20,bowl,control: pool any 0.5,0.2669062616584432
+cross-half,21,bowl,current,0.2573002106828833
+cross-half,21,bowl,pool 0.25,0.2465918560446035
+cross-half,21,bowl,pool 0.5,0.24893731074615594
+cross-half,21,bowl,control: pool any 0.25,0.26719108339534065
+cross-half,21,bowl,control: pool any 0.5,0.25813069511603576
+cross-half,30,bat,current,-0.050323892632026364
+cross-half,30,bat,pool 0.25,-0.029015062399990348
+cross-half,30,bat,pool 0.5,-0.008824346755878981
+cross-half,30,bat,control: pool any 0.25,-0.04683498937092854
+cross-half,30,bat,control: pool any 0.5,-0.044368753823370674
+cross-half,31,bat,current,0.07485827818374344
+cross-half,31,bat,pool 0.25,0.06205785562147863
+cross-half,31,bat,pool 0.5,0.07024461785514208
+cross-half,31,bat,control: pool any 0.25,0.054601977982438765
+cross-half,31,bat,control: pool any 0.5,0.06851938829412048
+cross-half,30,bowl,current,0.1962838334067984
+cross-half,30,bowl,pool 0.25,0.20007955527074986
+cross-half,30,bowl,pool 0.5,0.20467209374617662
+cross-half,30,bowl,control: pool any 0.25,0.20004097710025534
+cross-half,30,bowl,control: pool any 0.5,0.23554434630840404
+cross-half,31,bowl,current,0.1552256338661647
+cross-half,31,bowl,pool 0.25,0.16839344472868026
+cross-half,31,bowl,pool 0.5,0.18673644616795027
+cross-half,31,bowl,control: pool any 0.25,0.14563988601392552
+cross-half,31,bowl,control: pool any 0.5,0.15527132720178766
+cross-half,40,bat,current,0.22692069866075823
+cross-half,40,bat,pool 0.25,0.23310117846798323
+cross-half,40,bat,pool 0.5,0.23210531718572355
+cross-half,40,bat,control: pool any 0.25,0.2387171258518021
+cross-half,40,bat,control: pool any 0.5,0.2662590364049753
+cross-half,41,bat,current,0.07974692162057155
+cross-half,41,bat,pool 0.25,0.053972846757021346
+cross-half,41,bat,pool 0.5,0.052803951263574456
+cross-half,41,bat,control: pool any 0.25,0.08883456174503589
+cross-half,41,bat,control: pool any 0.5,0.09284660081436412
+cross-half,40,bowl,current,0.23333980706158852
+cross-half,40,bowl,pool 0.25,0.24137611393729363
+cross-half,40,bowl,pool 0.5,0.2324414532398741
+cross-half,40,bowl,control: pool any 0.25,0.242406443991847
+cross-half,40,bowl,control: pool any 0.5,0.23286814658405358
+cross-half,41,bowl,current,0.17432356097092935
+cross-half,41,bowl,pool 0.25,0.1813362850590087
+cross-half,41,bowl,pool 0.5,0.18196653044969505
+cross-half,41,bowl,control: pool any 0.25,0.18393480315838112
+cross-half,41,bowl,control: pool any 0.5,0.18397163096768696
+cross-half,50,bat,current,0.2076262289465465
+cross-half,50,bat,pool 0.25,0.21012622636240205
+cross-half,50,bat,pool 0.5,0.20830699809669231
+cross-half,50,bat,control: pool any 0.25,0.2127636977997909
+cross-half,50,bat,control: pool any 0.5,0.22456109316787937
+cross-half,51,bat,current,0.021841977352121324
+cross-half,51,bat,pool 0.25,0.019935138363738617
+cross-half,51,bat,pool 0.5,0.03320268451108194
+cross-half,51,bat,control: pool any 0.25,0.05114331780805595
+cross-half,51,bat,control: pool any 0.5,0.033901385115875
+cross-half,50,bowl,current,0.3573719202380651
+cross-half,50,bowl,pool 0.25,0.36653075928802487
+cross-half,50,bowl,pool 0.5,0.3856153323808755
+cross-half,50,bowl,control: pool any 0.25,0.35617175612347435
+cross-half,50,bowl,control: pool any 0.5,0.3558869448186525
+cross-half,51,bowl,current,0.21211393636674214
+cross-half,51,bowl,pool 0.25,0.2471858148257809
+cross-half,51,bowl,pool 0.5,0.2525556925796684
+cross-half,51,bowl,control: pool any 0.25,0.2348662744571916
+cross-half,51,bowl,control: pool any 0.5,0.23923175575563088
+cross-half,60,bat,current,0.2976257258365806
+cross-half,60,bat,pool 0.25,0.26783082009582165
+cross-half,60,bat,pool 0.5,0.2598930479357916
+cross-half,60,bat,control: pool any 0.25,0.2811768165037289
+cross-half,60,bat,control: pool any 0.5,0.28462596588536143
+cross-half,61,bat,current,0.0688276470679906
+cross-half,61,bat,pool 0.25,0.06874040421122092
+cross-half,61,bat,pool 0.5,0.07034093527643683
+cross-half,61,bat,control: pool any 0.25,0.061694781767080854
+cross-half,61,bat,control: pool any 0.5,0.06125932885977432
+cross-half,60,bowl,current,0.09203885030024501
+cross-half,60,bowl,pool 0.25,0.1899863950247976
+cross-half,60,bowl,pool 0.5,0.22608587957715703
+cross-half,60,bowl,control: pool any 0.25,0.1115894128768449
+cross-half,60,bowl,control: pool any 0.5,0.13322946400777214
+cross-half,61,bowl,current,0.13050414348014758
+cross-half,61,bowl,pool 0.25,0.12935194994424787
+cross-half,61,bowl,pool 0.5,0.1230458676850289
+cross-half,61,bowl,control: pool any 0.25,0.12001092628471359
+cross-half,61,bowl,control: pool any 0.5,0.12047115446451459
+cross-half,70,bat,current,0.07255745805586371
+cross-half,70,bat,pool 0.25,0.0692483591493654
+cross-half,70,bat,pool 0.5,0.07165281617644766
+cross-half,70,bat,control: pool any 0.25,0.06862085743084538
+cross-half,70,bat,control: pool any 0.5,0.06702401041010114
+cross-half,71,bat,current,0.19781151217478762
+cross-half,71,bat,pool 0.25,0.19241549081789242
+cross-half,71,bat,pool 0.5,0.19810649177082137
+cross-half,71,bat,control: pool any 0.25,0.22515482443569704
+cross-half,71,bat,control: pool any 0.5,0.20835982817234583
+cross-half,70,bowl,current,0.15467573223181638
+cross-half,70,bowl,pool 0.25,0.16164703689380688
+cross-half,70,bowl,pool 0.5,0.1651175519241242
+cross-half,70,bowl,control: pool any 0.25,0.153874631415902
+cross-half,70,bowl,control: pool any 0.5,0.16000156118261868
+cross-half,71,bowl,current,0.41363393168647006
+cross-half,71,bowl,pool 0.25,0.40859061318157686
+cross-half,71,bowl,pool 0.5,0.42060053499650546
+cross-half,71,bowl,control: pool any 0.25,0.40853820907718696
+cross-half,71,bowl,control: pool any 0.5,0.41102338618658524
+cross-half,80,bat,current,0.21129243903276174
+cross-half,80,bat,pool 0.25,0.20583250049233975
+cross-half,80,bat,pool 0.5,0.20051349855697692
+cross-half,80,bat,control: pool any 0.25,0.22110580224980242
+cross-half,80,bat,control: pool any 0.5,0.2131453975623089
+cross-half,81,bat,current,0.28466232469800806
+cross-half,81,bat,pool 0.25,0.2664693318853179
+cross-half,81,bat,pool 0.5,0.2730534221792597
+cross-half,81,bat,control: pool any 0.25,0.28257784833642857
+cross-half,81,bat,control: pool any 0.5,0.29190289705760525
+cross-half,80,bowl,current,0.33771762390539184
+cross-half,80,bowl,pool 0.25,0.3212845202916807
+cross-half,80,bowl,pool 0.5,0.32976912086000487
+cross-half,80,bowl,control: pool any 0.25,0.3500042093350271
+cross-half,80,bowl,control: pool any 0.5,0.341588370723571
+cross-half,81,bowl,current,0.31281828250234617
+cross-half,81,bowl,pool 0.25,0.3227174966755642
+cross-half,81,bowl,pool 0.5,0.3326649731930793
+cross-half,81,bowl,control: pool any 0.25,0.3254428479798856
+cross-half,81,bowl,control: pool any 0.5,0.32946499967631143
+cross-half,90,bat,current,-0.10436044054476194
+cross-half,90,bat,pool 0.25,-0.05128691543472786
+cross-half,90,bat,pool 0.5,-0.05746711556852543
+cross-half,90,bat,control: pool any 0.25,-0.06047244756854385
+cross-half,90,bat,control: pool any 0.5,-0.06475494532257621
+cross-half,91,bat,current,0.2828626819639248
+cross-half,91,bat,pool 0.25,0.26119717559092837
+cross-half,91,bat,pool 0.5,0.27798471453678597
+cross-half,91,bat,control: pool any 0.25,0.26302609688326395
+cross-half,91,bat,control: pool any 0.5,0.2669166216533396
+cross-half,90,bowl,current,0.2487351770703199
+cross-half,90,bowl,pool 0.25,0.26612226228852354
+cross-half,90,bowl,pool 0.5,0.2743853873826509
+cross-half,90,bowl,control: pool any 0.25,0.2423080553010849
+cross-half,90,bowl,control: pool any 0.5,0.2544690737603879
+cross-half,91,bowl,current,0.2990728718324502
+cross-half,91,bowl,pool 0.25,0.32332232699920543
+cross-half,91,bowl,pool 0.5,0.32935816368079895
+cross-half,91,bowl,control: pool any 0.25,0.30115121213148327
+cross-half,91,bowl,control: pool any 0.5,0.2963320070900874
+out-of-time,2024-01-01,bat,current,0.13032172666815742
+out-of-time,2024-01-01,bat,pool 0.25,0.13687789138282336
+out-of-time,2024-01-01,bat,pool 0.5,0.1516025632737126
+out-of-time,2024-01-01,bat,control: pool any 0.25,0.14224200071557963
+out-of-time,2024-01-01,bat,control: pool any 0.5,0.15291549225064016
+out-of-time,2024-01-01,bowl,current,0.15355459776666602
+out-of-time,2024-01-01,bowl,pool 0.25,0.16814091998524305
+out-of-time,2024-01-01,bowl,pool 0.5,0.16874428746402903
+out-of-time,2024-01-01,bowl,control: pool any 0.25,0.16280952609243357
+out-of-time,2024-01-01,bowl,control: pool any 0.5,0.16668324520216235
+out-of-time,2025-01-01,bat,current,0.11605119266145697
+out-of-time,2025-01-01,bat,pool 0.25,0.1670317485512188
+out-of-time,2025-01-01,bat,pool 0.5,0.18522896898661292
+out-of-time,2025-01-01,bat,control: pool any 0.25,0.1992844480734638
+out-of-time,2025-01-01,bat,control: pool any 0.5,0.20697247143870232
+out-of-time,2025-01-01,bowl,current,0.273470235487146
+out-of-time,2025-01-01,bowl,pool 0.25,0.29048750092520254
+out-of-time,2025-01-01,bowl,pool 0.5,0.28091000250331266
+out-of-time,2025-01-01,bowl,control: pool any 0.25,0.2857654405377486
+out-of-time,2025-01-01,bowl,control: pool any 0.5,0.27224785847060134
+out-of-time,2026-01-01,bat,current,-0.13083801723891778
+out-of-time,2026-01-01,bat,pool 0.25,-0.19014464888743465
+out-of-time,2026-01-01,bat,pool 0.5,-0.19958102890658522
+out-of-time,2026-01-01,bat,control: pool any 0.25,-0.18269734689896938
+out-of-time,2026-01-01,bat,control: pool any 0.5,-0.16484468228549976
+out-of-time,2026-01-01,bowl,current,0.107372691545597
+out-of-time,2026-01-01,bowl,pool 0.25,0.12742364795359742
+out-of-time,2026-01-01,bowl,pool 0.5,0.13652945816111156
+out-of-time,2026-01-01,bowl,control: pool any 0.25,0.13289001199097555
+out-of-time,2026-01-01,bowl,control: pool any 0.5,0.13189477110952724

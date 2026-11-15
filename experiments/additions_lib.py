@@ -3,7 +3,8 @@
             with the player and opponent effects
   rbctx   - name of a required-rate band column added to the context cell (0 in first innings)
   oppteam - opponent effects shrunk toward the opponent's team level instead of toward zero
-Everything else is identical to 03_ratings.player_table."""
+Everything else is identical to 03_ratings.player_table, including the psychological pooling for bowlers
+(pooled balls rate the player; `pressure_real` keeps the leverage flag for counts and held-out targets)."""
 import numpy as np, pandas as pd
 
 def loo_match(r, d, col, pid, wcol, key="match_id"):
@@ -26,6 +27,7 @@ def pt(r, b, role, wcol="w", cond=False, rbctx=None, oppteam=False, npass=3):
         d = b[b.faced].copy(); pid, val, wpa, opp, oteam = "striker_id", "rv_bat", "wpa_bat", "bowler_id", "bowling_team_id"
     else:
         d = b[b.legal | b.is_wide | b.is_nb].copy(); pid, val, wpa, opp, oteam = "bowler_id", "rv_bowl", "wpa_bowl", "striker_id", "batting_team_id"
+    d = r.psych_pool(d, role, wcol) if hasattr(r, "psych_pool") else d.assign(pressure_real=d.pressure)
     CTX = list(r.CTX) + ([rbctx] if rbctx else [])
     arm = np.where(d.bowling_type.str.lower().str.startswith("left") | d.bowling_type.str.contains("left-arm", case=False), "L", "R")
     d["matchup"] = d.pace_or_spin.astype(str) + "-" + arm + "-" + d.batting_type.astype(str)
@@ -71,9 +73,10 @@ def pt(r, b, role, wcol="w", cond=False, rbctx=None, oppteam=False, npass=3):
     C = ((cons.pos + 6 * prior) / (cons.w + 6)).reindex(allp).fillna(prior)
     t = pd.DataFrame({"press_skill": A * 100, "baseline": base * 100, "win_impact": Wi * 1000,
                       "consistency": C, "clutch_delta": clutch * 100})
-    t["raw_press"] = P.groupby(pid).adj.mean() * 100
-    t = t.join(P.groupby(pid).agg(pb=("adj", "size"), pm=("match_id", "nunique")), how="left")
-    t["recent_pb"] = P[P.recent].groupby(pid).size().reindex(t.index).fillna(0).astype(int)
+    Pr = d[d.pressure_real]
+    t["raw_press"] = Pr.groupby(pid).adj.mean() * 100
+    t = t.join(Pr.groupby(pid).agg(pb=("adj", "size"), pm=("match_id", "nunique")), how="left")
+    t["recent_pb"] = Pr[Pr.recent].groupby(pid).size().reindex(t.index).fillna(0).astype(int)
     t["active"] = t.index.isin(d.loc[d.recent, pid])
     t["n_matches_all"] = d.groupby(pid).match_id.nunique()
     t["cond_press"] = (P["_m"] * P[wcol]).groupby(P[pid]).sum() / P.groupby(pid)[wcol].sum() * 100   # avg match level on his pressure balls

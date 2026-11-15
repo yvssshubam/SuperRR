@@ -192,6 +192,34 @@ alt1 = (1 + early_wkts / 3) * (1 + (b.ph == 2))
 b["alt_pi"] = np.where(b.innings == 2, alt2, alt1)
 b["alt_pressure"] = b.groupby("innings").alt_pi.transform(lambda s: s >= s.quantile(0.75))
 
+# ---------- psychological pressure situations for bowlers (README sections 6.5 and 9.14) ----------
+# A delivery is psychologically pressured for the bowler if any of these holds:
+#   just_hit          : the previous ball of the same over (his) went for 4 or 6
+#   expensive_spell   : his previous over in this innings cost 12+ runs off the bowler
+#   poor_form_bowl    : his economy over his previous 3 matches (any format) is above 10
+#   teammate_bad_over : the previous over of the innings, bowled by a teammate, cost 14+
+# 03_ratings.py adds these balls to the bowler pressure set at quarter weight when leverage is above median.
+def bowler_psych(b):
+    s = b.sort_values(["match_id", "innings", "innings_ball_num"])
+    bw = s.legal | s.is_wide | s.is_nb
+    G = ["match_id", "innings"]
+    x = s[bw]; k = [x[c] for c in G + ["bowler_id"]]
+    prev_bnd = (x.is_four | x.is_six).groupby(k).shift().fillna(False).astype(bool)
+    just_hit = prev_bnd & (x.overid.groupby(k).shift() == x.overid)
+    ov = s.groupby(G + ["overid"]).agg(bowler=("bowler_id", "first"), runs=("total_runs", "sum"), bruns=("bowler_runs", "sum")).reset_index()
+    ov["expensive_spell"] = ov.groupby(G + ["bowler"]).bruns.shift() >= 12
+    ov["teammate_bad_over"] = (ov.groupby(G).runs.shift() >= 14) & (ov.groupby(G).bowler.shift() != ov.bowler)
+    ovk = ov.set_index(G + ["overid"])[["expensive_spell", "teammate_bad_over"]]
+    o = ovk.reindex(pd.MultiIndex.from_arrays([x.match_id, x.innings, x.overid])).fillna(False).astype(bool).values
+    bm = x.groupby(["bowler_id", "match_id"]).agg(d=("match_date", "first"), runs=("bowler_runs", "sum"), balls=("legal", "sum")).reset_index().sort_values(["bowler_id", "d", "match_id"])
+    rs = bm.groupby("bowler_id").runs.transform(lambda v: v.shift().rolling(3, min_periods=3).sum())
+    bl = bm.groupby("bowler_id").balls.transform(lambda v: v.shift().rolling(3, min_periods=3).sum())
+    bm["poor"] = 6 * rs / bl > 10
+    poor = bm.set_index(["bowler_id", "match_id"]).poor.reindex(pd.MultiIndex.from_arrays([x.bowler_id, x.match_id])).fillna(False).values
+    flag = pd.Series(just_hit.values | o[:, 0] | o[:, 1] | poor, index=x.index)
+    return flag.reindex(b.index, fill_value=False).astype(bool)
+b["psy_bowl"] = bowler_psych(b)
+
 b.to_pickle(f"{OUT}/balls_scored.pkl")
 np.save(f"{OUT}/V2.npy", V2); np.save(f"{OUT}/ER.npy", ER)
 info = dict(fit=fit, calibration_coefs={k: [round(float(c), 4) for c in v.coef_[0]] + [round(float(v.intercept_[0]), 4)] for k, v in cal.items()}, li_threshold={int(k): round(v, 3) for k, v in thr.items()},

@@ -11,16 +11,16 @@ out-of-time,2024-01-01,bat,a0=1.0,pressure rating,0.15796595314625134,58
 out-of-time,2024-01-01,bat,a0=1.0,composite,0.1579659531462513,58
 out-of-time,2024-01-01,bat,previous,pressure rating,0.15120944994509902,58
 out-of-time,2024-01-01,bat,previous,composite,0.1207270642825637,58
-out-of-time,2024-01-01,bowl,a0=0.0,pressure rating,0.17596460389626478,60
-out-of-time,2024-01-01,bowl,a0=0.0,composite,0.20314184449323278,60
-out-of-time,2024-01-01,bowl,a0=0.1,pressure rating,0.1850943903132615,60
-out-of-time,2024-01-01,bowl,a0=0.1,composite,0.1698450843349842,60
-out-of-time,2024-01-01,bowl,a0=0.25,pressure rating,0.18903542394552678,60
-out-of-time,2024-01-01,bowl,a0=0.25,composite,0.16142104155048423,60
-out-of-time,2024-01-01,bowl,a0=0.5,pressure rating,0.17600809785706287,60
-out-of-time,2024-01-01,bowl,a0=0.5,composite,0.15355459776666602,60
-out-of-time,2024-01-01,bowl,a0=1.0,pressure rating,0.1367735268945694,60
-out-of-time,2024-01-01,bowl,a0=1.0,composite,0.1294476369169395,60
+out-of-time,2024-01-01,bowl,a0=0.0,pressure rating,0.1502117045921006,60
+out-of-time,2024-01-01,bowl,a0=0.0,composite,0.18022204229867847,60
+out-of-time,2024-01-01,bowl,a0=0.1,pressure rating,0.18132203908926067,60
+out-of-time,2024-01-01,bowl,a0=0.1,composite,0.18421004459618445,60
+out-of-time,2024-01-01,bowl,a0=0.25,pressure rating,0.16195548749866748,60
+out-of-time,2024-01-01,bowl,a0=0.25,composite,0.17542596101482705,60
+out-of-time,2024-01-01,bowl,a0=0.5,pressure rating,0.16123512030766574,60
+out-of-time,2024-01-01,bowl,a0=0.5,composite,0.16814091998524305,60
+out-of-time,2024-01-01,bowl,a0=1.0,pressure rating,0.1274491639795657,60
+out-of-time,2024-01-01,bowl,a0=1.0,composite,0.1618061656211827,60
 out-of-time,2024-01-01,bowl,previous,pressure rating,0.169203907295654,60
 out-of-time,2024-01-01,bowl,previous,composite,0.1553189826255418,60
 out-of-time,2025-01-01,bat,a0=0.0,pressure rating,0.0989713726377035,70
@@ -35,16 +35,16 @@ out-of-time,2025-01-01,bat,a0=1.0,pressure rating,0.17201400721819676,70
 out-of-time,2025-01-01,bat,a0=1.0,composite,0.17201400721819687,70
 out-of-time,2025-01-01,bat,previous,pressure rating,0.11864018281766073,70
 out-of-time,2025-01-01,bat,previous,composite,0.20786640407654483,70
-out-of-time,2025-01-01,bowl,a0=0.0,pressure rating,0.2642817835473388,71
-out-of-time,2025-01-01,bowl,a0=0.0,composite,0.261357028615248,71
-out-of-time,2025-01-01,bowl,a0=0.1,pressure rating,0.2381047886065495,71
-out-of-time,2025-01-01,bowl,a0=0.1,composite,0.22775555524419216,71
-out-of-time,2025-01-01,bowl,a0=0.25,pressure rating,0.27062803016707637,71
-out-of-time,2025-01-01,bowl,a0=0.25,composite,0.24959329950101256,71
-out-of-time,2025-01-01,bowl,a0=0.5,pressure rating,0.2956453837731299,71
-out-of-time,2025-01-01,bowl,a0=0.5,composite,0.273470235487146,71
-out-of-time,2025-01-01,bowl,a0=1.0,pressure rating,0.29311339756124927,71
-out-of-time,2025-01-01,bowl,a0=1.0,composite,0.2770921597052369,71
+out-of-time,2025-01-01,bowl,a0=0.0,pressure rating,0.2902746760853345,71
+out-of-time,2025-01-01,bowl,a0=0.0,composite,0.2766618762539134,71
+out-of-time,2025-01-01,bowl,a0=0.1,pressure rating,0.24611274423182328,71
+out-of-time,2025-01-01,bowl,a0=0.1,composite,0.23944624501211878,71
+out-of-time,2025-01-01,bowl,a0=0.25,pressure rating,0.2765218719183148,71
+out-of-time,2025-01-01,bowl,a0=0.25,composite,0.2676663251518361,71
+out-of-time,2025-01-01,bowl,a0=0.5,pressure rating,0.2989003092133475,71
+out-of-time,2025-01-01,bowl,a0=0.5,composite,0.29048750092520254,71
+out-of-time,2025-01-01,bowl,a0=1.0,pressure rating,0.29353364040766816,71
+out-of-time,2025-01-01,bowl,a0=1.0,composite,0.2974070506565474,71
 out-of-time,2025-01-01,bowl,previous,pressure rating,0.3000230252572877,71
 out-of-time,2025-01-01,bowl,previous,composite,0.28594939113690376,71
 out-of-time,2026-01-01,bat,a0=0.0,pressure rating,0.09983200584089907,38
@@ -59,16 +59,16 @@ out-of-time,2026-01-01,bat,a0=1.0,pressure rating,-0.1904772278966361,38
 out-of-time,2026-01-01,bat,a0=1.0,composite,-0.1904772278966361,38
 out-of-time,2026-01-01,bat,previous,pressure rating,-0.18239744657342377,38
 out-of-time,2026-01-01,bat,previous,composite,-0.16725443664202272,38
-out-of-time,2026-01-01,bowl,a0=0.0,pressure rating,-0.02144264461426749,40
-out-of-time,2026-01-01,bowl,a0=0.0,composite,-0.05247895755272502,40
-out-of-time,2026-01-01,bowl,a0=0.1,pressure rating,-0.023233548024895717,40
-out-of-time,2026-01-01,bowl,a0=0.1,composite,-0.030795827364349885,40
-out-of-time,2026-01-01,bowl,a0=0.25,pressure rating,-0.00012093843322827667,40
-out-of-time,2026-01-01,bowl,a0=0.25,composite,0.03753612793088443,40
-out-of-time,2026-01-01,bowl,a0=0.5,pressure rating,0.03440289603617968,40
-out-of-time,2026-01-01,bowl,a0=0.5,composite,0.107372691545597,40
-out-of-time,2026-01-01,bowl,a0=1.0,pressure rating,0.09555772642672472,40
-out-of-time,2026-01-01,bowl,a0=1.0,composite,0.18444634396698098,40
+out-of-time,2026-01-01,bowl,a0=0.0,pressure rating,-0.03810459398932192,40
+out-of-time,2026-01-01,bowl,a0=0.0,composite,-0.04869438920606936,40
+out-of-time,2026-01-01,bowl,a0=0.1,pressure rating,-0.038195590881139344,40
+out-of-time,2026-01-01,bowl,a0=0.1,composite,-0.009769800939608428,40
+out-of-time,2026-01-01,bowl,a0=0.25,pressure rating,-0.000791439819594439,40
+out-of-time,2026-01-01,bowl,a0=0.25,composite,0.05373066984029901,40
+out-of-time,2026-01-01,bowl,a0=0.5,pressure rating,0.03290077309077806,40
+out-of-time,2026-01-01,bowl,a0=0.5,composite,0.12742364795359742,40
+out-of-time,2026-01-01,bowl,a0=1.0,pressure rating,0.09860411185790191,40
+out-of-time,2026-01-01,bowl,a0=1.0,composite,0.20279847516666338,40
 out-of-time,2026-01-01,bowl,previous,pressure rating,0.01099840880155752,40
 out-of-time,2026-01-01,bowl,previous,composite,0.11659825617605217,40
 cross-half,00,bat,a0=0.0,pressure rating,0.031222513725194297,113
@@ -95,28 +95,28 @@ cross-half,01,bat,a0=1.0,pressure rating,0.13701252260188357,113
 cross-half,01,bat,a0=1.0,composite,0.13701252260188362,113
 cross-half,01,bat,previous,pressure rating,0.10764607880758033,113
 cross-half,01,bat,previous,composite,0.0601178073359849,113
-cross-half,00,bowl,a0=0.0,pressure rating,-0.12537184357662798,111
-cross-half,00,bowl,a0=0.0,composite,-0.02876291122145539,111
-cross-half,00,bowl,a0=0.1,pressure rating,0.22875201222013863,111
-cross-half,00,bowl,a0=0.1,composite,0.24768119550648912,111
-cross-half,00,bowl,a0=0.25,pressure rating,0.3142169384843275,111
-cross-half,00,bowl,a0=0.25,composite,0.28456049192342864,111
-cross-half,00,bowl,a0=0.5,pressure rating,0.32762342018357415,111
-cross-half,00,bowl,a0=0.5,composite,0.29685917814562834,111
-cross-half,00,bowl,a0=1.0,pressure rating,0.329286185879375,111
-cross-half,00,bowl,a0=1.0,composite,0.2996961944856005,111
+cross-half,00,bowl,a0=0.0,pressure rating,0.11199119454185108,111
+cross-half,00,bowl,a0=0.0,composite,0.15173825419086084,111
+cross-half,00,bowl,a0=0.1,pressure rating,0.2607623243820577,111
+cross-half,00,bowl,a0=0.1,composite,0.2464955906465293,111
+cross-half,00,bowl,a0=0.25,pressure rating,0.3039174358102845,111
+cross-half,00,bowl,a0=0.25,composite,0.2849365780556377,111
+cross-half,00,bowl,a0=0.5,pressure rating,0.3168802942373067,111
+cross-half,00,bowl,a0=0.5,composite,0.29911465683369126,111
+cross-half,00,bowl,a0=1.0,pressure rating,0.30790534994288055,111
+cross-half,00,bowl,a0=1.0,composite,0.2982128035766757,111
 cross-half,00,bowl,previous,pressure rating,0.3349562926800157,111
 cross-half,00,bowl,previous,composite,0.28697991003660495,111
-cross-half,01,bowl,a0=0.0,pressure rating,0.07469349670456556,111
-cross-half,01,bowl,a0=0.0,composite,0.03072586021674966,111
-cross-half,01,bowl,a0=0.1,pressure rating,0.09158853612894491,111
-cross-half,01,bowl,a0=0.1,composite,0.06934791828633578,111
-cross-half,01,bowl,a0=0.25,pressure rating,0.13215597770888624,111
-cross-half,01,bowl,a0=0.25,composite,0.12029085067397059,111
-cross-half,01,bowl,a0=0.5,pressure rating,0.15892292984892237,111
-cross-half,01,bowl,a0=0.5,composite,0.1639793158005469,111
-cross-half,01,bowl,a0=1.0,pressure rating,0.16619473772911209,111
-cross-half,01,bowl,a0=1.0,composite,0.1935391281006031,111
+cross-half,01,bowl,a0=0.0,pressure rating,0.08117010048762886,111
+cross-half,01,bowl,a0=0.0,composite,0.041999790737075396,111
+cross-half,01,bowl,a0=0.1,pressure rating,0.09505150577352472,111
+cross-half,01,bowl,a0=0.1,composite,0.08579066572215177,111
+cross-half,01,bowl,a0=0.25,pressure rating,0.12626568823365641,111
+cross-half,01,bowl,a0=0.25,composite,0.12725546347818162,111
+cross-half,01,bowl,a0=0.5,pressure rating,0.156721961265852,111
+cross-half,01,bowl,a0=0.5,composite,0.1680027665161073,111
+cross-half,01,bowl,a0=1.0,pressure rating,0.1807418223532644,111
+cross-half,01,bowl,a0=1.0,composite,0.20003579316077086,111
 cross-half,01,bowl,previous,pressure rating,0.13894539502440545,111
 cross-half,01,bowl,previous,composite,0.12282825964331316,111
 cross-half,10,bat,a0=0.0,pressure rating,0.15554072399364283,112
@@ -143,28 +143,28 @@ cross-half,11,bat,a0=1.0,pressure rating,0.22179627041026048,112
 cross-half,11,bat,a0=1.0,composite,0.22179627041026045,112
 cross-half,11,bat,previous,pressure rating,0.17567128389227338,112
 cross-half,11,bat,previous,composite,0.19539889631942967,112
-cross-half,10,bowl,a0=0.0,pressure rating,0.07545536867679356,120
-cross-half,10,bowl,a0=0.0,composite,0.1042245030416894,120
-cross-half,10,bowl,a0=0.1,pressure rating,0.12928588126390758,120
-cross-half,10,bowl,a0=0.1,composite,0.16237068162881593,120
-cross-half,10,bowl,a0=0.25,pressure rating,0.15429378906962238,120
-cross-half,10,bowl,a0=0.25,composite,0.1887637544492939,120
-cross-half,10,bowl,a0=0.5,pressure rating,0.1794776924135013,120
-cross-half,10,bowl,a0=0.5,composite,0.21319675691995393,120
-cross-half,10,bowl,a0=1.0,pressure rating,0.20096939356309,120
-cross-half,10,bowl,a0=1.0,composite,0.22810603230209178,120
+cross-half,10,bowl,a0=0.0,pressure rating,0.10262649654684824,120
+cross-half,10,bowl,a0=0.0,composite,0.11558634721481961,120
+cross-half,10,bowl,a0=0.1,pressure rating,0.12252916117084857,120
+cross-half,10,bowl,a0=0.1,composite,0.1465409289381851,120
+cross-half,10,bowl,a0=0.25,pressure rating,0.16341272344205446,120
+cross-half,10,bowl,a0=0.25,composite,0.19022896103591333,120
+cross-half,10,bowl,a0=0.5,pressure rating,0.19326423010484486,120
+cross-half,10,bowl,a0=0.5,composite,0.21548142709310195,120
+cross-half,10,bowl,a0=1.0,pressure rating,0.21244219382391236,120
+cross-half,10,bowl,a0=1.0,composite,0.23299606243341633,120
 cross-half,10,bowl,previous,pressure rating,0.21474651777526524,120
 cross-half,10,bowl,previous,composite,0.22229685359428894,120
-cross-half,11,bowl,a0=0.0,pressure rating,-0.14118664685621374,120
-cross-half,11,bowl,a0=0.0,composite,-0.036266066774179664,120
-cross-half,11,bowl,a0=0.1,pressure rating,0.15071951564219382,120
-cross-half,11,bowl,a0=0.1,composite,0.1955163006792502,120
-cross-half,11,bowl,a0=0.25,pressure rating,0.1833799322061802,120
-cross-half,11,bowl,a0=0.25,composite,0.22167818157712604,120
-cross-half,11,bowl,a0=0.5,pressure rating,0.20249706621779984,120
-cross-half,11,bowl,a0=0.5,composite,0.21962503445647485,120
-cross-half,11,bowl,a0=1.0,pressure rating,0.1838950708456937,120
-cross-half,11,bowl,a0=1.0,composite,0.19935436685062116,120
+cross-half,11,bowl,a0=0.0,pressure rating,0.10321548526027789,120
+cross-half,11,bowl,a0=0.0,composite,0.14795027047033021,120
+cross-half,11,bowl,a0=0.1,pressure rating,0.09219559695743706,120
+cross-half,11,bowl,a0=0.1,composite,0.17359193948041185,120
+cross-half,11,bowl,a0=0.25,pressure rating,0.14072059811510973,120
+cross-half,11,bowl,a0=0.25,composite,0.2144316627811816,120
+cross-half,11,bowl,a0=0.5,pressure rating,0.18970063658892347,120
+cross-half,11,bowl,a0=0.5,composite,0.2240262839932445,120
+cross-half,11,bowl,a0=1.0,pressure rating,0.18174474823889303,120
+cross-half,11,bowl,a0=1.0,composite,0.2108036496144726,120
 cross-half,11,bowl,previous,pressure rating,0.17675015696528212,120
 cross-half,11,bowl,previous,composite,0.20526190293557703,120
 cross-half,20,bat,a0=0.0,pressure rating,0.04428901604727242,121
@@ -191,28 +191,28 @@ cross-half,21,bat,a0=1.0,pressure rating,0.27806806920073057,121
 cross-half,21,bat,a0=1.0,composite,0.27806806920073057,121
 cross-half,21,bat,previous,pressure rating,0.2285823740475038,121
 cross-half,21,bat,previous,composite,0.2215519516741369,121
-cross-half,20,bowl,a0=0.0,pressure rating,0.1528187657565844,118
-cross-half,20,bowl,a0=0.0,composite,0.14912777800337962,118
-cross-half,20,bowl,a0=0.1,pressure rating,0.16966999771248398,118
-cross-half,20,bowl,a0=0.1,composite,0.18231359422978974,118
-cross-half,20,bowl,a0=0.25,pressure rating,0.1419152464393199,118
-cross-half,20,bowl,a0=0.25,composite,0.19808952158418872,118
-cross-half,20,bowl,a0=0.5,pressure rating,0.13163958702200199,118
-cross-half,20,bowl,a0=0.5,composite,0.20116163275074936,118
-cross-half,20,bowl,a0=1.0,pressure rating,0.11904233939338389,118
-cross-half,20,bowl,a0=1.0,composite,0.19908205982312788,118
+cross-half,20,bowl,a0=0.0,pressure rating,0.18373912808618487,118
+cross-half,20,bowl,a0=0.0,composite,0.1647168579512374,118
+cross-half,20,bowl,a0=0.1,pressure rating,0.07362915985479898,118
+cross-half,20,bowl,a0=0.1,composite,0.13845169481552946,118
+cross-half,20,bowl,a0=0.25,pressure rating,0.088399271830511,118
+cross-half,20,bowl,a0=0.25,composite,0.1622127493605642,118
+cross-half,20,bowl,a0=0.5,pressure rating,0.0988493278317009,118
+cross-half,20,bowl,a0=0.5,composite,0.17340221796632116,118
+cross-half,20,bowl,a0=1.0,pressure rating,0.1042350451482036,118
+cross-half,20,bowl,a0=1.0,composite,0.17961274812601716,118
 cross-half,20,bowl,previous,pressure rating,0.14207793791046938,118
 cross-half,20,bowl,previous,composite,0.2341516403710534,118
-cross-half,21,bowl,a0=0.0,pressure rating,0.010863010037688331,118
-cross-half,21,bowl,a0=0.0,composite,0.05539739719860536,118
-cross-half,21,bowl,a0=0.1,pressure rating,0.2167273648536703,118
-cross-half,21,bowl,a0=0.1,composite,0.20726678115897923,118
-cross-half,21,bowl,a0=0.25,pressure rating,0.2288225418406235,118
-cross-half,21,bowl,a0=0.25,composite,0.22309995482136366,118
-cross-half,21,bowl,a0=0.5,pressure rating,0.22387144288668498,118
-cross-half,21,bowl,a0=0.5,composite,0.22423383900309188,118
-cross-half,21,bowl,a0=1.0,pressure rating,0.20944042129870577,118
-cross-half,21,bowl,a0=1.0,composite,0.21965635454700733,118
+cross-half,21,bowl,a0=0.0,pressure rating,-0.0011645897697715045,118
+cross-half,21,bowl,a0=0.0,composite,0.054208917020425504,118
+cross-half,21,bowl,a0=0.1,pressure rating,0.2231434045084912,118
+cross-half,21,bowl,a0=0.1,composite,0.21960249925375147,118
+cross-half,21,bowl,a0=0.25,pressure rating,0.23212966897845488,118
+cross-half,21,bowl,a0=0.25,composite,0.23092842807252079,118
+cross-half,21,bowl,a0=0.5,pressure rating,0.22969029986372375,118
+cross-half,21,bowl,a0=0.5,composite,0.23418094390421187,118
+cross-half,21,bowl,a0=1.0,pressure rating,0.2225565037991305,118
+cross-half,21,bowl,a0=1.0,composite,0.22932242262047356,118
 cross-half,21,bowl,previous,pressure rating,0.191101752771384,118
 cross-half,21,bowl,previous,composite,0.19866568684115307,118
 cross-half,30,bat,a0=0.0,pressure rating,0.052966222698245205,111
@@ -239,28 +239,28 @@ cross-half,31,bat,a0=1.0,pressure rating,0.2595336947005833,111
 cross-half,31,bat,a0=1.0,composite,0.25953369470058324,111
 cross-half,31,bat,previous,pressure rating,0.2213165566458943,111
 cross-half,31,bat,previous,composite,0.18793158590336512,111
-cross-half,30,bowl,a0=0.0,pressure rating,0.17568034399629748,114
-cross-half,30,bowl,a0=0.0,composite,0.16070140796949153,114
-cross-half,30,bowl,a0=0.1,pressure rating,0.21268635412217052,114
-cross-half,30,bowl,a0=0.1,composite,0.21910236262172034,114
-cross-half,30,bowl,a0=0.25,pressure rating,0.21288497691022187,114
-cross-half,30,bowl,a0=0.25,composite,0.21139757304054482,114
-cross-half,30,bowl,a0=0.5,pressure rating,0.2071941900838939,114
-cross-half,30,bowl,a0=0.5,composite,0.2127576334991893,114
-cross-half,30,bowl,a0=1.0,pressure rating,0.19507541286800897,114
-cross-half,30,bowl,a0=1.0,composite,0.21406292930086263,114
+cross-half,30,bowl,a0=0.0,pressure rating,0.11424147452532811,114
+cross-half,30,bowl,a0=0.0,composite,0.12995782629641012,114
+cross-half,30,bowl,a0=0.1,pressure rating,0.1884105467668611,114
+cross-half,30,bowl,a0=0.1,composite,0.21500594967690564,114
+cross-half,30,bowl,a0=0.25,pressure rating,0.2041091296789671,114
+cross-half,30,bowl,a0=0.25,composite,0.20858944351543673,114
+cross-half,30,bowl,a0=0.5,pressure rating,0.20885771059256641,114
+cross-half,30,bowl,a0=0.5,composite,0.21979668407927097,114
+cross-half,30,bowl,a0=1.0,pressure rating,0.21323213088580634,114
+cross-half,30,bowl,a0=1.0,composite,0.23181991231324123,114
 cross-half,30,bowl,previous,pressure rating,0.21230959695648208,114
 cross-half,30,bowl,previous,composite,0.22658346827345213,114
-cross-half,31,bowl,a0=0.0,pressure rating,-0.1526982146911662,114
-cross-half,31,bowl,a0=0.0,composite,-0.05010582657300451,114
-cross-half,31,bowl,a0=0.1,pressure rating,0.1732372951601852,114
-cross-half,31,bowl,a0=0.1,composite,0.22824751433897092,114
-cross-half,31,bowl,a0=0.25,pressure rating,0.2607308675336592,114
-cross-half,31,bowl,a0=0.25,composite,0.28214849617702104,114
-cross-half,31,bowl,a0=0.5,pressure rating,0.2790396275555138,114
-cross-half,31,bowl,a0=0.5,composite,0.30705568748309586,114
-cross-half,31,bowl,a0=1.0,pressure rating,0.2735924055104005,114
-cross-half,31,bowl,a0=1.0,composite,0.3001735923180851,114
+cross-half,31,bowl,a0=0.0,pressure rating,-0.16665673585005136,114
+cross-half,31,bowl,a0=0.0,composite,-0.0744497377900354,114
+cross-half,31,bowl,a0=0.1,pressure rating,0.17588850127791814,114
+cross-half,31,bowl,a0=0.1,composite,0.22187894996992524,114
+cross-half,31,bowl,a0=0.25,pressure rating,0.20793702280568596,114
+cross-half,31,bowl,a0=0.25,composite,0.25968018410982846,114
+cross-half,31,bowl,a0=0.5,pressure rating,0.2409355357789855,114
+cross-half,31,bowl,a0=0.5,composite,0.2882277404500022,114
+cross-half,31,bowl,a0=1.0,pressure rating,0.2315223533643619,114
+cross-half,31,bowl,a0=1.0,composite,0.28239548090500427,114
 cross-half,31,bowl,previous,pressure rating,0.2747597899683876,114
 cross-half,31,bowl,previous,composite,0.2933355304162573,114
 cross-half,40,bat,a0=0.0,pressure rating,-0.10029161509801492,119
@@ -287,28 +287,28 @@ cross-half,41,bat,a0=1.0,pressure rating,0.03379683438424493,119
 cross-half,41,bat,a0=1.0,composite,0.03379683438424491,119
 cross-half,41,bat,previous,pressure rating,-0.007911067571308121,119
 cross-half,41,bat,previous,composite,-0.057832384718509475,119
-cross-half,40,bowl,a0=0.0,pressure rating,-0.03062536813372922,116
-cross-half,40,bowl,a0=0.0,composite,-0.0322390803423097,116
-cross-half,40,bowl,a0=0.1,pressure rating,0.12430009878474574,116
-cross-half,40,bowl,a0=0.1,composite,0.13069107847209407,116
-cross-half,40,bowl,a0=0.25,pressure rating,0.16675769402629614,116
-cross-half,40,bowl,a0=0.25,composite,0.18030115742491057,116
-cross-half,40,bowl,a0=0.5,pressure rating,0.20820238835447202,116
-cross-half,40,bowl,a0=0.5,composite,0.23462586332120938,116
-cross-half,40,bowl,a0=1.0,pressure rating,0.23785778213156794,116
-cross-half,40,bowl,a0=1.0,composite,0.26920613694244055,116
+cross-half,40,bowl,a0=0.0,pressure rating,-0.08274594303209526,116
+cross-half,40,bowl,a0=0.0,composite,-0.061089487331538794,116
+cross-half,40,bowl,a0=0.1,pressure rating,-0.07756283776788422,116
+cross-half,40,bowl,a0=0.1,composite,0.007931730398563416,116
+cross-half,40,bowl,a0=0.25,pressure rating,0.0702121535237173,116
+cross-half,40,bowl,a0=0.25,composite,0.1368817813055118,116
+cross-half,40,bowl,a0=0.5,pressure rating,0.07631675817293662,116
+cross-half,40,bowl,a0=0.5,composite,0.1722923569285989,116
+cross-half,40,bowl,a0=1.0,pressure rating,0.10764880709244952,116
+cross-half,40,bowl,a0=1.0,composite,0.21146898425354954,116
 cross-half,40,bowl,previous,pressure rating,0.20735209329455137,116
 cross-half,40,bowl,previous,composite,0.20084129185705024,116
-cross-half,41,bowl,a0=0.0,pressure rating,0.3237447817568923,116
-cross-half,41,bowl,a0=0.0,composite,0.3103620341050965,116
-cross-half,41,bowl,a0=0.1,pressure rating,0.29639988760293595,116
-cross-half,41,bowl,a0=0.1,composite,0.3655599673086521,116
-cross-half,41,bowl,a0=0.25,pressure rating,0.34534762899954935,116
-cross-half,41,bowl,a0=0.25,composite,0.3863230151073565,116
-cross-half,41,bowl,a0=0.5,pressure rating,0.3001814386364827,116
-cross-half,41,bowl,a0=0.5,composite,0.35786605839291713,116
-cross-half,41,bowl,a0=1.0,pressure rating,0.22158470462092028,116
-cross-half,41,bowl,a0=1.0,composite,0.30232428791949806,116
+cross-half,41,bowl,a0=0.0,pressure rating,0.3233917337195691,116
+cross-half,41,bowl,a0=0.0,composite,0.3050016242240814,116
+cross-half,41,bowl,a0=0.1,pressure rating,0.21180733666851978,116
+cross-half,41,bowl,a0=0.1,composite,0.3291915987179051,116
+cross-half,41,bowl,a0=0.25,pressure rating,0.3061008201516632,116
+cross-half,41,bowl,a0=0.25,composite,0.38153087132064606,116
+cross-half,41,bowl,a0=0.5,pressure rating,0.25837854302494684,116
+cross-half,41,bowl,a0=0.5,composite,0.3550392273737737,116
+cross-half,41,bowl,a0=1.0,pressure rating,0.22772350975876032,116
+cross-half,41,bowl,a0=1.0,composite,0.3133945349474197,116
 cross-half,41,bowl,previous,pressure rating,0.28780865755518237,116
 cross-half,41,bowl,previous,composite,0.32714111778142485,116
 cross-half,50,bat,a0=0.0,pressure rating,0.09014141183739732,115
@@ -335,28 +335,28 @@ cross-half,51,bat,a0=1.0,pressure rating,0.2718967699205191,115
 cross-half,51,bat,a0=1.0,composite,0.271896769920519,115
 cross-half,51,bat,previous,pressure rating,0.21707061866833227,115
 cross-half,51,bat,previous,composite,0.17548211240425032,115
-cross-half,50,bowl,a0=0.0,pressure rating,0.02710481442073075,115
-cross-half,50,bowl,a0=0.0,composite,0.0713395952501361,115
-cross-half,50,bowl,a0=0.1,pressure rating,0.1393720524546764,115
-cross-half,50,bowl,a0=0.1,composite,0.23816577474300057,115
-cross-half,50,bowl,a0=0.25,pressure rating,0.21382515565886975,115
-cross-half,50,bowl,a0=0.25,composite,0.30279229543910785,115
-cross-half,50,bowl,a0=0.5,pressure rating,0.23988039957230994,115
-cross-half,50,bowl,a0=0.5,composite,0.33604423854210724,115
-cross-half,50,bowl,a0=1.0,pressure rating,0.3064008964965935,115
-cross-half,50,bowl,a0=1.0,composite,0.35911097747278226,115
+cross-half,50,bowl,a0=0.0,pressure rating,0.09038914812448465,115
+cross-half,50,bowl,a0=0.0,composite,0.08389995798306885,115
+cross-half,50,bowl,a0=0.1,pressure rating,0.17914818301759283,115
+cross-half,50,bowl,a0=0.1,composite,0.2261319387767404,115
+cross-half,50,bowl,a0=0.25,pressure rating,0.23326643354343451,115
+cross-half,50,bowl,a0=0.25,composite,0.28749157064897235,115
+cross-half,50,bowl,a0=0.5,pressure rating,0.2865573930984016,115
+cross-half,50,bowl,a0=0.5,composite,0.33918154290837166,115
+cross-half,50,bowl,a0=1.0,pressure rating,0.3281178310774338,115
+cross-half,50,bowl,a0=1.0,composite,0.3642907668959157,115
 cross-half,50,bowl,previous,pressure rating,0.2544706731154039,115
 cross-half,50,bowl,previous,composite,0.2846252946341877,115
-cross-half,51,bowl,a0=0.0,pressure rating,0.10614637184007061,115
-cross-half,51,bowl,a0=0.0,composite,0.1756820467024822,115
-cross-half,51,bowl,a0=0.1,pressure rating,0.05459033213691263,115
-cross-half,51,bowl,a0=0.1,composite,0.1407830254341909,115
-cross-half,51,bowl,a0=0.25,pressure rating,0.1211263507590582,115
-cross-half,51,bowl,a0=0.25,composite,0.18423333856348714,115
-cross-half,51,bowl,a0=0.5,pressure rating,0.14305494722301787,115
-cross-half,51,bowl,a0=0.5,composite,0.20208189722000702,115
-cross-half,51,bowl,a0=1.0,pressure rating,0.15331055501425414,115
-cross-half,51,bowl,a0=1.0,composite,0.2076224675369089,115
+cross-half,51,bowl,a0=0.0,pressure rating,-0.06108896025369998,115
+cross-half,51,bowl,a0=0.0,composite,0.07010596393806348,115
+cross-half,51,bowl,a0=0.1,pressure rating,0.04490776338875212,115
+cross-half,51,bowl,a0=0.1,composite,0.13457229980521349,115
+cross-half,51,bowl,a0=0.25,pressure rating,0.08534523738762101,115
+cross-half,51,bowl,a0=0.25,composite,0.16585048248783082,115
+cross-half,51,bowl,a0=0.5,pressure rating,0.13247326636539744,115
+cross-half,51,bowl,a0=0.5,composite,0.19149753760704957,115
+cross-half,51,bowl,a0=1.0,pressure rating,0.15869648704588504,115
+cross-half,51,bowl,a0=1.0,composite,0.20205934199332115,115
 cross-half,51,bowl,previous,pressure rating,0.155029793794548,115
 cross-half,51,bowl,previous,composite,0.18892031409925386,115
 cross-half,60,bat,a0=0.0,pressure rating,0.005693269507287431,121
@@ -383,28 +383,28 @@ cross-half,61,bat,a0=1.0,pressure rating,0.20638634850544016,121
 cross-half,61,bat,a0=1.0,composite,0.20638634850544013,121
 cross-half,61,bat,previous,pressure rating,0.1395285622097242,121
 cross-half,61,bat,previous,composite,0.08089497216067458,121
-cross-half,60,bowl,a0=0.0,pressure rating,0.0646072451017632,119
-cross-half,60,bowl,a0=0.0,composite,0.044700588327633156,119
-cross-half,60,bowl,a0=0.1,pressure rating,0.15005626528273758,119
-cross-half,60,bowl,a0=0.1,composite,0.15510746461035307,119
-cross-half,60,bowl,a0=0.25,pressure rating,0.18878212017870963,119
-cross-half,60,bowl,a0=0.25,composite,0.19079027196159448,119
-cross-half,60,bowl,a0=0.5,pressure rating,0.2227738658229287,119
-cross-half,60,bowl,a0=0.5,composite,0.22306737255130443,119
-cross-half,60,bowl,a0=1.0,pressure rating,0.23777434556057814,119
-cross-half,60,bowl,a0=1.0,composite,0.23827417787456653,119
+cross-half,60,bowl,a0=0.0,pressure rating,0.0988571859874332,119
+cross-half,60,bowl,a0=0.0,composite,0.06126393724313406,119
+cross-half,60,bowl,a0=0.1,pressure rating,0.1608578976542133,119
+cross-half,60,bowl,a0=0.1,composite,0.16613956331106777,119
+cross-half,60,bowl,a0=0.25,pressure rating,0.21318083839477103,119
+cross-half,60,bowl,a0=0.25,composite,0.2149794103395721,119
+cross-half,60,bowl,a0=0.5,pressure rating,0.24579203447454998,119
+cross-half,60,bowl,a0=0.5,composite,0.24380084536063995,119
+cross-half,60,bowl,a0=1.0,pressure rating,0.259306336470065,119
+cross-half,60,bowl,a0=1.0,composite,0.2549072939321937,119
 cross-half,60,bowl,previous,pressure rating,0.20762534116283107,119
 cross-half,60,bowl,previous,composite,0.19294953941355608,119
-cross-half,61,bowl,a0=0.0,pressure rating,0.029056733107015644,119
-cross-half,61,bowl,a0=0.0,composite,0.10595313434142643,119
-cross-half,61,bowl,a0=0.1,pressure rating,0.11935535452433804,119
-cross-half,61,bowl,a0=0.1,composite,0.16284201020753322,119
-cross-half,61,bowl,a0=0.25,pressure rating,0.21827043371589794,119
-cross-half,61,bowl,a0=0.25,composite,0.2345215572404215,119
-cross-half,61,bowl,a0=0.5,pressure rating,0.24502024031482555,119
-cross-half,61,bowl,a0=0.5,composite,0.257167983976818,119
-cross-half,61,bowl,a0=1.0,pressure rating,0.24745851406553968,119
-cross-half,61,bowl,a0=1.0,composite,0.2631353257143191,119
+cross-half,61,bowl,a0=0.0,pressure rating,0.15980840024544113,119
+cross-half,61,bowl,a0=0.0,composite,0.1694459024304801,119
+cross-half,61,bowl,a0=0.1,pressure rating,0.17107094668613115,119
+cross-half,61,bowl,a0=0.1,composite,0.2051068275211982,119
+cross-half,61,bowl,a0=0.25,pressure rating,0.224955922761966,119
+cross-half,61,bowl,a0=0.25,composite,0.24437117031545313,119
+cross-half,61,bowl,a0=0.5,pressure rating,0.24428759582921925,119
+cross-half,61,bowl,a0=0.5,composite,0.25566102486700987,119
+cross-half,61,bowl,a0=1.0,pressure rating,0.2443788702687601,119
+cross-half,61,bowl,a0=1.0,composite,0.24873468104302524,119
 cross-half,61,bowl,previous,pressure rating,0.18141058689421505,119
 cross-half,61,bowl,previous,composite,0.19895782303077966,119
 cross-half,70,bat,a0=0.0,pressure rating,0.06919288017978512,113
@@ -431,28 +431,28 @@ cross-half,71,bat,a0=1.0,pressure rating,0.1301333484076013,113
 cross-half,71,bat,a0=1.0,composite,0.1301333484076013,113
 cross-half,71,bat,previous,pressure rating,0.15806343967331127,113
 cross-half,71,bat,previous,composite,0.14581754412271997,113
-cross-half,70,bowl,a0=0.0,pressure rating,-0.2620594890772265,121
-cross-half,70,bowl,a0=0.0,composite,-0.15816945510959615,121
-cross-half,70,bowl,a0=0.1,pressure rating,0.18985390299322674,121
-cross-half,70,bowl,a0=0.1,composite,0.17890775149958493,121
-cross-half,70,bowl,a0=0.25,pressure rating,0.22265488895174232,121
-cross-half,70,bowl,a0=0.25,composite,0.2160625782037211,121
-cross-half,70,bowl,a0=0.5,pressure rating,0.2722777408554657,121
-cross-half,70,bowl,a0=0.5,composite,0.2632475737278057,121
-cross-half,70,bowl,a0=1.0,pressure rating,0.29173526148491746,121
-cross-half,70,bowl,a0=1.0,composite,0.2906706708886764,121
+cross-half,70,bowl,a0=0.0,pressure rating,-0.17259986414922718,121
+cross-half,70,bowl,a0=0.0,composite,-0.05594862522297767,121
+cross-half,70,bowl,a0=0.1,pressure rating,0.23832588251523096,121
+cross-half,70,bowl,a0=0.1,composite,0.24968012433977602,121
+cross-half,70,bowl,a0=0.25,pressure rating,0.258734098655051,121
+cross-half,70,bowl,a0=0.25,composite,0.2541685171490356,121
+cross-half,70,bowl,a0=0.5,pressure rating,0.28376442552122555,121
+cross-half,70,bowl,a0=0.5,composite,0.2726987837696683,121
+cross-half,70,bowl,a0=1.0,pressure rating,0.29095052454259085,121
+cross-half,70,bowl,a0=1.0,composite,0.2778431709390012,121
 cross-half,70,bowl,previous,pressure rating,0.23029790127013333,121
 cross-half,70,bowl,previous,composite,0.23243579475627774,121
-cross-half,71,bowl,a0=0.0,pressure rating,-0.09366588981654629,121
-cross-half,71,bowl,a0=0.0,composite,-0.07775869563223274,121
-cross-half,71,bowl,a0=0.1,pressure rating,-0.0056214240044012214,121
-cross-half,71,bowl,a0=0.1,composite,-0.009104376942391938,121
-cross-half,71,bowl,a0=0.25,pressure rating,0.055899649364829614,121
-cross-half,71,bowl,a0=0.25,composite,0.041366958105521906,121
-cross-half,71,bowl,a0=0.5,pressure rating,0.08750585075129909,121
-cross-half,71,bowl,a0=0.5,composite,0.08043119627413935,121
-cross-half,71,bowl,a0=1.0,pressure rating,0.11606682167242126,121
-cross-half,71,bowl,a0=1.0,composite,0.1141600953496788,121
+cross-half,71,bowl,a0=0.0,pressure rating,-0.09745013954168609,121
+cross-half,71,bowl,a0=0.0,composite,-0.08956231044004823,121
+cross-half,71,bowl,a0=0.1,pressure rating,0.0305730887975144,121
+cross-half,71,bowl,a0=0.1,composite,0.008142221593086219,121
+cross-half,71,bowl,a0=0.25,pressure rating,0.07731160460117628,121
+cross-half,71,bowl,a0=0.25,composite,0.06304130002038709,121
+cross-half,71,bowl,a0=0.5,pressure rating,0.11021266394134864,121
+cross-half,71,bowl,a0=0.5,composite,0.10603698883017003,121
+cross-half,71,bowl,a0=1.0,pressure rating,0.13787187788934535,121
+cross-half,71,bowl,a0=1.0,composite,0.14280323403066142,121
 cross-half,71,bowl,previous,pressure rating,0.09247611618235795,121
 cross-half,71,bowl,previous,composite,0.04517055845096857,121
 cross-half,80,bat,a0=0.0,pressure rating,-0.04771939388855538,116
@@ -479,28 +479,28 @@ cross-half,81,bat,a0=1.0,pressure rating,0.25951267095557656,116
 cross-half,81,bat,a0=1.0,composite,0.2595126709555766,116
 cross-half,81,bat,previous,pressure rating,0.1962572123497367,116
 cross-half,81,bat,previous,composite,0.14236809656982077,116
-cross-half,80,bowl,a0=0.0,pressure rating,0.2193836971678673,123
-cross-half,80,bowl,a0=0.0,composite,0.18002669237315444,123
-cross-half,80,bowl,a0=0.1,pressure rating,0.19309247056893028,123
-cross-half,80,bowl,a0=0.1,composite,0.212730655618031,123
-cross-half,80,bowl,a0=0.25,pressure rating,0.16247531647188662,123
-cross-half,80,bowl,a0=0.25,composite,0.1928824217492378,123
-cross-half,80,bowl,a0=0.5,pressure rating,0.15290634186288266,123
-cross-half,80,bowl,a0=0.5,composite,0.17984658968768832,123
-cross-half,80,bowl,a0=1.0,pressure rating,0.14345206577628694,123
-cross-half,80,bowl,a0=1.0,composite,0.17146966612282236,123
+cross-half,80,bowl,a0=0.0,pressure rating,0.2034776096913244,123
+cross-half,80,bowl,a0=0.0,composite,0.19269796760388289,123
+cross-half,80,bowl,a0=0.1,pressure rating,0.16807655833873067,123
+cross-half,80,bowl,a0=0.1,composite,0.20470920206167317,123
+cross-half,80,bowl,a0=0.25,pressure rating,0.1523607416509718,123
+cross-half,80,bowl,a0=0.25,composite,0.19680751851973005,123
+cross-half,80,bowl,a0=0.5,pressure rating,0.16159844931435938,123
+cross-half,80,bowl,a0=0.5,composite,0.19724838564703817,123
+cross-half,80,bowl,a0=1.0,pressure rating,0.17034990365561012,123
+cross-half,80,bowl,a0=1.0,composite,0.1975525549450391,123
 cross-half,80,bowl,previous,pressure rating,0.16807047046297557,123
 cross-half,80,bowl,previous,composite,0.18346848591158796,123
-cross-half,81,bowl,a0=0.0,pressure rating,0.11955698751558437,123
-cross-half,81,bowl,a0=0.0,composite,0.12855126238565584,123
-cross-half,81,bowl,a0=0.1,pressure rating,0.1891084199900925,123
-cross-half,81,bowl,a0=0.1,composite,0.2117284849778318,123
-cross-half,81,bowl,a0=0.25,pressure rating,0.23088732439379384,123
-cross-half,81,bowl,a0=0.25,composite,0.25276044932558295,123
-cross-half,81,bowl,a0=0.5,pressure rating,0.25340041787918954,123
-cross-half,81,bowl,a0=0.5,composite,0.27847533870107044,123
-cross-half,81,bowl,a0=1.0,pressure rating,0.27380807831603077,123
-cross-half,81,bowl,a0=1.0,composite,0.2768278838521385,123
+cross-half,81,bowl,a0=0.0,pressure rating,0.11412382619238451,123
+cross-half,81,bowl,a0=0.0,composite,0.11533902451242938,123
+cross-half,81,bowl,a0=0.1,pressure rating,0.19879495253940002,123
+cross-half,81,bowl,a0=0.1,composite,0.20538537321315103,123
+cross-half,81,bowl,a0=0.25,pressure rating,0.23374267797925766,123
+cross-half,81,bowl,a0=0.25,composite,0.25416826817546256,123
+cross-half,81,bowl,a0=0.5,pressure rating,0.2617894848901889,123
+cross-half,81,bowl,a0=0.5,composite,0.2891482810086041,123
+cross-half,81,bowl,a0=1.0,pressure rating,0.2818031801576123,123
+cross-half,81,bowl,a0=1.0,composite,0.28739093300191704,123
 cross-half,81,bowl,previous,pressure rating,0.2364371928091762,123
 cross-half,81,bowl,previous,composite,0.25334532950491634,123
 cross-half,90,bat,a0=0.0,pressure rating,0.03861686895444646,115
@@ -527,27 +527,27 @@ cross-half,91,bat,a0=1.0,pressure rating,0.2732411760414708,115
 cross-half,91,bat,a0=1.0,composite,0.27324117604147086,115
 cross-half,91,bat,previous,pressure rating,0.19847124472177058,115
 cross-half,91,bat,previous,composite,0.1493657202045036,115
-cross-half,90,bowl,a0=0.0,pressure rating,0.15006551008816718,111
-cross-half,90,bowl,a0=0.0,composite,0.1637866341130843,111
-cross-half,90,bowl,a0=0.1,pressure rating,0.023006849509549853,111
-cross-half,90,bowl,a0=0.1,composite,0.07280984165159823,111
-cross-half,90,bowl,a0=0.25,pressure rating,0.12967904612166486,111
-cross-half,90,bowl,a0=0.25,composite,0.1468751956395569,111
-cross-half,90,bowl,a0=0.5,pressure rating,0.16160464253019657,111
-cross-half,90,bowl,a0=0.5,composite,0.16801816111507084,111
-cross-half,90,bowl,a0=1.0,pressure rating,0.18255322972506718,111
-cross-half,90,bowl,a0=1.0,composite,0.17385793400595692,111
+cross-half,90,bowl,a0=0.0,pressure rating,0.18410039915183535,111
+cross-half,90,bowl,a0=0.0,composite,0.21490885807537144,111
+cross-half,90,bowl,a0=0.1,pressure rating,0.10343578769039044,111
+cross-half,90,bowl,a0=0.1,composite,0.14420487673812837,111
+cross-half,90,bowl,a0=0.25,pressure rating,0.15994053136713987,111
+cross-half,90,bowl,a0=0.25,composite,0.1843081427272876,111
+cross-half,90,bowl,a0=0.5,pressure rating,0.19595431630519267,111
+cross-half,90,bowl,a0=0.5,composite,0.2107263726427443,111
+cross-half,90,bowl,a0=1.0,pressure rating,0.21842498680571382,111
+cross-half,90,bowl,a0=1.0,composite,0.2213654856120468,111
 cross-half,90,bowl,previous,pressure rating,0.1638237430647798,111
 cross-half,90,bowl,previous,composite,0.15758752298904358,111
-cross-half,91,bowl,a0=0.0,pressure rating,-0.05013298225077118,111
-cross-half,91,bowl,a0=0.0,composite,-0.0455672987533309,111
-cross-half,91,bowl,a0=0.1,pressure rating,0.09418137704845521,111
-cross-half,91,bowl,a0=0.1,composite,0.07579072096171852,111
-cross-half,91,bowl,a0=0.25,pressure rating,0.1523587693887366,111
-cross-half,91,bowl,a0=0.25,composite,0.1131278162020387,111
-cross-half,91,bowl,a0=0.5,pressure rating,0.21941127196969254,111
-cross-half,91,bowl,a0=0.5,composite,0.1603603821470763,111
-cross-half,91,bowl,a0=1.0,pressure rating,0.2176657802809796,111
-cross-half,91,bowl,a0=1.0,composite,0.15904746631679442,111
+cross-half,91,bowl,a0=0.0,pressure rating,-0.040947827816384286,111
+cross-half,91,bowl,a0=0.0,composite,-0.015354347032528226,111
+cross-half,91,bowl,a0=0.1,pressure rating,0.10528494022332026,111
+cross-half,91,bowl,a0=0.1,composite,0.09264484147535511,111
+cross-half,91,bowl,a0=0.25,pressure rating,0.1539168743092071,111
+cross-half,91,bowl,a0=0.25,composite,0.13662530435598896,111
+cross-half,91,bowl,a0=0.5,pressure rating,0.20593817669658201,111
+cross-half,91,bowl,a0=0.5,composite,0.17974466873645611,111
+cross-half,91,bowl,a0=1.0,pressure rating,0.22555905210228933,111
+cross-half,91,bowl,a0=1.0,composite,0.18959229407722533,111
 cross-half,91,bowl,previous,pressure rating,0.1942136348286647,111
 cross-half,91,bowl,previous,composite,0.15173228362895805,111

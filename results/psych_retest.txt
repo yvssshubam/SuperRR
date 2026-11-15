@@ -1,0 +1,39 @@
+flag shares: {'stuck': 0.104, 'poor_form_bat': 0.196, 'new_at_crease': 0.224, 'collapse': 0.111, 'dot_pressure': 0.023, 'partner_runout': 0.013, 'just_hit': 0.151, 'expensive_spell': 0.144, 'poor_form_bowl': 0.197, 'teammate_bad_over': 0.153}
+psych balls added by pooling (share of all balls): {'bat': 0.098, 'bowl': 0.113}
+
+== bat: mean r
+test             cross-half  out-of-time
+variant                                 
+boost 1.2             0.179        0.042
+context               0.175        0.035
+current               0.175        0.039
+pool 0.25             0.177        0.038
+pool 0.5              0.180        0.046
+resilience 0.1        0.174        0.029
+resilience 0.25       0.171        0.016
+
+== bowl: mean r
+test             cross-half  out-of-time
+variant                                 
+boost 1.2             0.221        0.217
+context               0.228        0.177
+current               0.229        0.178
+pool 0.25             0.232        0.195
+pool 0.5              0.233        0.195
+resilience 0.1        0.223        0.179
+resilience 0.25       0.210        0.177
+
+== gain over the current model, and the pre-set rule
+role         variant     cross_half  out_of_time  passes
+ bat       boost 1.2 +0.005 (11/20) +0.003 (2/3)   False
+ bat         context +0.001 (12/20) -0.003 (2/3)   False
+ bat       pool 0.25  +0.003 (9/20) -0.001 (2/3)   False
+ bat        pool 0.5  +0.006 (9/20) +0.007 (2/3)   False
+ bat  resilience 0.1 -0.000 (11/20) -0.009 (0/3)   False
+ bat resilience 0.25 -0.003 (10/20) -0.023 (0/3)   False
+bowl       boost 1.2  -0.008 (7/20) +0.039 (2/3)   False
+bowl         context  -0.001 (8/20) -0.001 (1/3)   False
+bowl       pool 0.25 +0.003 (14/20) +0.017 (3/3)    True
+bowl        pool 0.5 +0.004 (13/20) +0.017 (3/3)   False
+bowl  resilience 0.1  -0.006 (5/20) +0.001 (2/3)   False
+bowl resilience 0.25  -0.019 (4/20) -0.001 (2/3)   False

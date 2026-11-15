@@ -31,6 +31,22 @@ def rating_weights(b, old_weight, recent_days=RECENT_DAYS):
 # whereas a bowler's type is part of his own skill (adjusting for it would compare elite
 # death-over spinners only with other elite spinners).
 USE_MATCHUP = {"bat": True, "bowl": False}
+# Psychological pressure pooling (bowlers only; README sections 6.5 and 9.14). A bowler delivery that is
+# not a pressure ball but has above-median leverage AND a psychological pressure situation (psy_bowl, set in
+# 02_pressure.py: just hit for 4/6, after his own 12+ over, poor recent form, after a teammate's 14+ over)
+# is added to his pressure balls at PSY_POOL_WEIGHT of a full ball. Eligibility, ball counts and the
+# descriptive pressure stats still use real pressure balls only. Batters: no pooling (no held-out gain).
+PSY_POOL_WEIGHT = {"bat": 0.0, "bowl": 0.25}
+def psych_pool(d, role, wcol):
+    """Return d with pressure_real (the leverage flag) kept, and pooled balls added to `pressure` at reduced weight."""
+    d = d.copy(); d["pressure_real"] = d.pressure
+    wt = PSY_POOL_WEIGHT[role]
+    if wt > 0 and "psy_" + role in d.columns:
+        ext = d["psy_" + role] & (d.li_pct >= 0.5) & ~d.pressure
+        d["pressure"] = d.pressure | ext
+        if wcol is not None: d[wcol] = d[wcol] * np.where(ext, wt, 1.0)
+        else: d["_poolw"] = np.where(ext, wt, 1.0)
+    return d
 
 def _wsums(df, key, val, w):
     """Weighted sums per key. A ball's weight w = f x a: f is a bootstrap frequency (Poisson(1) per match) and
@@ -80,6 +96,7 @@ def player_table(b, role, wcol="w", role_hl=None):
         d = b[b.faced].copy(); pid, val, wpa = "striker_id", "rv_bat", "wpa_bat"; opp = "bowler_id"
     else:
         d = b[b.legal | b.is_wide | b.is_nb].copy(); pid, val, wpa = "bowler_id", "rv_bowl", "wpa_bowl"; opp = "striker_id"
+    d = psych_pool(d, role, wcol)
     # 1) context residual: value relative to the average player in the same situation
     # matchup: pace/spin x bowling arm x batter hand (8 types), adjusted additively within phase
     arm = np.where(d.bowling_type.str.lower().str.startswith("left") | d.bowling_type.str.contains("left-arm", case=False), "L", "R")
@@ -116,12 +133,13 @@ def player_table(b, role, wcol="w", role_hl=None):
     C = C.reindex(allp).fillna(prior)
     t = pd.DataFrame({"press_skill": A * 100, "baseline": base * 100, "win_impact": Wi * 1000,
                       "consistency": C, "clutch_delta": clutch * 100})
-    t["raw_press"] = P.groupby(pid).adj.mean() * 100
+    t["raw_press"] = d[d.pressure_real].groupby(pid).adj.mean() * 100
     # raw descriptive stats
     agg = dict(pb=("adj", "size"), pm=("match_id", "nunique"))
-    raw = P.groupby(pid).agg(**agg)
+    Pr = d[d.pressure_real]                                          # real pressure balls only
+    raw = Pr.groupby(pid).agg(**agg)
     t = t.join(raw, how="left")
-    t["recent_pb"] = P[P.recent].groupby(pid).size().reindex(t.index).fillna(0).astype(int)
+    t["recent_pb"] = Pr[Pr.recent].groupby(pid).size().reindex(t.index).fillna(0).astype(int)
     t["active"] = t.index.isin(d.loc[d.recent, pid])
     t["n_matches_all"] = d.groupby(pid).match_id.nunique()
     return t, kA, d
@@ -153,8 +171,8 @@ WEIGHTS = {r: {k: v / sum(w.values()) for k, v in w.items()} for r, w in _W0.ite
 ALPHA_EXEC = 20          # pseudo-balls, the same smoothing strength the previous version used
 def execution_component(b, minP=30, minN=100, alpha=ALPHA_EXEC, wcol=None):
     """wcol: optional per-ball rating weight (e.g. Readiness weights); None = every ball counts 1."""
-    d = b[b.legal | b.is_wide | b.is_nb].copy()
-    d["_w"] = 1.0 if wcol is None else d[wcol].astype(float)
+    d = psych_pool(b[b.legal | b.is_wide | b.is_nb], "bowl", wcol)    # same pooled pressure set as the rating
+    d["_w"] = (1.0 if wcol is None else d[wcol].astype(float)) * (d["_poolw"] if "_poolw" in d.columns else 1.0)
     d = d[d._w > 0]
     d["error"] = (d.is_wide | d.is_nb | d.delivery_style.fillna("").isin(["Full Toss", "Beamer"])).astype(float)
     d["_we"] = d._w * d.error

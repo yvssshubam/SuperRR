@@ -8,6 +8,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); OUT = sys.argv[1]; sys.argv =
 def _load(path, name):
     spec = importlib.util.spec_from_file_location(name, path); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
 r = _load(os.path.join(HERE, "..", "03_ratings.py"), "r"); pt = _load(os.path.join(HERE, "additions_lib.py"), "additions_lib").pt
+r.PSY_POOL_WEIGHT = {"bat": 0.0, "bowl": 0.0}   # a description of leverage pressure balls, not a rating: no pooling
 b = r.b
 b["w"] = 1.0
 b = b.sort_values(["match_id", "innings", "innings_ball_num"])
@@ -23,8 +24,8 @@ def gap(d, col, by=None):
     res = (x - beta * s) * s; cl = res.groupby(d.match_id).sum()
     se = np.sqrt((cl ** 2).sum()) / (s * s).sum()
     return 100 * beta, 100 * se
-P = d[d.pressure]
-print("pressure balls: spin share by phase", P.groupby("ph").spin.mean().round(3).to_dict(), " overall", round(P.spin.mean(), 3), " non-pressure", round(d[~d.pressure].spin.mean(), 3))
+P = d[d.pressure_real]                       # leverage pressure balls (not the pooled set)
+print("pressure balls: spin share by phase", P.groupby("ph").spin.mean().round(3).to_dict(), " overall", round(P.spin.mean(), 3), " non-pressure", round(d[~d.pressure_real].spin.mean(), 3))
 print("share of pressure balls bowled to a batter on <5 balls: spin", round((P[P.spin == 1].settled == 0).mean(), 3), "pace", round((P[P.spin == 0].settled == 0).mean(), 3))
 P = P.assign(a_opp=P.r0 - P._o, a_cond=P.r0 - P._m, a_both=P.r0 - P._o - P._m)
 rows = []
@@ -40,7 +41,7 @@ csv_rows = [dict(group="pressure", control=n, gap=g, se=e) for n, g, e in rows]
 for ph, nm in [(0, "powerplay"), (1, "middle"), (2, "death")]:
     q = P[P.ph == ph]; print(nm, "n spin", int(q.spin.sum()), "gap raw", [round(v, 1) for v in gap(q, "r0")], " within match+innings+settled", [round(v, 1) for v in gap(q, "a_opp", ["match_id", "innings", "settled"])])
     g, e = gap(q, "r0"); csv_rows.append(dict(group="phase", control=nm, gap=round(g, 1), se=round(e, 1)))
-N = d[~d.pressure].assign(a_opp=lambda x: x.r0 - x._o)
+N = d[~d.pressure_real].assign(a_opp=lambda x: x.r0 - x._o)
 print("non-pressure balls: raw gap", [round(v, 1) for v in gap(N, "r0")], " within match+innings+phase+settled", [round(v, 1) for v in gap(N, "a_opp", ["match_id", "innings", "ph", "settled"])])
 for n, (g, e) in [("context cell only", gap(N, "r0")), ("same match, innings, phase, batter new/settled", gap(N, "a_opp", ["match_id", "innings", "ph", "settled"]))]:
     csv_rows.append(dict(group="normal", control=n, gap=round(g, 1), se=round(e, 1)))

@@ -10,6 +10,8 @@ import sys, os, importlib.util, numpy as np, pandas as pd
 OUT = sys.argv[1]; sys.argv = [sys.argv[0], OUT]
 spec = importlib.util.spec_from_file_location("r", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "03_ratings.py"))
 r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)
+# Reproduces the v4 decision, so psychological pooling (added later, in v5) is switched off here.
+r.PSY_POOL_WEIGHT = {"bat": 0.0, "bowl": 0.0}
 _jsd_rows = None
 
 # ---- the previous (v2/v3) execution score, kept verbatim for comparison ----

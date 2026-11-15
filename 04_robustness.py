@@ -19,7 +19,7 @@ ALLC = {"bat": ["press_skill", "clutch_delta", "consistency", "win_impact"],
         "bowl": ["press_skill", "clutch_delta", "consistency", "win_impact", "execution"]}
 def no_knockout(d):
     d = d.copy(); d["li"] = np.where(d.knock_out == 1, d.li / 1.2, d.li)
-    d["pressure"] = d.groupby("innings").li.rank(pct=True) >= 0.75
+    d["li_pct"] = d.groupby("innings").li.rank(pct=True); d["pressure"] = d.li_pct >= 0.75
     return d
 RW = lambda d, a0: r.rating_weights(d, a0)
 scen = {
@@ -39,6 +39,7 @@ scen = {
     "With separate clutch component (bowlers)": dict(weights_bowl={k: v / 0.82 for k, v in {"press_skill": 0.36, "clutch_delta": 0.135, "consistency": 0.09, "win_impact": 0.135, "execution": 0.10}.items()}),
     "Without bowler execution component": dict(weights_bowl={k: v / (1 - r.WEIGHTS["bowl"]["execution"])
                                                              for k, v in r.WEIGHTS["bowl"].items() if k != "execution"}),
+    "Without psychological pooling (bowlers)": dict(nopool=True, weights_bowl=r.WEIGHTS["bowl"]),
     "IPL only":                     dict(filt=lambda d: d.league == "IPL"),
     "T20I only":                    dict(filt=lambda d: d.league == "T20I"),
 }
@@ -49,9 +50,11 @@ for name, s in scen.items():
     if "pressure" in s: d["pressure"] = s["pressure"](d)
     if "transform" in s: d = s["transform"](d)
     d["w"] = s["w"](d) if "w" in s else RW(d, r.READY_OLD_WEIGHT)
+    if s.get("nopool"): POOL0 = dict(r.PSY_POOL_WEIGHT); r.PSY_POOL_WEIGHT["bowl"] = 0.0
     for role in ["bat", "bowl"]:
+        if s.get("nopool") and role == "bat": continue        # batters are not pooled: scenario does not apply
         t, _, _ = r.player_table(d, role)
-        if role == "bowl": t = t.join(EXEC)
+        if role == "bowl": t = t.join(r.execution_component(d, wcol="w")[["execution"]] if s.get("nopool") else EXEC)
         if f"weights_{role}" in s: wts = s[f"weights_{role}"]
         elif "weights_bat" in s or "weights_bowl" in s: wts = r.WEIGHTS[role]
         else: wts = s.get("weights", r.WEIGHTS[role])
@@ -64,6 +67,7 @@ for name, s in scen.items():
         rows.append(dict(scenario=name, role=role, overlap_top10=len(set(new_top) & set(top[role])),
                          spearman=round(rho, 3),
                          main_top10_median_rank=float(pd.Series(range(1, len(e) + 1), index=e.index).reindex(top[role]).median())))
+    if s.get("nopool"): r.PSY_POOL_WEIGHT.update(POOL0)
 rob = pd.DataFrame(rows)
 rob.to_csv(f"{OUT}/robustness.csv", index=False)
 print(rob.pivot(index="scenario", columns="role", values=["overlap_top10", "spearman"]))

@@ -204,8 +204,8 @@ for ax, r in zip(axs, ["bat", "bowl"]):
     ax.set_xlabel("Split-half correlation (odd vs even matches)")
 fig.legend(handles=[Patch(color=c, label=l) for c, l in [(GREY, "Previous version (v1)"), (BLUE, "Current Readiness"), (ORANGE, "Career Ability")]],
            loc="upper right", bbox_to_anchor=(0.98, 0.9), ncol=3, fontsize=9, labelcolor=INK)
-frame(fig, "Both new ratings repeat at least as well as v1; batting clutch delta is still mostly noise",
-      "How well each component measured on one half of the matches matches the other half (119 players per role; Readiness values labelled)",
+frame(fig, "Batting ratings repeat as well as v1; batting clutch delta is still mostly noise",
+      "One odd/even split, so noisy (bowler pressure rating averages 0.39 over 8 random splits, section 8.1); Readiness labelled",
       "Source: 03_ratings.py, out/ratings_info.json (v1 values from the previous version's ratings_info.json)")
 save(fig, "fig07_reliability.png")
 
@@ -233,7 +233,7 @@ if have("readiness_test.csv"):
           Line2D([], [], color=GREY_D, linewidth=1, linestyle=(0, (4, 3)), label="Previous model (v1), same test")]
     fig.legend(handles=hs, loc="upper right", bbox_to_anchor=(0.98, 0.9), ncol=3, fontsize=8.8, labelcolor=INK)
     fig.text(0.47, 0.035, "Weight of a match older than 12 months", ha="center", fontsize=9.5, color=INK2)
-    frame(fig, "v2 beats v1 on held-out matches; no recency weighting forecasts next season better",
+    frame(fig, "v2 beats v1 on held-out matches; weighting recent matches more does not forecast better",
           "Composite score vs actual pressure value on data the rating did not see (20 cross-half comparisons, 3 out-of-time folds)",
           "Source: experiments/readiness_test.py, out/readiness_test.csv")
     save(fig, "fig08_heldout_by_recency.png")
@@ -242,13 +242,15 @@ if have("readiness_test.csv"):
 R = pd.read_csv(f"{OUT}/robustness.csv")
 order = ["Pressure = top 30% leverage", "Pressure = top 20% leverage", "No knockout multiplier (1.0)", "Older matches weight 0.75", "Older matches weight 0.25",
          "Career Ability (all matches equal)", "Previous recency (18-month half-life)", "Equal weights, all components", "Previous batting composite (45/10/10/10)",
-         "With separate clutch component (bowlers)", "Pressure rating only", "Without bowler execution component", "Pressure = top 10% (extreme)",
+         "With separate clutch component (bowlers)", "Pressure rating only", "Without bowler execution component", "Without psychological pooling (bowlers)",
+         "Pressure = top 10% (extreme)",
          "IPL only", "T20I only", "Conventional RRR/wickets index", "Last 12 months only"]
 NA = {("Previous batting composite (45/10/10/10)", "bowl"), ("With separate clutch component (bowlers)", "bat"),
-      ("Without bowler execution component", "bat"), ("Pressure rating only", "bat")}   # change does not apply to that role
+      ("Without bowler execution component", "bat"), ("Pressure rating only", "bat"),
+      ("Without psychological pooling (bowlers)", "bat")}   # change does not apply to that role
 order = [o for o in order if o in set(R.scenario)]
 P = R.set_index(["scenario", "role"])
-fig, ax = plt.subplots(figsize=(8.6, 7.2)); fig.subplots_adjust(left=0.45, right=0.95, top=0.84, bottom=0.06)
+fig, ax = plt.subplots(figsize=(8.6, 7.6)); fig.subplots_adjust(left=0.45, right=0.95, top=0.85, bottom=0.06)
 cmap = matplotlib.colors.LinearSegmentedColormap.from_list("seq", ["#e8f1fc", "#9ec5f4", "#3987e5", "#184f95"])
 for i, s in enumerate(order):
     for k, role in enumerate(["bat", "bowl"]):
@@ -287,7 +289,7 @@ if have("additions_test.csv"):
             for y, x_, bt in zip(ys, mu, better): ax.text(x_ + (0.0012 if x_ >= 0 else -0.0012), y + off, f"{bt}/20", va="center", ha="left" if x_ >= 0 else "right", fontsize=7.5, color=INK2)
         ax.set_yticks(ys, [l for _, l in names] if r == "bat" else [""] * len(names)); hgrid(ax, "x"); ax.set_xlim(-0.026, 0.012); ax.set_xticks([-0.02, -0.01, 0, 0.01])
         ax.set_title("Batters" if r == "bat" else "Bowlers", fontsize=10.5, fontweight="bold", color=INK, pad=6)
-        ax.set_xlabel("Change in held-out correlation vs v2 (right = better)")
+        ax.set_xlabel("Change in held-out correlation vs the current model (right = better)")
     fig.legend(handles=[Line2D([], [], color=c, marker="o", linestyle="", markersize=7, label=l) for c, l in [(BLUE, "Random match splits"), (ORANGE, "Venue-disjoint splits")]], loc="upper right", bbox_to_anchor=(0.98, 0.9), ncol=2, fontsize=9, labelcolor=INK)
     frame(fig, "None of the three candidate additions beats the current model on held-out data",
           "Mean change in held-out prediction over 20 comparisons per split type; label = comparisons where the addition did better",

@@ -1,6 +1,6 @@
 bat overlap 8 spearman 0.955
   stakes-weighted top 10: ['Vaibhav Sooryavanshi', 'Suryakumar Yadav', 'Tim David', 'Abhishek Sharma', 'Phil Salt', 'Heinrich Klaasen', 'Rajat Patidar', 'Namboori Tilak Varma', 'Tim Seifert', 'Reeza Hendricks']
   in: ['Tim Seifert', 'Reeza Hendricks']  out: ['Finn Allen', 'Shreyas Iyer']
-bowl overlap 9 spearman 0.94
-  stakes-weighted top 10: ['Wanindu Hasaranga', 'Bhuvneshwar Kumar', 'Rashid Khan', 'Varun Chakravarthy', 'Sunil Narine', 'Mujeeb Ur Rahman', 'Josh Hazlewood', 'Mohammad Nawaz', 'Krunal Pandya', 'Abrar Ahmed']
-  in: ['Abrar Ahmed']  out: ['Kuldeep Yadav']
+bowl overlap 8 spearman 0.951
+  stakes-weighted top 10: ['Wanindu Hasaranga', 'Bhuvneshwar Kumar', 'Rashid Khan', 'Sunil Narine', 'Mohammad Nawaz', 'Mujeeb Ur Rahman', 'Varun Chakravarthy', 'Krunal Pandya', 'Josh Hazlewood', 'Abrar Ahmed']
+  in: ['Mujeeb Ur Rahman', 'Abrar Ahmed']  out: ['Kuldeep Yadav', 'Jasprit Bumrah']

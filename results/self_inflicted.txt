@@ -1,0 +1,42 @@
+League: innings with >=6 pre-pressure balls: 1523 | corr(pre value per ball, pressure value per ball) = -0.006
+Share of all batters' pressure balls that were self-inflicted: 3.4 %
+
+=== Current Pressure Readiness ===
+League (eligible batters) median self-inflicted share: 1.6 %
+                            name  rank  press_balls  self_inflicted_share  pre_SR  pre_dot_pct  press_SR  press_value  netted_value
+striker_id                                                                                                                         
+50284       Vaibhav Sooryavanshi     1        125.0                  0.00  162.12        42.42    254.40        77.94         74.56
+6281             Abhishek Sharma     2        261.0                  0.07  151.35        37.84    210.34        45.47         50.53
+6396                   Tim David     3        378.0                  0.00  142.03        25.36    196.30        57.61         58.57
+1699            Suryakumar Yadav     4        532.0                  0.03  154.29        29.42    187.41        47.18         57.35
+5553                   Phil Salt     5        243.0                  0.02  145.56        34.91    171.19        45.77         50.80
+4260            Heinrich Klaasen     6        259.0                  0.12  144.34        24.77    198.84        42.17         41.47
+7897        Namboori Tilak Varma     7        605.0                  0.04  140.56        28.71    167.11        36.72         40.56
+5039               Rajat Patidar     8        193.0                  0.02  140.31        25.58    181.35        32.20         36.15
+4847                  Finn Allen     9        135.0                  0.00  136.76        50.00    171.11        19.46         32.57
+3647                Shreyas Iyer    10        335.0                  0.00  151.06        28.70    171.04        27.90         45.78
+768              Reeza Hendricks    11        180.0                  0.00  162.14        35.71    168.89        45.34         59.51
+6726            Romario Shepherd    12        249.0                  0.00  117.35        41.84    148.19        11.42         30.75
+3700                 Tim Seifert    13        168.0                  0.02  136.84        41.23    181.55        73.09         70.86
+4853              Glenn Phillips    14        191.0                  0.03  120.86        29.50    140.31        20.61         24.99
+Spearman(pressure value, innings-netted value) among eligible: 0.799
+
+=== Career Pressure Ability ===
+League (eligible batters) median self-inflicted share: 1.6 %
+                            name  rank  press_balls  self_inflicted_share  pre_SR  pre_dot_pct  press_SR  press_value  netted_value
+striker_id                                                                                                                         
+50284       Vaibhav Sooryavanshi     1        125.0                  0.00  162.12        42.42    254.40        77.94         74.56
+6281             Abhishek Sharma     2        261.0                  0.07  151.35        37.84    210.34        45.47         50.53
+1699            Suryakumar Yadav     3        532.0                  0.03  154.29        29.42    187.41        47.18         57.35
+6396                   Tim David     4        378.0                  0.00  142.03        25.36    196.30        57.61         58.57
+4260            Heinrich Klaasen     5        259.0                  0.12  144.34        24.77    198.84        42.17         41.47
+5553                   Phil Salt     6        243.0                  0.02  145.56        34.91    171.19        45.77         50.80
+7897        Namboori Tilak Varma     7        605.0                  0.04  140.56        28.71    167.11        36.72         40.56
+768              Reeza Hendricks     8        180.0                  0.00  162.14        35.71    168.89        45.34         59.51
+5039               Rajat Patidar     9        193.0                  0.02  140.31        25.58    181.35        32.20         36.15
+4847                  Finn Allen    10        135.0                  0.00  136.76        50.00    171.11        19.46         32.57
+3700                 Tim Seifert    11        168.0                  0.02  136.84        41.23    181.55        73.09         70.86
+5939               Cameron Green    12        244.0                  0.05  148.37        30.23    166.39        33.99         38.55
+3647                Shreyas Iyer    13        335.0                  0.00  151.06        28.70    171.04        27.90         45.78
+6726            Romario Shepherd    14        249.0                  0.00  117.35        41.84    148.19        11.42         30.75
+Spearman(pressure value, innings-netted value) among eligible: 0.799

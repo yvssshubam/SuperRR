@@ -22,8 +22,8 @@
    },
    "bowl": {
     "prior": {
-     "beta": 0.711,
-     "clutch_sd_per100": 9.96
+     "beta": 0.744,
+     "clutch_sd_per100": 8.66
     },
     "eligible": 107
    }
@@ -38,8 +38,8 @@
    },
    "bowl": {
     "prior": {
-     "beta": 0.75,
-     "clutch_sd_per100": 8.92
+     "beta": 0.77,
+     "clutch_sd_per100": 8.12
     },
     "eligible": 107
    }
@@ -56,11 +56,11 @@
     "n_players": 116
    },
    "bowl": {
-    "press_skill": 0.38,
-    "baseline": 0.312,
-    "clutch_delta": 0.263,
-    "win_impact": 0.213,
-    "consistency": 0.186,
+    "press_skill": 0.291,
+    "baseline": 0.26,
+    "clutch_delta": 0.285,
+    "win_impact": 0.246,
+    "consistency": 0.155,
     "n_players": 122
    }
   },
@@ -74,11 +74,11 @@
     "n_players": 116
    },
    "bowl": {
-    "press_skill": 0.352,
-    "baseline": 0.286,
-    "clutch_delta": 0.188,
-    "win_impact": 0.164,
-    "consistency": 0.281,
+    "press_skill": 0.283,
+    "baseline": 0.233,
+    "clutch_delta": 0.205,
+    "win_impact": 0.188,
+    "consistency": 0.233,
     "n_players": 122
    }
   }

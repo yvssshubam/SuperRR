@@ -1,0 +1,32 @@
+flag shares: {'stuck': 0.104, 'poor_form_bat': 0.196, 'new_at_crease': 0.224, 'collapse': 0.111, 'dot_pressure': 0.023, 'partner_runout': 0.013, 'just_hit': 0.151, 'expensive_spell': 0.144, 'poor_form_bowl': 0.197, 'teammate_bad_over': 0.153}
+psych balls added by pooling (share of all balls): {'bat': 0.098, 'bowl': 0.113}
+psych share of above-median non-pressure balls: {'bat': 0.393, 'bowl': 0.451}
+
+== bat: mean r
+test                    cross-half  out-of-time
+variant                                        
+control: pool any 0.25       0.160        0.053
+control: pool any 0.5        0.162        0.065
+current                      0.156        0.039
+pool 0.25                    0.155        0.038
+pool 0.5                     0.158        0.046
+
+== bowl: mean r
+test                    cross-half  out-of-time
+variant                                        
+control: pool any 0.25       0.236        0.194
+control: pool any 0.5        0.241        0.190
+current                      0.232        0.178
+pool 0.25                    0.244        0.195
+pool 0.5                     0.253        0.195
+
+== gain over the current model, and the pre-set rule
+role                variant     cross_half  out_of_time  passes
+ bat control: pool any 0.25 +0.003 (12/20) +0.014 (2/3)   False
+ bat  control: pool any 0.5 +0.005 (13/20) +0.027 (2/3)   False
+ bat              pool 0.25  -0.001 (6/20) -0.001 (2/3)   False
+ bat               pool 0.5 +0.002 (10/20) +0.007 (2/3)   False
+bowl control: pool any 0.25 +0.004 (11/20) +0.016 (3/3)   False
+bowl  control: pool any 0.5 +0.009 (14/20) +0.012 (2/3)    True
+bowl              pool 0.25 +0.012 (15/20) +0.017 (3/3)    True
+bowl               pool 0.5 +0.020 (16/20) +0.017 (3/3)    True

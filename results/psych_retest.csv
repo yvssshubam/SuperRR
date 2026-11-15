@@ -1,0 +1,323 @@
+test,fold,role,variant,r
+cross-half,00,bat,current,0.16637451864809985
+cross-half,00,bat,pool 0.5,0.16186191373134123
+cross-half,00,bat,pool 0.25,0.15358195651280127
+cross-half,00,bat,boost 1.2,0.1776721675029772
+cross-half,00,bat,context,0.17287833583772158
+cross-half,00,bat,resilience 0.1,0.1503835427759327
+cross-half,00,bat,resilience 0.25,0.1245761342201209
+cross-half,01,bat,current,0.10371482240579927
+cross-half,01,bat,pool 0.5,0.10317105604387013
+cross-half,01,bat,pool 0.25,0.10140439747893232
+cross-half,01,bat,boost 1.2,0.128166662242198
+cross-half,01,bat,context,0.10807575406433094
+cross-half,01,bat,resilience 0.1,0.09860212788899309
+cross-half,01,bat,resilience 0.25,0.08963847400162374
+cross-half,00,bowl,current,0.29685917814562834
+cross-half,00,bowl,pool 0.5,0.30805521831106636
+cross-half,00,bowl,pool 0.25,0.29911465683369126
+cross-half,00,bowl,boost 1.2,0.24429468798834555
+cross-half,00,bowl,context,0.2920295484076006
+cross-half,00,bowl,resilience 0.1,0.29606133999653533
+cross-half,00,bowl,resilience 0.25,0.2893290868248016
+cross-half,01,bowl,current,0.1639793158005469
+cross-half,01,bowl,pool 0.5,0.1676458180009221
+cross-half,01,bowl,pool 0.25,0.1680027665161073
+cross-half,01,bowl,boost 1.2,0.13523703648527702
+cross-half,01,bowl,context,0.16562646241373388
+cross-half,01,bowl,resilience 0.1,0.16312489345318099
+cross-half,01,bowl,resilience 0.25,0.15892166699924698
+cross-half,10,bat,current,0.2358749659168917
+cross-half,10,bat,pool 0.5,0.2608434133988068
+cross-half,10,bat,pool 0.25,0.2547920160513476
+cross-half,10,bat,boost 1.2,0.2589772139700385
+cross-half,10,bat,context,0.22915067959848642
+cross-half,10,bat,resilience 0.1,0.24342489327965192
+cross-half,10,bat,resilience 0.25,0.25012113016045445
+cross-half,11,bat,current,0.21277137210322952
+cross-half,11,bat,pool 0.5,0.22176316176640323
+cross-half,11,bat,pool 0.25,0.2324132293693986
+cross-half,11,bat,boost 1.2,0.20610581352049037
+cross-half,11,bat,context,0.2152487790882859
+cross-half,11,bat,resilience 0.1,0.21872787206438293
+cross-half,11,bat,resilience 0.25,0.2235205161073871
+cross-half,10,bowl,current,0.21319675691995393
+cross-half,10,bowl,pool 0.5,0.20921887324008778
+cross-half,10,bowl,pool 0.25,0.21548142709310195
+cross-half,10,bowl,boost 1.2,0.1690104147681845
+cross-half,10,bowl,context,0.21047332027475626
+cross-half,10,bowl,resilience 0.1,0.19996408768698767
+cross-half,10,bowl,resilience 0.25,0.17742051325595987
+cross-half,11,bowl,current,0.21962503445647485
+cross-half,11,bowl,pool 0.5,0.2289852783917795
+cross-half,11,bowl,pool 0.25,0.2240262839932445
+cross-half,11,bowl,boost 1.2,0.23249472345755537
+cross-half,11,bowl,context,0.21954985593025841
+cross-half,11,bowl,resilience 0.1,0.1984484086110567
+cross-half,11,bowl,resilience 0.25,0.16435189780053197
+cross-half,20,bat,current,0.21047153396594134
+cross-half,20,bat,pool 0.5,0.22108473602475195
+cross-half,20,bat,pool 0.25,0.20797661916032598
+cross-half,20,bat,boost 1.2,0.18823519335914124
+cross-half,20,bat,context,0.22422180731422023
+cross-half,20,bat,resilience 0.1,0.20881185413240447
+cross-half,20,bat,resilience 0.25,0.20275373970357352
+cross-half,21,bat,current,0.22442917936494827
+cross-half,21,bat,pool 0.5,0.23653522989952386
+cross-half,21,bat,pool 0.25,0.24196410663998033
+cross-half,21,bat,boost 1.2,0.24432762832865793
+cross-half,21,bat,context,0.2153547377095447
+cross-half,21,bat,resilience 0.1,0.21602238523835798
+cross-half,21,bat,resilience 0.25,0.19979562564051082
+cross-half,20,bowl,current,0.20116163275074936
+cross-half,20,bowl,pool 0.5,0.17422198335184624
+cross-half,20,bowl,pool 0.25,0.17340221796632116
+cross-half,20,bowl,boost 1.2,0.19080678868002726
+cross-half,20,bowl,context,0.2003121636240378
+cross-half,20,bowl,resilience 0.1,0.17808554322247763
+cross-half,20,bowl,resilience 0.25,0.1427750895454509
+cross-half,21,bowl,current,0.22423383900309188
+cross-half,21,bowl,pool 0.5,0.23153939373514662
+cross-half,21,bowl,pool 0.25,0.23418094390421187
+cross-half,21,bowl,boost 1.2,0.21957851281458615
+cross-half,21,bowl,context,0.2200536496488796
+cross-half,21,bowl,resilience 0.1,0.2108515441300317
+cross-half,21,bowl,resilience 0.25,0.18749286417083968
+cross-half,30,bat,current,0.2172085007751966
+cross-half,30,bat,pool 0.5,0.2177495801792542
+cross-half,30,bat,pool 0.25,0.21856730872851515
+cross-half,30,bat,boost 1.2,0.19763389752431473
+cross-half,30,bat,context,0.21755859277540243
+cross-half,30,bat,resilience 0.1,0.2118715254914011
+cross-half,30,bat,resilience 0.25,0.20014663256121673
+cross-half,31,bat,current,0.2581071130827816
+cross-half,31,bat,pool 0.5,0.22916642565366796
+cross-half,31,bat,pool 0.25,0.2076330273076396
+cross-half,31,bat,boost 1.2,0.2171414495999918
+cross-half,31,bat,context,0.23605599152841683
+cross-half,31,bat,resilience 0.1,0.2592960586950102
+cross-half,31,bat,resilience 0.25,0.25645007373762935
+cross-half,30,bowl,current,0.2127576334991893
+cross-half,30,bowl,pool 0.5,0.2242430477355978
+cross-half,30,bowl,pool 0.25,0.21979668407927097
+cross-half,30,bowl,boost 1.2,0.1907696464595504
+cross-half,30,bowl,context,0.20760423923540258
+cross-half,30,bowl,resilience 0.1,0.2095611909217083
+cross-half,30,bowl,resilience 0.25,0.20109032305388644
+cross-half,31,bowl,current,0.30705568748309586
+cross-half,31,bowl,pool 0.5,0.2937336979388227
+cross-half,31,bowl,pool 0.25,0.2882277404500022
+cross-half,31,bowl,boost 1.2,0.3286303111908546
+cross-half,31,bowl,context,0.29820536955397237
+cross-half,31,bowl,resilience 0.1,0.3081587089504991
+cross-half,31,bowl,resilience 0.25,0.3039903575890886
+cross-half,40,bat,current,0.1886701395862744
+cross-half,40,bat,pool 0.5,0.16533794604057206
+cross-half,40,bat,pool 0.25,0.151963934393065
+cross-half,40,bat,boost 1.2,0.2186774631979479
+cross-half,40,bat,context,0.20735131882634453
+cross-half,40,bat,resilience 0.1,0.1947474269481599
+cross-half,40,bat,resilience 0.25,0.20022107511096546
+cross-half,41,bat,current,-0.02541007869999609
+cross-half,41,bat,pool 0.5,-0.02715512377491187
+cross-half,41,bat,pool 0.25,-0.032755874602717214
+cross-half,41,bat,boost 1.2,-0.01220639967686674
+cross-half,41,bat,context,-0.021084954359491526
+cross-half,41,bat,resilience 0.1,-0.03164372581009857
+cross-half,41,bat,resilience 0.25,-0.04016567153944339
+cross-half,40,bowl,current,0.23462586332120938
+cross-half,40,bowl,pool 0.5,0.16085578423622393
+cross-half,40,bowl,pool 0.25,0.1722923569285989
+cross-half,40,bowl,boost 1.2,0.1864997109377685
+cross-half,40,bowl,context,0.23835083831722978
+cross-half,40,bowl,resilience 0.1,0.2235475471459136
+cross-half,40,bowl,resilience 0.25,0.20325694507007674
+cross-half,41,bowl,current,0.35786605839291713
+cross-half,41,bowl,pool 0.5,0.35081781806182427
+cross-half,41,bowl,pool 0.25,0.3550392273737737
+cross-half,41,bowl,boost 1.2,0.35669049689453663
+cross-half,41,bowl,context,0.3544923001737801
+cross-half,41,bowl,resilience 0.1,0.3540002936240955
+cross-half,41,bowl,resilience 0.25,0.3414570398506904
+cross-half,50,bat,current,0.17171335863288684
+cross-half,50,bat,pool 0.5,0.22619952373285193
+cross-half,50,bat,pool 0.25,0.2120698745623443
+cross-half,50,bat,boost 1.2,0.22010587860571829
+cross-half,50,bat,context,0.17976728980466217
+cross-half,50,bat,resilience 0.1,0.15816504105842832
+cross-half,50,bat,resilience 0.25,0.135784095485674
+cross-half,51,bat,current,0.21465811589326705
+cross-half,51,bat,pool 0.5,0.24779117572454495
+cross-half,51,bat,pool 0.25,0.22837284900911414
+cross-half,51,bat,boost 1.2,0.29145008154586516
+cross-half,51,bat,context,0.20752462699215135
+cross-half,51,bat,resilience 0.1,0.22606072603975932
+cross-half,51,bat,resilience 0.25,0.23869496771204857
+cross-half,50,bowl,current,0.33604423854210724
+cross-half,50,bowl,pool 0.5,0.3231494099237629
+cross-half,50,bowl,pool 0.25,0.33918154290837166
+cross-half,50,bowl,boost 1.2,0.31910736280261964
+cross-half,50,bowl,context,0.3328103922150253
+cross-half,50,bowl,resilience 0.1,0.3237647874168881
+cross-half,50,bowl,resilience 0.25,0.3004002828028071
+cross-half,51,bowl,current,0.20208189722000702
+cross-half,51,bowl,pool 0.5,0.19333977353802875
+cross-half,51,bowl,pool 0.25,0.19149753760704957
+cross-half,51,bowl,boost 1.2,0.18899303695447311
+cross-half,51,bowl,context,0.2064183193161121
+cross-half,51,bowl,resilience 0.1,0.20596791233840372
+cross-half,51,bowl,resilience 0.25,0.20793909439962463
+cross-half,60,bat,current,0.08532781319288359
+cross-half,60,bat,pool 0.5,0.157909071076089
+cross-half,60,bat,pool 0.25,0.1431618494088328
+cross-half,60,bat,boost 1.2,0.15545759089131173
+cross-half,60,bat,context,0.07740315663335377
+cross-half,60,bat,resilience 0.1,0.08915314355418119
+cross-half,60,bat,resilience 0.25,0.09315415795319375
+cross-half,61,bat,current,0.15525934174376166
+cross-half,61,bat,pool 0.5,0.14044407536417194
+cross-half,61,bat,pool 0.25,0.14504965328983976
+cross-half,61,bat,boost 1.2,0.10748766522219011
+cross-half,61,bat,context,0.16193915889618063
+cross-half,61,bat,resilience 0.1,0.16612067244223827
+cross-half,61,bat,resilience 0.25,0.1792356771635651
+cross-half,60,bowl,current,0.22306737255130443
+cross-half,60,bowl,pool 0.5,0.2299495017124782
+cross-half,60,bowl,pool 0.25,0.24380084536063995
+cross-half,60,bowl,boost 1.2,0.1912049263587589
+cross-half,60,bowl,context,0.22474772736180698
+cross-half,60,bowl,resilience 0.1,0.20856605966949124
+cross-half,60,bowl,resilience 0.25,0.18313022610150254
+cross-half,61,bowl,current,0.257167983976818
+cross-half,61,bowl,pool 0.5,0.267672985251372
+cross-half,61,bowl,pool 0.25,0.25566102486700987
+cross-half,61,bowl,boost 1.2,0.2599864839642507
+cross-half,61,bowl,context,0.2451391690024122
+cross-half,61,bowl,resilience 0.1,0.26347879001719626
+cross-half,61,bowl,resilience 0.25,0.2679769650874427
+cross-half,70,bat,current,0.15033540479573404
+cross-half,70,bat,pool 0.5,0.14791916971008834
+cross-half,70,bat,pool 0.25,0.14769437660924473
+cross-half,70,bat,boost 1.2,0.13415394820756843
+cross-half,70,bat,context,0.14146536562316803
+cross-half,70,bat,resilience 0.1,0.13572567451666598
+cross-half,70,bat,resilience 0.25,0.11286028328063699
+cross-half,71,bat,current,0.1254489314784202
+cross-half,71,bat,pool 0.5,0.13664060484210988
+cross-half,71,bat,pool 0.25,0.1615068653072471
+cross-half,71,bat,boost 1.2,0.09493034146770525
+cross-half,71,bat,context,0.1346720339220712
+cross-half,71,bat,resilience 0.1,0.13661265348844703
+cross-half,71,bat,resilience 0.25,0.15050585700808292
+cross-half,70,bowl,current,0.2632475737278057
+cross-half,70,bowl,pool 0.5,0.28447032579884535
+cross-half,70,bowl,pool 0.25,0.2726987837696683
+cross-half,70,bowl,boost 1.2,0.2859028524194882
+cross-half,70,bowl,context,0.26512733117460263
+cross-half,70,bowl,resilience 0.1,0.25364008336060084
+cross-half,70,bowl,resilience 0.25,0.23488816473544413
+cross-half,71,bowl,current,0.08043119627413935
+cross-half,71,bowl,pool 0.5,0.10096431279307697
+cross-half,71,bowl,pool 0.25,0.10603698883017003
+cross-half,71,bowl,boost 1.2,0.11019232423709964
+cross-half,71,bowl,context,0.08239560198745785
+cross-half,71,bowl,resilience 0.1,0.07632259481102599
+cross-half,71,bowl,resilience 0.25,0.06892923863295002
+cross-half,80,bat,current,0.1312772265630782
+cross-half,80,bat,pool 0.5,0.11756365582043235
+cross-half,80,bat,pool 0.25,0.12052931420184153
+cross-half,80,bat,boost 1.2,0.09850557871052075
+cross-half,80,bat,context,0.12239752026917171
+cross-half,80,bat,resilience 0.1,0.11363514572344151
+cross-half,80,bat,resilience 0.25,0.08523943253952318
+cross-half,81,bat,current,0.21649510285782642
+cross-half,81,bat,pool 0.5,0.21380709757275762
+cross-half,81,bat,pool 0.25,0.19965501304311237
+cross-half,81,bat,boost 1.2,0.24837741265400307
+cross-half,81,bat,context,0.21933903338772065
+cross-half,81,bat,resilience 0.1,0.23227591450770366
+cross-half,81,bat,resilience 0.25,0.25130532051882
+cross-half,80,bowl,current,0.17984658968768832
+cross-half,80,bowl,pool 0.5,0.19330426655568467
+cross-half,80,bowl,pool 0.25,0.19724838564703817
+cross-half,80,bowl,boost 1.2,0.19964246096122493
+cross-half,80,bowl,context,0.1837525793708205
+cross-half,80,bowl,resilience 0.1,0.17491881421793964
+cross-half,80,bowl,resilience 0.25,0.1643644546457901
+cross-half,81,bowl,current,0.27847533870107044
+cross-half,81,bowl,pool 0.5,0.2865818422497737
+cross-half,81,bowl,pool 0.25,0.2891482810086041
+cross-half,81,bowl,boost 1.2,0.26224820337824056
+cross-half,81,bowl,context,0.27600242115492263
+cross-half,81,bowl,resilience 0.1,0.2905293693855705
+cross-half,81,bowl,resilience 0.25,0.30323797565937854
+cross-half,90,bat,current,0.23847801286712966
+cross-half,90,bat,pool 0.5,0.23187614399786693
+cross-half,90,bat,pool 0.25,0.24397712665942992
+cross-half,90,bat,boost 1.2,0.1970524571188553
+cross-half,90,bat,context,0.2451001245714679
+cross-half,90,bat,resilience 0.1,0.24740539981953202
+cross-half,90,bat,resilience 0.25,0.25632813976759095
+cross-half,91,bat,current,0.20893980331403172
+cross-half,91,bat,pool 0.5,0.1943010110696244
+cross-half,91,bat,pool 0.25,0.203090464924882
+cross-half,91,bat,boost 1.2,0.21764872162366655
+cross-half,91,bat,context,0.2059432276325839
+cross-half,91,bat,resilience 0.1,0.21312276728357307
+cross-half,91,bat,resilience 0.25,0.2153927438460351
+cross-half,90,bowl,current,0.16801816111507084
+cross-half,90,bowl,pool 0.5,0.21530798360108033
+cross-half,90,bowl,pool 0.25,0.2107263726427443
+cross-half,90,bowl,boost 1.2,0.12667290418942515
+cross-half,90,bowl,context,0.165603991202681
+cross-half,90,bowl,resilience 0.1,0.15175244595322682
+cross-half,90,bowl,resilience 0.25,0.1253216424711416
+cross-half,91,bowl,current,0.1603603821470763
+cross-half,91,bowl,pool 0.5,0.2198006074447406
+cross-half,91,bowl,pool 0.25,0.17974466873645611
+cross-half,91,bowl,boost 1.2,0.2127237651169303
+cross-half,91,bowl,context,0.16307141584730717
+cross-half,91,bowl,resilience 0.1,0.16448167912537687
+cross-half,91,bowl,resilience 0.25,0.1675510692851402
+out-of-time,2024-01-01,bat,current,0.13032172666815742
+out-of-time,2024-01-01,bat,pool 0.5,0.1516025632737126
+out-of-time,2024-01-01,bat,pool 0.25,0.13687789138282336
+out-of-time,2024-01-01,bat,boost 1.2,0.1415558010205425
+out-of-time,2024-01-01,bat,context,0.09356085415410904
+out-of-time,2024-01-01,bat,resilience 0.1,0.12720257392195386
+out-of-time,2024-01-01,bat,resilience 0.25,0.12028725101496252
+out-of-time,2024-01-01,bowl,current,0.15355459776666602
+out-of-time,2024-01-01,bowl,pool 0.5,0.16874428746402903
+out-of-time,2024-01-01,bowl,pool 0.25,0.16814091998524305
+out-of-time,2024-01-01,bowl,boost 1.2,0.17921020070401725
+out-of-time,2024-01-01,bowl,context,0.14836671927625214
+out-of-time,2024-01-01,bowl,resilience 0.1,0.1335967280678231
+out-of-time,2024-01-01,bowl,resilience 0.25,0.10279562529809096
+out-of-time,2025-01-01,bat,current,0.11605119266145697
+out-of-time,2025-01-01,bat,pool 0.5,0.18522896898661292
+out-of-time,2025-01-01,bat,pool 0.25,0.1670317485512188
+out-of-time,2025-01-01,bat,boost 1.2,0.17659070518351339
+out-of-time,2025-01-01,bat,context,0.1325615222345213
+out-of-time,2025-01-01,bat,resilience 0.1,0.10638493795703503
+out-of-time,2025-01-01,bat,resilience 0.25,0.09083292483147017
+out-of-time,2025-01-01,bowl,current,0.273470235487146
+out-of-time,2025-01-01,bowl,pool 0.5,0.28091000250331266
+out-of-time,2025-01-01,bowl,pool 0.25,0.29048750092520254
+out-of-time,2025-01-01,bowl,boost 1.2,0.26035619749783007
+out-of-time,2025-01-01,bowl,context,0.27280223713571355
+out-of-time,2025-01-01,bowl,resilience 0.1,0.2862946098406253
+out-of-time,2025-01-01,bowl,resilience 0.25,0.3006923065192398
+out-of-time,2026-01-01,bat,current,-0.13083801723891778
+out-of-time,2026-01-01,bat,pool 0.5,-0.19958102890658522
+out-of-time,2026-01-01,bat,pool 0.25,-0.19014464888743465
+out-of-time,2026-01-01,bat,boost 1.2,-0.19244641793404962
+out-of-time,2026-01-01,bat,context,-0.11981352437869154
+out-of-time,2026-01-01,bat,resilience 0.1,-0.1457827758664104
+out-of-time,2026-01-01,bat,resilience 0.25,-0.16453408781180603
+out-of-time,2026-01-01,bowl,current,0.107372691545597
+out-of-time,2026-01-01,bowl,pool 0.5,0.13652945816111156
+out-of-time,2026-01-01,bowl,pool 0.25,0.12742364795359742
+out-of-time,2026-01-01,bowl,boost 1.2,0.21184594183333766
+out-of-time,2026-01-01,bowl,context,0.11112219710757339
+out-of-time,2026-01-01,bowl,resilience 0.1,0.11650035589214454
+out-of-time,2026-01-01,bowl,resilience 0.25,0.12875258837461503

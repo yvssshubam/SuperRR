@@ -2,7 +2,7 @@
 
 A data-driven system that rates IPL and T20I batters and bowlers in **high-pressure match situations** against how an average player performs in the same situation. It produces two separate ratings and a ranked top 10 of each.
 
-Built for Round 1 of Rajasthan Royals' *SupeRR Selector Season 2* using only the supplied data pack: 883 matches from January 2022 to 1 November 2026 and 201k deliveries. 
+Built for Round 1 of Rajasthan Royals' *SupeRR Selector Season 2* using only the supplied data pack: 883 matches from January 2022 to 1 November 2026 and 201k deliveries. The analysis was rerun on the updated ball-by-ball dataset published during Round 1: the file at the update link is byte-for-byte identical to the one used here (MD5 `c5bbd29fe98b35a46d83c7dc7072a27d`).
 
 ---
 
@@ -17,18 +17,18 @@ Two ratings answer two different questions. They are never combined into one sco
 |---:|---|---|---|---|
 | 1 | Vaibhav Sooryavanshi | Rashid Khan | Vaibhav Sooryavanshi | Rashid Khan |
 | 2 | Abhishek Sharma | Sunil Narine | Abhishek Sharma | Kuldeep Yadav |
-| 3 | Tim David | Kuldeep Yadav | Suryakumar Yadav | Sunil Narine |
-| 4 | Suryakumar Yadav | Wanindu Hasaranga | Tim David | Josh Hazlewood |
-| 5 | Phil Salt | Krunal Pandya | Heinrich Klaasen | Krunal Pandya |
-| 6 | Heinrich Klaasen | Josh Hazlewood | Phil Salt | Varun Chakravarthy |
-| 7 | Tilak Varma | Bhuvneshwar Kumar | Tilak Varma | Jasprit Bumrah |
-| 8 | Rajat Patidar | Mujeeb Ur Rahman | Reeza Hendricks | Wanindu Hasaranga |
-| 9 | Finn Allen | Varun Chakravarthy | Rajat Patidar | Mujeeb Ur Rahman |
-| 10 | Shreyas Iyer | Mohammad Nawaz | Finn Allen | Bhuvneshwar Kumar |
+| 3 | Tim David | Wanindu Hasaranga | Suryakumar Yadav | Sunil Narine |
+| 4 | Suryakumar Yadav | Kuldeep Yadav | Tim David | Varun Chakravarthy |
+| 5 | Phil Salt | Varun Chakravarthy | Heinrich Klaasen | Jasprit Bumrah |
+| 6 | Heinrich Klaasen | Bhuvneshwar Kumar | Phil Salt | Wanindu Hasaranga |
+| 7 | Tilak Varma | Josh Hazlewood | Tilak Varma | Josh Hazlewood |
+| 8 | Rajat Patidar | Mohammad Nawaz | Reeza Hendricks | Krunal Pandya |
+| 9 | Finn Allen | Krunal Pandya | Rajat Patidar | Bhuvneshwar Kumar |
+| 10 | Shreyas Iyer | Jasprit Bumrah | Finn Allen | Mohammad Nawaz |
 
 **Players in both top 10s** (established *and* current), the strongest picks:
 - **Batters (9):** Vaibhav Sooryavanshi, Abhishek Sharma, Tim David, Suryakumar Yadav, Phil Salt, Heinrich Klaasen, Tilak Varma, Rajat Patidar, Finn Allen.
-- **Bowlers (9):** Rashid Khan, Sunil Narine, Kuldeep Yadav, Wanindu Hasaranga, Krunal Pandya, Josh Hazlewood, Bhuvneshwar Kumar, Mujeeb Ur Rahman, Varun Chakravarthy.
+- **Bowlers (all 10):** Rashid Khan, Sunil Narine, Wanindu Hasaranga, Kuldeep Yadav, Varun Chakravarthy, Bhuvneshwar Kumar, Josh Hazlewood, Mohammad Nawaz, Krunal Pandya, Jasprit Bumrah.
 
 Full rankings for all 107 eligible batters and 107 eligible bowlers are in `results/bat_final.csv` and `results/bowl_final.csv` (Readiness) and `results/bat_career_final.csv` and `results/bowl_career_final.csv` (Career).
 
@@ -42,7 +42,7 @@ All figures are produced by `06_figures.py` (section 11) and live in `figures/`.
 
 ## The idea in one paragraph
 
-Pressure is not defined by a hand-picked rule such as "required rate above 10". The system builds a **win-probability model** from the ball-by-ball data, including each team's pre-match strength. It scores every delivery with a **Leverage Index**: how much the match result can swing on that ball. The top 25% of balls by leverage in each innings are *pressure balls*. Every player is rated on the value he produces on those balls, compared with the average player in the identical situation and adjusted for the quality of the opposition (and, for batters, the type of bowling faced). Bowlers are also rated on **execution under pressure**: whether they bowl more wides, no-balls and full tosses than expected when it matters. The rating is estimated hierarchically so that small samples cannot dominate. It is computed twice: once with every match counted equally (**Career Ability**) and once with the last 12 months counted fully and older matches counted half (**Current Readiness**). Each ball is used once in each rating.
+Pressure is not defined by a hand-picked rule such as "required rate above 10". The system builds a **win-probability model** from the ball-by-ball data, including each team's pre-match strength. It scores every delivery with a **Leverage Index**: how much the match result can swing on that ball. The top 25% of balls by leverage in each innings are *pressure balls*. Every player is rated on the value he produces on those balls, compared with the average player in the identical situation and adjusted for the quality of the opposition (and, for batters, the type of bowling faced). Bowlers are also rated on **execution under pressure**: whether they bowl more wides, no-balls and full tosses than expected when it matters. For bowlers, deliveries bowled under **psychological pressure** (just hit for a boundary, coming off an expensive over, poor recent form, after a teammate's expensive over) also count, at quarter weight, when the match is moderately tense. The rating is estimated hierarchically so that small samples cannot dominate. It is computed twice: once with every match counted equally (**Career Ability**) and once with the last 12 months counted fully and older matches counted half (**Current Readiness**). Each ball is used once in each rating.
 
 ---
 
@@ -75,15 +75,16 @@ Data Pack CSVs
    ▼
 02_pressure.py     pre-match Elo → Markov win-probability + expected-runs model
                    → Leverage Index, pressure flags, run value, win-probability added
+                   → psychological pressure situations for bowlers
    │
    ▼
-03_ratings.py      context residuals → batter matchup adjustment → opposition adjustment
+03_ratings.py      bowler psychological pooling → context residuals → batter matchup adjustment → opposition adjustment
                    → hierarchical ratings → bowler execution component → composite score
                    → done twice: Current Readiness and Career Ability
                    → split-half reliability, 300-sample bootstrap (both ratings)
    │
    ▼
-04_robustness.py   sensitivity of the submitted lists to 14 alternative modelling choices,
+04_robustness.py   sensitivity of the submitted lists to 18 alternative modelling choices,
                    pressure validation
    │
    ▼
@@ -331,7 +332,7 @@ This discounts runs scored against weak attacks (associate nations, part-timers)
 
 ### 5.6 Two ratings: how matches are weighted
 
-The whole rating (sections 5.3–6.4) is computed twice, with different ball weights:
+The whole rating (sections 5.3–6.5) is computed twice, with different ball weights:
 
 | Rating | Question | Ball weight |
 |---|---|---|
@@ -362,7 +363,7 @@ sᵢ  = nᵢ / (nᵢ + σ² / τ²)
 |---|---|
 | `Bᵢ` | Player's usual level: shrunk weighted average on non-pressure balls |
 | `P̄ᵢ` | Raw weighted average on pressure balls (weights from section 5.6) |
-| `nᵢ` | Effective number of pressure balls, `(Σw)² / Σ(w²/f)`, where `w` is the ball weight and `f` the bootstrap frequency (1 outside the bootstrap). With equal weights it is the ball count; with Readiness weights it is Kish's effective sample size |
+| `nᵢ` | Effective number of pressure balls, Kish's `(Σw)² / Σw²`, where `w` is the ball's combined weight (rating weight × bootstrap frequency × the quarter weight of a pooled bowler ball, section 6.5). With equal weights it is the ball count |
 | `σ²` | Ball-to-ball noise variance |
 | `β` | How much usual level carries over to pressure |
 | `τ` | Spread of true pressure-specific ability between players, in runs per 100 balls |
@@ -371,8 +372,8 @@ Fitted values:
 
 | | Readiness: batters | Readiness: bowlers | Career: batters | Career: bowlers |
 |---|---:|---:|---:|---:|
-| `β` | 1.03 | 0.71 | 1.14 | 0.75 |
-| `τ` | 12.7 | 10.0 | 12.2 | 8.9 |
+| `β` | 1.03 | 0.74 | 1.14 | 0.77 |
+| `τ` | 12.7 | 8.7 | 12.2 | 8.1 |
 
 - `β` and `τ²` are estimated from the data by weighted least squares and method of moments (empirical Bayes), separately for each rating. The shrinkage itself is not hand-tuned.
 - A player with few pressure balls is rated mostly on his usual level. One with many is rated mostly on his own pressure record.
@@ -389,6 +390,8 @@ All values are in runs per 100 balls above an average player in the same situati
 | **Consistency** | Share of matches (with ≥ 3 pressure balls) whose pressure value is positive, weighted by the rating's ball weights and smoothed towards the league rate with 6 pseudo-matches |
 | **Win impact** | Shrunk WPA above the context average on pressure balls, in win-probability percentage points per 10 balls |
 | **Execution** (bowlers only) | How well a bowler avoids execution errors under pressure (section 6.4) |
+
+For bowlers, every component is computed on the pressure balls *plus* the pooled psychological-pressure balls at quarter weight (section 6.5).
 
 ### 6.3 Composite score
 
@@ -422,14 +425,35 @@ Players are ranked by `score`.
 - **Execution error:** a wide, a no-ball, a full toss or a beamer. An error ball costs 79 runs per 100 balls more than other balls (t = −27).
 - **Errors depend mostly on the phase, not on pressure.** On normal balls the league error rate is about 6% in the powerplay and middle overs but 16.6% at the death. *Within* the death, pressure barely changes it (16.5%). Pressure balls are concentrated at the death, so any comparison that ignores the phase measures how many death overs a bowler bowls, not how well he executes.
 - **Expected errors, phase by phase.** For each phase, a bowler's expected error rate on pressure balls = his own normal-ball error rate *in that phase* (shrunk towards the league's normal rate for that phase with 20 pseudo-balls) × the league-wide pressure/normal ratio within that phase. These are summed over his pressure balls in each phase.
-- **Score: shrunk excess error rate** = (actual errors − expected errors) / (pressure balls + 20). The shrinkage pulls small samples towards zero, so the score does not grow with workload. Its correlation with a bowler's number of pressure balls is −0.03.
+- **Score: shrunk excess error rate** = (actual errors − expected errors) / (pressure balls + 20). The shrinkage pulls small samples towards zero, so the score does not grow with workload. Its correlation with a bowler's number of pressure balls is −0.09 (−0.03 before the psychological pooling of section 6.5).
 - **Execution** = minus the standardised shrunk excess, so higher means better execution.
 - It needs at least 30 pressure and 100 other balls. Every eligible bowler qualifies.
 - It is computed separately for each rating with that rating's ball weights, once on the full data, and held fixed in the bootstrap.
+- It uses the same pooled pressure set as the rating (section 6.5).
 
 **What changed from the previous version** (section 9.13). The previous score compared each bowler's pressure balls with his *all-phase* normal rate (so the death-overs jump counted against him), used z-scores against a sampling null (which grow with sample size whenever the expectation is slightly off), and added a direction-blind delivery-mix term (more yorkers than expected was penalised like more full tosses). Its correlation with workload was −0.56, and the 12 worst scores were all high-volume pacers. The rebuilt score predicts held-out pressure value as well as the old one, without the workload bias.
 
 **Caveat:** full tosses are not always errors. Some bowlers (Bumrah, for example) bowl them deliberately at the death and concede little from them. The comparison with each bowler's own death-overs rate absorbs most of this, but not all.
+
+### 6.5 Psychological pressure situations (bowlers)
+
+Leverage measures how much the *match* is at stake on a ball. A bowler can also be under pressure that the match situation does not show: he has just been hit for six, or he is coming off an expensive over. Section 9.14 tested ways of using such situations; one improved held-out prediction for bowlers and is used.
+
+**A delivery is psychologically pressured for the bowler** (`psy_bowl`, set in `02_pressure.py`) if any of these holds:
+
+| Situation | Definition | Share of deliveries |
+|---|---|---:|
+| Just hit | The previous ball of the same over went for 4 or 6 | 15% |
+| After his own bad over | His previous over in the innings cost 12 or more | 14% |
+| Poor recent form | His economy over his previous 3 matches is above 10 | 20% |
+| After a teammate's bad over | The previous over, bowled by a teammate, cost 14 or more | 15% |
+
+**How it is used (pooling).** A delivery that is *not* a pressure ball, but has above-median leverage *and* a psychological situation, is added to the bowler's pressure balls at **quarter weight** (`PSY_POOL_WEIGHT` in `03_ratings.py`). That is 11.3% of bowler deliveries, against 25% that are full pressure balls; the median eligible bowler gains 101 pooled balls next to his 234 pressure balls, worth about 25 extra full balls.
+- **Everything in the bowling score uses the pooled set:** the pressure rating, win impact, consistency and execution.
+- **Nothing else changes:** eligibility (120 pressure balls), the ball counts in the tables, the normal-vs-pressure statistics and every held-out *target* use real pressure balls only.
+- **Batters are not pooled.** No psychological variant improved batting predictions (section 9.14).
+
+**Why quarter weight.** It was the variant that passed the decision rule set before the test (section 9.14). Half weight scored slightly higher afterwards, but choosing it after seeing the results would be picking the winner.
 
 ---
 
@@ -461,14 +485,15 @@ Matches were split by odd and even `match_id`, each half was rated independently
 | Component | Readiness: batters | Readiness: bowlers | Career: batters | Career: bowlers | Previous version: batters | Previous version: bowlers |
 |---|---:|---:|---:|---:|---:|---:|
 | Raw pressure average (no model; ≥ 60 balls per half, n = 100 / 100) | | | | | 0.23 | 0.26 |
-| **Pressure rating (hierarchical)** | **0.31** | **0.38** | **0.34** | **0.35** | 0.32 | 0.38 |
-| Usual level | 0.23 | 0.31 | 0.27 | 0.29 | 0.28 | 0.31 |
-| Win impact | 0.17 | 0.21 | 0.22 | 0.16 | 0.10 | 0.21 |
-| Consistency | 0.03 | 0.19 | 0.09 | 0.28 | −0.03 | 0.21 |
-| Clutch Δ | 0.10 | 0.26 | 0.09 | 0.19 | 0.08 | 0.23 |
+| **Pressure rating (hierarchical)** | **0.31** | **0.29** | **0.34** | **0.28** | 0.32 | 0.38 |
+| Usual level | 0.23 | 0.26 | 0.27 | 0.23 | 0.28 | 0.31 |
+| Win impact | 0.17 | 0.25 | 0.22 | 0.19 | 0.10 | 0.21 |
+| Consistency | 0.03 | 0.16 | 0.09 | 0.23 | −0.03 | 0.21 |
+| Clutch Δ | 0.10 | 0.29 | 0.09 | 0.21 | 0.08 | 0.23 |
 
 - The hierarchical estimator is clearly more reliable than the raw pressure average.
-- Both new ratings are about as reliable as the previous version (pressure rating 0.31–0.38, against 0.32 and 0.38). Career is slightly more reliable for batters (0.34), because it uses every match at full weight.
+- For batters, both ratings are about as reliable as the previous version (0.31 and 0.34, against 0.32). Career is slightly more reliable (0.34), because it uses every match at full weight.
+- **For bowlers this one odd/even split shows a drop** (0.38 in v4 to 0.29, after the psychological pooling of section 6.5). A single split is noisy, so it was checked on 8 random match splits: the bowler pressure rating's reliability averages 0.39 with pooling against 0.40 without (higher with pooling in 3 of 8), and the whole bowling score's reliability rises from 0.375 to 0.383. The pooled rating repeats about as well as before; what it gains is prediction of real pressure performance (section 9.14).
 - For batters, clutch Δ and consistency are close to noise at these sample sizes. Batters are therefore ranked on the pressure rating alone (section 6.3); clutch Δ enters only inside it, at its shrunk weight.
 - For bowlers, every component repeats to a useful degree.
 - Avoiding dismissal under pressure is a real batting trait (split-half r = 0.34), more repeatable than run-scoring rate under pressure (r = 0.19). These two figures are from the previous version.
@@ -483,35 +508,35 @@ Matches were resampled 300 times (Poisson weights, seed 42), with eligibility fi
 
 | # | Batter | In top 10 | Median rank | 80% range | Bowler | In top 10 | Median rank | 80% range |
 |---:|---|---:|---:|---|---|---:|---:|---|
-| 1 | Vaibhav Sooryavanshi | 92% | 2 | 1–9 | Rashid Khan | 84% | 3 | 1–13 |
-| 2 | Abhishek Sharma | 94% | 2 | 1–8 | Sunil Narine | 88% | 4 | 1–12 |
-| 3 | Tim David | 92% | 4 | 1–9 | Kuldeep Yadav | 76% | 6 | 2–19 |
-| 4 | Suryakumar Yadav | 97% | 3 | 1–7 | Wanindu Hasaranga | 75% | 7 | 2–15 |
-| 5 | Phil Salt | 73% | 7 | 3–18 | Krunal Pandya | 54% | 10 | 4–24 |
-| 6 | Heinrich Klaasen | 66% | 8 | 4–18 | Josh Hazlewood | 51% | 10 | 3–25 |
-| 7 | Tilak Varma | 62% | 8 | 3–19 | Bhuvneshwar Kumar | 50% | 10 | 3–27 |
-| 8 | Rajat Patidar | 50% | 10 | 4–32 | Mujeeb Ur Rahman | 39% | 14 | 4–36 |
-| 9 | Finn Allen | 46% | 12 | 4–55 | Varun Chakravarthy | 48% | 11.5 | 3–31 |
-| 10 | Shreyas Iyer | 40% | 13 | 6–32 | Mohammad Nawaz | 46% | 11 | 3–40 |
+| 1 | Vaibhav Sooryavanshi | 92% | 2 | 1–9 | Rashid Khan | 87% | 3 | 1–12 |
+| 2 | Abhishek Sharma | 94% | 2 | 1–8 | Sunil Narine | 92% | 3 | 1–10 |
+| 3 | Tim David | 92% | 4 | 1–9 | Wanindu Hasaranga | 87% | 5 | 2–13 |
+| 4 | Suryakumar Yadav | 97% | 3 | 1–7 | Kuldeep Yadav | 70% | 7 | 2–19 |
+| 5 | Phil Salt | 73% | 7 | 3–18 | Varun Chakravarthy | 52% | 10 | 3–27 |
+| 6 | Heinrich Klaasen | 66% | 8 | 4–18 | Bhuvneshwar Kumar | 52% | 10 | 3–27 |
+| 7 | Tilak Varma | 62% | 8 | 3–19 | Josh Hazlewood | 43% | 12 | 3–31 |
+| 8 | Rajat Patidar | 50% | 10 | 4–32 | Mohammad Nawaz | 53% | 10 | 2–37 |
+| 9 | Finn Allen | 46% | 12 | 4–55 | Krunal Pandya | 41% | 12.5 | 5–31 |
+| 10 | Shreyas Iyer | 40% | 13 | 6–32 | Jasprit Bumrah | 42% | 13 | 3–35 |
 
 **Career Pressure Ability:**
 
 | # | Batter | In top 10 | Median rank | 80% range | Bowler | In top 10 | Median rank | 80% range |
 |---:|---|---:|---:|---|---|---:|---:|---|
-| 1 | Vaibhav Sooryavanshi | 89% | 2.5 | 1–11 | Rashid Khan | 91% | 3 | 1–10 |
-| 2 | Abhishek Sharma | 92% | 3 | 1–9 | Kuldeep Yadav | 87% | 4 | 1–12 |
-| 3 | Suryakumar Yadav | 99% | 2 | 1–6 | Sunil Narine | 83% | 5 | 2–13 |
-| 4 | Tim David | 91% | 4 | 2–10 | Josh Hazlewood | 64% | 7 | 2–24 |
-| 5 | Heinrich Klaasen | 84% | 6 | 3–12 | Krunal Pandya | 59% | 9 | 4–21 |
-| 6 | Phil Salt | 83% | 5 | 2–15 | Varun Chakravarthy | 63% | 7 | 2–25 |
-| 7 | Tilak Varma | 64% | 8.5 | 4–18 | Jasprit Bumrah | 63% | 7 | 2–22 |
-| 8 | Reeza Hendricks | 38% | 12 | 6–37 | Wanindu Hasaranga | 65% | 8 | 3–18 |
-| 9 | Rajat Patidar | 33% | 15 | 5–40 | Mujeeb Ur Rahman | 41% | 13.5 | 4–33 |
-| 10 | Finn Allen | 37% | 15 | 5–51 | Bhuvneshwar Kumar | 44% | 12 | 3–28 |
+| 1 | Vaibhav Sooryavanshi | 89% | 2.5 | 1–11 | Rashid Khan | 93% | 3 | 1–9 |
+| 2 | Abhishek Sharma | 92% | 3 | 1–9 | Kuldeep Yadav | 84% | 5 | 1–12 |
+| 3 | Suryakumar Yadav | 99% | 2 | 1–6 | Sunil Narine | 88% | 4 | 1–12 |
+| 4 | Tim David | 91% | 4 | 2–10 | Varun Chakravarthy | 66% | 7 | 2–23 |
+| 5 | Heinrich Klaasen | 84% | 6 | 3–12 | Jasprit Bumrah | 69% | 7 | 2–21 |
+| 6 | Phil Salt | 83% | 5 | 2–15 | Wanindu Hasaranga | 78% | 6.5 | 2–14 |
+| 7 | Tilak Varma | 64% | 8.5 | 4–18 | Josh Hazlewood | 54% | 9 | 3–31 |
+| 8 | Reeza Hendricks | 38% | 12 | 6–37 | Krunal Pandya | 43% | 12 | 4–28 |
+| 9 | Rajat Patidar | 33% | 15 | 5–40 | Bhuvneshwar Kumar | 44% | 12 | 3–30 |
+| 10 | Finn Allen | 37% | 15 | 5–51 | Mohammad Nawaz | 41% | 13 | 3–42 |
 
-- **Near-certain** (top 10 in at least 70% of resamples): Sooryavanshi, Abhishek Sharma, Tim David, Suryakumar Yadav and Phil Salt among batters; Rashid Khan, Sunil Narine, Kuldeep Yadav and Wanindu Hasaranga among bowlers.
-- **The rest are close calls,** in the top 10 in 40–66% (batters) and 39–54% (bowlers) of resamples. On average the Readiness top 10 appear in the bootstrap top 10 71% of the time (batters) and 61% (bowlers).
-- **Bootstrap fix.** The v2 and v3 bootstrap counted a duplicated match as fully new evidence, which inflated the estimated spread of pressure skill in every resample (τ about 22 instead of 10 for bowlers) and lowered β. That made the lists look less stable than they are, and especially penalised players whose rating rests on a strong usual level (Bhuvneshwar Kumar was in the top 10 in 12% of resamples; he is 50% now). The effective sample size now uses Kish's formula on the combined weight, which counts a duplicated match as only partly new evidence (section 9.13). The full-data ratings are unaffected.
+- **Near-certain** (top 10 in at least 70% of resamples): Sooryavanshi, Abhishek Sharma, Tim David, Suryakumar Yadav and Phil Salt among batters; Rashid Khan, Sunil Narine, Wanindu Hasaranga and Kuldeep Yadav among bowlers.
+- **The rest are close calls,** in the top 10 in 40–66% (batters) and 41–53% (bowlers) of resamples. On average the Readiness top 10 appear in the bootstrap top 10 71% of the time (batters) and 62% (bowlers).
+- **Bootstrap fix.** The v2 and v3 bootstrap counted a duplicated match as fully new evidence, which inflated the estimated spread of pressure skill in every resample (τ about 22 instead of 10 for bowlers) and lowered β. That made the lists look less stable than they are, and especially penalised players whose rating rests on a strong usual level (Bhuvneshwar Kumar was in the top 10 in 12% of resamples; he is 52% now). The effective sample size now uses Kish's formula on the combined weight, which counts a duplicated match as only partly new evidence (section 9.13). The full-data ratings are unaffected.
 
 ![Bootstrap rank range of each submitted top-10 player](figures/fig05_bootstrap_ranks.png)
 
@@ -521,31 +546,33 @@ Each row reruns the submitted (Readiness) rating with one change. *Overlap* is h
 
 | Change | Batters: overlap | Batters: ρ | Bowlers: overlap | Bowlers: ρ |
 |---|---:|---:|---:|---:|
-| Pressure = top 30% of leverage | 10 | 0.98 | 9 | 0.97 |
-| Pressure = top 20% of leverage | 10 | 0.95 | 9 | 0.97 |
-| Pressure = top 10% (extreme only) | 9 | 0.94 | 6 | 0.90 |
-| Conventional required-rate/wickets index | 6 | 0.81 | 4 | 0.84 |
-| No knockout multiplier (1.0), eligibility held fixed | 9 | 0.99 | 10 | 0.99 |
-| Career Ability (all matches equal) | 9 | 0.95 | 9 | 0.97 |
+| Pressure = top 30% of leverage | 10 | 0.98 | 8 | 0.98 |
+| Pressure = top 20% of leverage | 10 | 0.95 | 8 | 0.98 |
+| Pressure = top 10% (extreme only) | 9 | 0.94 | 7 | 0.96 |
+| Conventional required-rate/wickets index | 6 | 0.81 | 5 | 0.87 |
+| No knockout multiplier (1.0), eligibility held fixed | 9 | 0.99 | 9 | 0.99 |
+| Career Ability (all matches equal) | 9 | 0.95 | 10 | 0.98 |
 | Older matches weight 0.25 | 10 | 0.94 | 7 | 0.97 |
-| Older matches weight 0.75 | 9 | 0.98 | 9 | 0.99 |
-| Last 12 months only | 6 | 0.51 | 2 | 0.72 |
-| Previous recency (18-month half-life, no form component) | 10 | 0.95 | 8 | 0.96 |
-| Equal weights over all five components | 8 | 0.76 | 6 | 0.95 |
+| Older matches weight 0.75 | 9 | 0.98 | 10 | 0.99 |
+| Last 12 months only | 6 | 0.51 | 5 | 0.77 |
+| Previous recency (18-month half-life, no form component) | 10 | 0.95 | 9 | 0.96 |
+| Equal weights over all five components | 8 | 0.76 | 7 | 0.93 |
 | Previous batting composite (rating + clutch Δ, consistency, win impact) | 9 | 0.93 | — | — |
 | Separate clutch Δ component added back (bowlers) | — | — | 8 | 0.99 |
-| Pressure rating only (bowlers) | — | — | 8 | 0.94 |
-| Without the bowler execution component | — | — | 9 | 0.98 |
-| IPL matches only | 7 | 0.79 | 5 | 0.84 |
-| T20I matches only | 5 | 0.80 | 6 | 0.85 |
+| Pressure rating only (bowlers) | — | — | 8 | 0.93 |
+| Without the bowler execution component | — | — | 10 | 0.98 |
+| Without the psychological pooling (bowlers, section 6.5) | — | — | 9 | 0.99 |
+| IPL matches only | 7 | 0.79 | 6 | 0.86 |
+| T20I matches only | 5 | 0.80 | 5 | 0.86 |
 
-"—" = the change does not apply to that role (batters are already ranked on the pressure rating alone, without clutch Δ or execution).
+"—" = the change does not apply to that role (batters are already ranked on the pressure rating alone, without clutch Δ, execution or pooling).
 
-- **Thresholds of 20–30%, an older-match weight of 0.75, the knockout multiplier, the 18-month half-life and the clutch and execution choices barely move the lists** (8–10 of 10 kept, ρ ≥ 0.93).
-- **Older-match weight 0.25** keeps all 10 batters but 7 bowlers. **Equal weights over all five components** keep 8 batters (ρ 0.76, because it brings back the batting components that failed the held-out test) and 6 bowlers.
-- **Knockout multiplier.** With eligibility held fixed, removing it keeps 9 of 10 batters and all 10 bowlers. With eligibility re-checked, Sooryavanshi's pressure balls fall from 125 to 105, below the 120-ball floor, and Rajat Patidar also drops out (8 of 10 kept).
+- **Thresholds of 20–30%, an older-match weight of 0.75, the knockout multiplier, the 18-month half-life and the clutch, execution and pooling choices barely move the lists** (8–10 of 10 kept, ρ ≥ 0.93).
+- **Psychological pooling** (section 6.5) changes one bowler: without it, Mujeeb Ur Rahman is in and Jasprit Bumrah out (ρ 0.99).
+- **Older-match weight 0.25** keeps all 10 batters but 7 bowlers. **Equal weights over all five components** keep 8 batters (ρ 0.76, because it brings back the batting components that failed the held-out test) and 7 bowlers.
+- **Knockout multiplier.** With eligibility held fixed, removing it keeps 9 of 10 batters and 9 of 10 bowlers. With eligibility re-checked, Sooryavanshi's pressure balls fall from 125 to 105, below the 120-ball floor, and Rajat Patidar also drops out (8 of 10 kept).
 - **The changes that matter:** a conventional pressure formula (which rewards lost-cause chases), dropping a whole format (which halves some players' samples), the extreme top-10% threshold for bowlers, and using the last 12 months only (too few balls per player, section 9.2).
-- The previous version's stakes-weighted alternative (section 9.7) was not rerun.
+- The stakes-weighted alternative is in section 9.7.
 - Eligibility floors, simpler composites, a single leverage threshold and the three candidate additions are in section 9.12.
 
 ![Top-10 overlap and rank correlation under each alternative modelling choice](figures/fig09_robustness.png)
@@ -586,32 +613,32 @@ All methods start from the raw Markov probability. Calibration error (ECE) is th
 - **Out-of-time (forecasting):** rate players on matches before 1 Jan 2024, 2025 and 2026, and predict the following 12 months. Three folds, about 56 players per role per fold (≥ 60 pressure balls before, ≥ 40 after).
 - **Cross-half (stable signal):** 10 random 50/50 match splits, predicting the other half in both directions, so 20 comparisons and about 116 players per role (≥ 50 pressure balls in each half).
 
-Results with the current scoring (batters on the pressure rating alone; bowlers on the composite without a separate clutch component, with the rebuilt execution score), rerun after the section 9.13 fixes:
+Results with the current scoring (batters on the pressure rating alone; bowlers on the composite without a separate clutch component, with the rebuilt execution score and the psychological pooling of section 6.5), rerun on v5:
 
 | Variant | Out-of-time: batters | Out-of-time: bowlers | Cross-half: batters | Cross-half: bowlers |
 |---|---:|---:|---:|---:|
 | Previous model (18-month half-life + form component) | 0.054 | 0.186 | 0.137 | 0.210 |
-| Last 12 months only (`a0` = 0) | 0.096 | 0.137 | 0.023 | 0.063 |
-| `a0` = 0.1 | 0.051 | 0.122 | 0.108 | 0.172 |
-| `a0` = 0.25 | 0.032 | 0.150 | 0.142 | 0.209 |
-| **`a0` = 0.5 (Readiness)** | **0.039** | **0.178** | **0.175** | **0.229** |
-| `a0` = 1 (Career) | 0.047 | 0.197 | 0.207 | 0.234 |
+| Last 12 months only (`a0` = 0) | 0.096 | 0.136 | 0.023 | 0.086 |
+| `a0` = 0.1 | 0.051 | 0.138 | 0.108 | 0.171 |
+| `a0` = 0.25 | 0.032 | 0.166 | 0.142 | 0.210 |
+| **`a0` = 0.5 (Readiness)** | **0.039** | **0.195** | **0.175** | **0.232** |
+| `a0` = 1 (Career) | 0.047 | 0.221 | 0.207 | 0.239 |
 
 Gain over the previous model, in mean correlation (number of folds better):
 
 | | Out-of-time: batters | Out-of-time: bowlers | Cross-half: batters | Cross-half: bowlers |
 |---|---:|---:|---:|---:|
-| Readiness (`a0` = 0.5) | −0.015 (2 of 3) | −0.008 (0 of 3) | **+0.037 (17 of 20)** | **+0.019 (16 of 20)** |
-| Career (`a0` = 1) | −0.007 (1 of 3) | +0.011 (1 of 3) | **+0.070 (19 of 20)** | +0.024 (15 of 20) |
+| Readiness (`a0` = 0.5) | −0.015 (2 of 3) | +0.009 (3 of 3) | **+0.037 (17 of 20)** | **+0.021 (15 of 20)** |
+| Career (`a0` = 1) | −0.007 (1 of 3) | +0.035 (3 of 3) | **+0.070 (19 of 20)** | **+0.028 (17 of 20)** |
 
 What this shows:
-- **The new ratings beat the previous model on held-out matches,** for batters (17 and 19 of 20 comparisons) and bowlers (16 and 15 of 20).
-- **Weighting recent matches more does not improve forecasts with this data.** Out-of-time, every variant scores about the same: the standard error of each fold's correlation is about 0.13, and the folds disagree. One season of pressure performance is mostly luck, which is also what the previous half-life test found.
-- **Using only the last 12 months fails the cross-half test** (0.023 and 0.063). A typical eligible player has only about 37 pressure balls in the last 12 months, so a rating built on them alone is mostly noise.
-- **`a0` = 0.5 was kept for Readiness.** It is the most current-weighted setting that keeps most of the held-out accuracy (0.175 and 0.229, against 0.207 and 0.234 for Career).
+- **The new ratings beat the previous model on held-out matches,** for batters (17 and 19 of 20 comparisons) and bowlers (15 and 17 of 20). With the psychological pooling, both bowling ratings now also beat it on all 3 future seasons.
+- **Weighting recent matches more does not improve forecasts with this data.** Out-of-time, the batting variants score about the same and the bowling ones favour more weight on older matches: the standard error of each fold's correlation is about 0.13, and the folds disagree. One season of pressure performance is mostly luck, which is also what the previous half-life test found.
+- **Using only the last 12 months fails the cross-half test**. A typical eligible player has only about 37 pressure balls in the last 12 months, so a rating built on them alone is mostly noise (0.023 and 0.086 across halves).
+- **`a0` = 0.5 was kept for Readiness.** It is the most current-weighted setting that keeps most of the held-out accuracy (0.175 and 0.232, against 0.207 and 0.239 for Career).
 - **These numbers are noisy.** The section 9.13 bug fixes changed the pressure flag on 0.36% of balls, and that alone moved single-split batting correlations by up to 0.04 (the first run of this test, before the fixes, gave 0.189 and 0.212 for Readiness and Career batters). Comparisons between variants on the same data are reliable; absolute values shift by about ±0.02.
 
-So Readiness is a **selection choice** (weight the present more) that costs some held-out accuracy for batters, not a proven better forecast. Career Ability is the most accurate rating on held-out matches, and the two agree on 9 of 10 batters and 9 of 10 bowlers.
+So Readiness is a **selection choice** (weight the present more) that costs some held-out accuracy for batters, not a proven better forecast. Career Ability is the most accurate rating on held-out matches, and the two agree on 9 of 10 batters and all 10 bowlers.
 
 ![Held-out correlation by weight given to older matches, cross-half and out-of-time, with v1 for reference](figures/fig08_heldout_by_recency.png)
 
@@ -685,6 +712,7 @@ Note: the current-model row reads 0.239 and 0.255 here, not the 0.233 and 0.253 
 - With this data, players do not differ repeatably in how they handle them, so a resilience score adds noise.
 - Adding the situations as fairness context leaves prediction unchanged. It would swap one batter (Phil Salt → Heinrich Klaasen) and reorder the top of the bowling list.
 - **Neither use is adopted.** The rankings are unchanged.
+- *Retested in v5 (section 9.14):* both uses still fail, but adding psychologically pressured balls to the bowler pressure set at quarter weight improves held-out prediction and is used (section 6.5).
 
 ### 9.5 In-data reputation signals
 
@@ -810,8 +838,8 @@ India vs Pakistan (5 matches) and finals alone (9) were not modelled separately:
 
 **Alternative view, stakes-weighted pressure** (`experiments/stakes_lists.py`):
 - **Batters:** 8 of 10 unchanged (Tim Seifert and Reeza Hendricks in; Finn Allen and Shreyas Iyer out); rank correlation 0.96.
-- **Bowlers:** 9 of 10 unchanged (Abrar Ahmed in, Kuldeep Yadav out); rank correlation 0.94.
-- Rerun on the v4 Readiness lists.
+- **Bowlers:** 8 of 10 unchanged (Mujeeb Ur Rahman and Abrar Ahmed in; Kuldeep Yadav and Jasprit Bumrah out); rank correlation 0.95.
+- Rerun on the v5 Readiness lists.
 - The submitted lists use the current definition, which predicts better on held-out matches.
 
 ### 9.8 Self-inflicted pressure check
@@ -841,7 +869,7 @@ No change is needed: the bias exists in principle but is too small to change the
 | Venue adjustment | Rejected: worse at predicting held-out pressure performance |
 | Leverage-weighted pressure balls | Rejected: change within noise |
 | Batting split (scoring vs dismissal) | Rejected: more stable but less predictive |
-| Psychological resilience score (17 situations) | Rejected: no repeatable player differences; prediction worse |
+| Psychological resilience score (17 situations) | Rejected: no repeatable player differences; prediction worse (confirmed again on v4 in section 9.14) |
 | Psychological situations as fairness context | Rejected: prediction unchanged (within noise) |
 | In-data reputation (player of the match, captaincy, playoff selection, captain's trust) | Rejected: gain within noise (95% intervals include zero) |
 | Bowler execution under pressure (errors and delivery-mix deviation vs simulated expectation) | **Kept** (10%, now 12.2% after removing the form component): strong league-wide effect, repeatable (r = 0.37), better in 10 of 10 held-out splits |
@@ -861,10 +889,12 @@ No change is needed: the bias exists in principle but is too small to change the
 | Batting composite (consistency, win impact) | **Removed** (v4): no held-out gain for batters; batters ranked on the pressure rating alone (section 9.13) |
 | Fading the calibration out at the end of chases | Rejected: calibrated probabilities beat raw ones on the last 12 balls (section 3.3) |
 | Bootstrap effective sample size (Kish's formula on the combined weight) | **Fixed** (v4): resampled β and τ now match the full data (section 9.13) |
+| Psychological pressure balls pooled into the bowler pressure set at quarter weight | **Kept** (v5): passed the pre-set rule twice; held-out gain +0.008 (29 of 40 splits) and +0.017 on future seasons (3 of 3) (sections 6.5, 9.14) |
+| The same pooling for batters; leverage ×1.2 on psychological balls; resilience score; fairness context (v4 retest) | Rejected (v5): none passed the pre-set rule (section 9.14) |
 
 Compared with the first version of the lists, the section 9.3–9.7 changes swapped two batters (Buttler and Klaasen out; Salt and Patidar in) and two bowlers (Rabada and Bhuvneshwar out; Kuldeep and Zampa in).
 
-**The two-rating change (v2)** then moved the submitted lists as follows (previous → Readiness); the v4 changes are in section 9.13:
+**The two-rating change (v2)** then moved the submitted lists as follows (previous → Readiness); the v4 changes are in section 9.13 and the v5 change in section 9.14:
 - **Batters:** Finn Allen and Virat Kohli out; Heinrich Klaasen and Tim Seifert in. 8 of 10 kept.
 - **Bowlers:** Mohammad Nawaz, Mustafizur Rahman, Jofra Archer and Adam Zampa out; Mujeeb Ur Rahman, Akeal Hosein, Krunal Pandya and Abrar Ahmed in. 6 of 10 kept.
 
@@ -890,25 +920,25 @@ Gain over the current model, mean correlation (comparisons better, out of 20), o
 
 | Variant | Match splits: batters | Match splits: bowlers | Venue splits: batters | Venue splits: bowlers |
 |---|---:|---:|---:|---:|
-| Match conditions | −0.002 (8) | −0.005 (3) | −0.007 (6) | −0.004 (4) |
-| Venue conditions | −0.008 (1) | −0.005 (3) | −0.017 (2) | −0.002 (9) |
-| Venue + match conditions | −0.009 (3) | −0.009 (3) | −0.021 (2) | −0.006 (4) |
-| Required-rate band (8 bands) | −0.002 (8) | −0.001 (9) | −0.000 (13) | −0.000 (9) |
-| Required-rate band (4 bands) | −0.002 (8) | +0.000 (9) | +0.001 (11) | −0.000 (9) |
-| Team-level opponent prior | +0.002 (13) | −0.006 (4) | −0.002 (7) | −0.001 (7) |
-| All three together | −0.010 (5) | −0.007 (4) | −0.018 (5) | −0.003 (9) |
+| Match conditions | −0.002 (8) | −0.008 (3) | −0.007 (6) | −0.006 (3) |
+| Venue conditions | −0.008 (1) | −0.006 (3) | −0.017 (2) | −0.002 (6) |
+| Venue + match conditions | −0.009 (3) | −0.011 (2) | −0.021 (2) | −0.006 (5) |
+| Required-rate band (8 bands) | −0.002 (8) | −0.001 (9) | −0.000 (13) | +0.003 (14) |
+| Required-rate band (4 bands) | −0.002 (8) | −0.001 (10) | +0.001 (11) | +0.001 (12) |
+| Team-level opponent prior | +0.002 (13) | −0.008 (2) | −0.002 (7) | −0.000 (10) |
+| All three together | −0.010 (5) | −0.009 (4) | −0.018 (5) | −0.003 (10) |
 
 ![Change in held-out prediction for each candidate addition, match and venue splits](figures/fig10_additions_test.png)
 
-- Rerun with the current scoring (section 9.13). The current model scores 0.175 (batters) and 0.229 (bowlers) on match splits, and 0.176 and 0.202 on venue splits. Cross-format, the variants range from 0.160 to 0.168 for batters (current 0.167) and 0.190 to 0.200 for bowlers (current 0.201).
+- Rerun with the current scoring (v5, including the psychological pooling of section 6.5). The current model scores 0.175 (batters) and 0.234 (bowlers) on match splits, and 0.176 and 0.215 on venue splits. Cross-format, the variants range from 0.160 to 0.168 for batters (current 0.167) and 0.227 to 0.253 for bowlers (current 0.243; one IPL/T20I split, so noisy).
 - **Conditions adjustments make batting predictions worse,** most on venue-disjoint splits (up to −0.021). Players' exposure to conditions varies little (standard deviation about 3 runs per 100 balls), so the adjustment mostly adds noise.
-- **The required-rate band changes nothing,** most likely because the Leverage Index already reflects what the required rate does to the match.
-- Three alternative targets were also checked (conditions removed; conditions and opponents removed; required-rate band in the context). The only gains (up to +0.007 for bowlers, +0.003 for batters) appear on the targets that themselves remove conditions or opponents, which favours those adjustments by construction.
-- **The lists barely move:** with all three additions, batters keep 10 of 10 and bowlers 8 of 10 (Akeal Hosein and Jasprit Bumrah in; Varun Chakravarthy and Mohammad Nawaz out).
+- **The required-rate band changes nothing,** most likely because the Leverage Index already reflects what the required rate does to the match. Its small gains for bowlers on venue splits (+0.003, 14 of 20) are not matched on match splits.
+- Three alternative targets were also checked (conditions removed; conditions and opponents removed; required-rate band in the context). The only gains (up to +0.006 for bowlers, +0.003 for batters) appear on the targets that themselves remove conditions or opponents, which favours those adjustments by construction.
+- **The lists barely move:** with all three additions, batters and bowlers both keep 10 of 10.
 
 ### 9.11 Where the spin edge comes from
 
-8 of the 10 Readiness bowlers are spinners (9 of 10 in v2/v3), against 30% of eligible bowlers. `experiments/spin_edge_test.py` tests whether that reflects a real difference or spinners being used in easier situations. It measures spin minus pace on pressure balls (bowler's view, runs per 100 balls, standard errors clustered by match) and adds controls one at a time.
+7 of the 10 Readiness bowlers are spinners (8 in v4, 9 in v2/v3), against 30% of eligible bowlers. `experiments/spin_edge_test.py` tests whether that reflects a real difference or spinners being used in easier situations. It measures spin minus pace on pressure balls (bowler's view, runs per 100 balls, standard errors clustered by match) and adds controls one at a time.
 
 ![Spin minus pace on pressure balls under successive controls, by phase, and on normal balls](figures/fig11_spin_edge.png)
 
@@ -928,11 +958,12 @@ Where it comes from, per 100 balls:
 
 Under pressure, spin concedes 16 fewer runs per 100 balls and bowls half as many wides and no-balls; wickets are about equal. Pace also loses more under pressure: its dot-ball rate falls from 35.5% to 31.8%, while spin's rises from 32.5% to 33.5%.
 
-**Why v1 had more pacers (7 spinners, 3 pacers) than v2/v3 (9 and 1).** Two v2 changes removed pace-friendly weight, and the v3 execution score added a pace-hostile one:
+**Why v1 had more pacers (7 spinners, 3 pacers) than v2/v3 (9 and 1).** Two v2 changes removed pace-friendly weight, and the v3 execution score added a pace-hostile one; v4 and v5 undid part of this:
 
 1. **The removed 12-month form component was the only one where pace was competitive.** In the previous version, spin led pace by 0.67–0.95 standard deviations on every other component, but by only 0.32 on form. Form's own top 10 had 6 pacers. Jofra Archer depended on it (form z-score 1.94): without it he falls from 9th to 16th with an unchanged pressure rating.
 2. **Readiness counts older matches more than the 18-month half-life did** (0.5, against about 0.13 for a 2022 match). Mustafizur Rahman's pressure rating falls from 19.4 to 14.6 (7th → 17th), while Mujeeb Ur Rahman (8.5 → 15.5) and Akeal Hosein (11.1 → 15.2) rise.
-3. **The previous execution score penalised death-overs workload** (section 9.13): the 12 worst scores were all high-volume pacers. The rebuilt score removes that bias, and Bhuvneshwar Kumar returns at 7th. The submitted list now has 8 spinners and 2 pacers (Hazlewood, Bhuvneshwar).
+3. **The previous execution score penalised death-overs workload** (section 9.13): the 12 worst scores were all high-volume pacers. The rebuilt score removes that bias, and Bhuvneshwar Kumar returns (7th in v4, 6th now).
+4. **Psychological pooling (v5, section 6.5)** brings Jasprit Bumrah in at 10th for Mujeeb Ur Rahman. The submitted list now has 7 spinners and 3 pacers (Bhuvneshwar, Hazlewood, Bumrah), the same split as v1.
 
 **Decision: keep the list, and explain it.** The edge is real within identical match situations. One caveat remains: the controls cover each batter's overall quality, not his record against spin, so captains choosing spin for batters who struggle against it is not fully ruled out. Comparing bowlers only within their type (section 10) is offered as a supporting view, not the submission.
 
@@ -942,27 +973,29 @@ Under pressure, spin concedes 16 fewer runs per 100 balls and bowls half as many
 
 | Change | Batters kept | Batters in / out | Bowlers kept | Bowlers in / out | Spinners in bowling top 10 |
 |---|---:|---|---:|---|---:|
-| Eligibility floor 100 pressure balls (now 120) | 9 | Harry Brook / Shreyas Iyer | 10 | — | 8 |
-| Eligibility floor 150 | 8 | Reeza Hendricks, Romario Shepherd / Sooryavanshi, Finn Allen | 10 | — | 8 |
-| Eligibility floor 200 | 7 | Romario Shepherd, Jos Buttler, Virat Kohli / Sooryavanshi, Patidar, Finn Allen | 10 | — | 8 |
+| Eligibility floor 100 pressure balls (now 120) | 9 | Harry Brook / Shreyas Iyer | 10 | — | 7 |
+| Eligibility floor 150 | 8 | Reeza Hendricks, Romario Shepherd / Sooryavanshi, Finn Allen | 10 | — | 7 |
+| Eligibility floor 200 | 7 | Romario Shepherd, Jos Buttler, Virat Kohli / Sooryavanshi, Patidar, Finn Allen | 9 | Mustafizur Rahman / Bumrah | 7 |
 | Batters: rating + win impact only | 10 | — | — | — | — |
-| Bowlers: pressure rating only | — | — | 8 | Bumrah, Noor Ahmad / Krunal Pandya, Mujeeb | 7 |
-| Bowlers: rating + execution only | — | — | 8 | Bumrah, Mustafizur Rahman / Krunal Pandya, Mujeeb | 6 |
-| One leverage threshold for both innings | 9 | Romario Shepherd / Shreyas Iyer | 7 | Abrar Ahmed, Axar Patel, Mitchell Santner / Hazlewood, Mujeeb, Varun | 9 |
-| Match + venue conditions | 10 | — | 9 | Bumrah / Nawaz | 7 |
-| Required-rate band (4 bands) | 10 | — | 9 | Abrar Ahmed / Nawaz | 8 |
-| Team-level opponent prior | 10 | — | 10 | — | 8 |
-| All three additions | 10 | — | 8 | Akeal Hosein, Bumrah / Varun, Nawaz | 7 |
+| Bowlers: pressure rating only | — | — | 8 | Mohsin Khan, Noor Ahmad / Hazlewood, Krunal Pandya | 7 |
+| Bowlers: rating + execution only | — | — | 8 | Mohsin Khan, Noor Ahmad / Hazlewood, Krunal Pandya | 7 |
+| One leverage threshold for both innings | 9 | Romario Shepherd / Shreyas Iyer | 7 | Abrar Ahmed, Axar Patel, Mitchell Santner / Varun, Hazlewood, Bumrah | 9 |
+| Match + venue conditions | 10 | — | 10 | — | 7 |
+| Required-rate band (4 bands) | 10 | — | 10 | — | 7 |
+| Team-level opponent prior | 10 | — | 9 | Abrar Ahmed / Bumrah | 8 |
+| All three additions | 10 | — | 10 | — | 7 |
 
-Rank correlation across all eligible players stays at 0.92 or above in every row.
+Rank correlation across all eligible players stays at 0.93 or above in every row (rerun on v5).
 
-- **The 120-ball floor is not doing the work.** Raising it to 200 leaves the bowling list untouched; batters change only because Sooryavanshi (125 pressure balls), Finn Allen (135) and Patidar (193) fall below the higher floors.
+- **The 120-ball floor is not doing the work.** Raising it to 200 changes one bowler (Mustafizur Rahman for Bumrah, because the components are re-standardised over a smaller pool); batters change only because Sooryavanshi (125 pressure balls), Finn Allen (135) and Patidar (193) fall below the higher floors.
 - **The per-innings leverage cut is justified.** A single threshold (LI ≥ 1.15) would flag only 3.3% of first-innings balls, so the first innings would supply just 6.9% of pressure balls.
-- **The spin share is not an artefact of the composite:** it stays at 6–9 spinners in every variant, including the pressure rating alone (7).
-- **Krunal Pandya and Mujeeb Ur Rahman are the least secure bowling picks:** they drop out when the composite is simplified, because their case rests on consistency and win impact more than on the pressure rating.
-- **Conditions exposure is small:** the average match and venue level on a player's pressure balls varies with a standard deviation of 2.9 runs per 100 balls (batters) and 2.6 (bowlers).
+- **The spin share is not an artefact of the composite:** it stays at 7–9 spinners in every variant, including the pressure rating alone (7).
+- **Krunal Pandya and Josh Hazlewood are the least secure bowling picks:** they drop out when the composite is simplified, because their case rests on consistency and win impact more than on the pressure rating.
+- **Conditions exposure is small:** the average match and venue level on a player's pressure balls varies with a standard deviation of 2.9 runs per 100 balls (batters) and 2.4 (bowlers).
 
 ### 9.13 Review fixes (v4)
+
+*The numbers in this section are the v4 decision record, from before the psychological pooling of section 9.14. `experiments/review_test.py` reproduces them exactly by switching the pooling off.*
 
 An external review of v3 raised five issues. Each was checked against the code and data; the confirmed ones were fixed and the fixes tested on held-out data with `experiments/review_test.py`.
 
@@ -1010,22 +1043,77 @@ What this shows:
 - **Batters:** Tim Seifert out, Finn Allen in (9 of 10 kept). Tim David moves from 1st to 3rd.
 - **Bowlers:** Akeal Hosein and Abrar Ahmed out, Bhuvneshwar Kumar and Mohammad Nawaz in (8 of 10 kept).
 
+### 9.14 Psychological pressure, retested (v5)
+
+Section 9.4 found that psychological situations hurt performance league-wide but that a separate "resilience" score added noise. Its diagnosis was sample size: each player has too few balls in each situation to measure how *he* handles it. v5 retests the factors on the v4 model with the v4 held-out design, and adds two uses aimed at that diagnosis: treat psychologically pressured balls as extra, down-weighted pressure evidence (*pooling*), or raise their leverage. Reproduce with `experiments/psych_retest.py` (and `--confirm` for the second run).
+
+**Factors.** Batters: stuck at the crease, poor recent form, new at the crease, collapse, dot-ball squeeze, partner run out. Bowlers: just hit for 4 or 6, after his own 12+ over, poor recent form, after a teammate's 14+ over. The definitions are those of section 9.4 (shares of balls in section 6.5).
+
+**Variants and rule, fixed before running:**
+
+| Variant | What it does |
+|---|---|
+| Pool 0.25 / 0.5 | Non-pressure balls with above-median leverage *and* a psychological situation join the pressure set at quarter / half weight |
+| Boost 1.2 | Leverage × 1.2 on psychologically flagged balls before the top-25% cut |
+| Context | The league-average effect of situations created by others is removed from ball values (section 9.4's fairness use) |
+| Resilience 0.1 / 0.25 | A shrunk "handles psychological situations" score added to the composite (section 9.4's skill use) |
+
+- **Target:** unchanged, each player's context residual on held-out *leverage* pressure balls, so every variant answers the same question.
+- **Adopt only if** the mean gain is positive on both tests *and* the variant beats the current model in at least 14 of 20 random splits and 2 of 3 future seasons.
+
+**First run** (20 cross-half comparisons, 3 out-of-time folds; gain in mean correlation over the v4 model, comparisons better):
+
+| Variant | Batters: cross-half | Batters: out-of-time | Bowlers: cross-half | Bowlers: out-of-time |
+|---|---:|---:|---:|---:|
+| **Pool 0.25** | +0.003 (9) | −0.001 (2) | **+0.003 (14)** | **+0.017 (3)** |
+| Pool 0.5 | +0.006 (9) | +0.007 (2) | +0.004 (13) | +0.017 (3) |
+| Boost 1.2 | +0.005 (11) | +0.003 (2) | −0.008 (7) | +0.039 (2) |
+| Context | +0.001 (12) | −0.003 (2) | −0.001 (8) | −0.001 (1) |
+| Resilience 0.1 | −0.000 (11) | −0.009 (0) | −0.006 (5) | +0.001 (2) |
+| Resilience 0.25 | −0.003 (10) | −0.023 (0) | −0.019 (4) | −0.001 (2) |
+
+Only **bowlers, pool 0.25** passed. With twelve variants tested, one could pass by luck, so it was checked again.
+
+**Confirmation run** (20 fresh random splits, seed 11), with a **control** that adds the same number of above-median-leverage balls chosen at random, *without* a psychological flag. If the control did as well, the gain would be sample size, not psychology:
+
+| Bowler variant | Cross-half (fresh splits) | Out-of-time |
+|---|---:|---:|
+| **Pool 0.25 (psychological balls)** | **+0.012 (15 of 20)** | **+0.017 (3 of 3)** |
+| Pool 0.5 (psychological balls) | +0.020 (16 of 20) | +0.017 (3 of 3) |
+| Control: random balls, 0.25 | +0.004 (11 of 20) | +0.016 (3 of 3) |
+| Control: random balls, 0.5 | +0.009 (14 of 20) | +0.012 (2 of 3) |
+
+- **It passes again.** Over all 40 random splits, pool 0.25 is better in 29, by +0.008 on average; on future seasons it raises the bowling correlation from 0.178 to 0.195.
+- **Part of the gain is psychological, part is sample size.** Against the random-ball control, the psychological balls are better in 15 of 20 splits (+0.008 at quarter weight, +0.012 at half). On future seasons the control does about as well (+0.016 against +0.017), so there the gain is mostly the extra evidence.
+- **Batters: no.** No psychological variant passed, and the random-ball control did at least as well as psychological pooling, so any batting gain is sample size, not psychology. (Pooling *random* extra balls looked promising for batters on future seasons, +0.014 to +0.027 over 3 folds, but it was not a pre-set variant and does not pass on random splits.)
+- **A resilience score still hurts,** as in section 9.4, for both roles.
+
+**Decision.** Adopted for bowlers at quarter weight, the variant that passed the rule set in advance (section 6.5). Half weight scored higher in the confirmation run, but switching to it after seeing that would be choosing the rule to fit the result.
+
+**Effect on the v5 model:**
+- **Bowling list:** Jasprit Bumrah in at 10th, Mujeeb Ur Rahman out (9 of 10 kept, ρ 0.99). Career: Mohammad Nawaz in, Mujeeb Ur Rahman out. The Readiness and Career bowling lists now hold the same 10 players.
+- **Batting:** unchanged.
+- **Held-out prediction (section 9.2, Readiness):** bowlers 0.229 → 0.232 cross-half and 0.178 → 0.195 out-of-time.
+- **Reliability (section 8.1):** about unchanged for the pressure rating over 8 random splits (0.40 → 0.39), slightly up for the full bowling score (0.375 → 0.383).
+- **Model parameters (section 6.1):** for Readiness bowlers β 0.71 → 0.74 and τ 10.0 → 8.7. The pooled balls make bowlers' pressure records look a little more like their usual level, so the estimated pressure-specific spread is smaller.
+
 ---
 
 ## 10. Limitations
 
-- **Ranks 5–10 are close calls.** Apart from Sooryavanshi, Abhishek Sharma, Tim David, Suryakumar Yadav and Phil Salt among batters, and Rashid Khan, Sunil Narine, Kuldeep Yadav and Wanindu Hasaranga among bowlers, each player is in the bootstrap top 10 in 39–66% of resamples (section 8.2).
-- **Spinners dominate the bowling lists:** 8 of the 10 Readiness bowlers (7 of 10 Career) are spinners, against 30% of eligible bowlers. Spin is about 15 runs per 100 pressure balls better than pace, and the edge holds within the same match, innings and phase (section 9.11). Bowlers are deliberately not adjusted for bowling type (section 5.4). The controls do not cover each batter's record against spin specifically, so captains choosing spin for batters who struggle against it is not fully ruled out. Comparing each bowler only with bowlers of the same type gives a more balanced list (4 spinners; Bumrah, Mustafizur Rahman, Pathirana and Archer in) that keeps 6 of the 10.
+- **Ranks 5–10 are close calls.** Apart from Sooryavanshi, Abhishek Sharma, Tim David, Suryakumar Yadav and Phil Salt among batters, and Rashid Khan, Sunil Narine, Kuldeep Yadav and Wanindu Hasaranga among bowlers, each player is in the bootstrap top 10 in 40–66% of resamples (section 8.2).
+- **Spinners dominate the bowling lists:** 7 of the 10 bowlers in both lists are spinners, against 30% of eligible bowlers. Spin is about 15 runs per 100 pressure balls better than pace, and the edge holds within the same match, innings and phase (section 9.11). Bowlers are deliberately not adjusted for bowling type (section 5.4). The controls do not cover each batter's record against spin specifically, so captains choosing spin for batters who struggle against it is not fully ruled out. Comparing each bowler only with bowlers of the same type gives a more balanced list (3 spinners; Mustafizur Rahman, Mohsin Khan, Matheesha Pathirana and Jofra Archer in) that keeps 6 of the 10.
 - **The execution component is held fixed in the bootstrap** (computed once on the full data), so the bootstrap slightly understates uncertainty in the bowling ranks.
 - **Small samples at the top.** Sooryavanshi (125 pressure balls) is just above the 120-ball floor. He leaves the list at a floor of 150, and without the knockout multiplier his pressure balls fall to 105 (sections 8.3 and 9.12).
 - **Thin recent samples in Readiness.** Tim David has 12 pressure balls in the last 12 months and 366 older ones, so his Readiness rank (3rd) rests mostly on older matches at half weight; the "Readiness" label oversells his current form. The same applies, less strongly, to Hasaranga (12 recent), Krunal Pandya (18), Finn Allen (21) and Phil Salt (22).
-- **Least secure bowling picks.** Krunal Pandya and Mujeeb Ur Rahman drop out when the bowling composite is simplified, because their case rests on consistency and win impact more than on the pressure rating (section 9.12).
-- **Pressure performance is hard to forecast.** Ratings built on earlier seasons correlate only weakly with the next season's pressure performance (0.03–0.20), whichever recency weighting is used (section 9.2).
+- **Least secure bowling picks.** Krunal Pandya and Josh Hazlewood drop out when the bowling composite is simplified, because their case rests on consistency and win impact more than on the pressure rating (section 9.12).
+- **Pressure performance is hard to forecast.** Ratings built on earlier seasons correlate only weakly with the next season's pressure performance (0.03–0.22), whichever recency weighting is used (section 9.2).
+- **Psychological pressure is measured from ball events only** (section 6.5): being hit for six, an expensive over, poor form. How a player *feels* (crowd, rivalry, his place in the team) is not in the data, and for bowlers part of the pooling gain is simply extra evidence rather than psychology (section 9.14). Batters are not pooled.
 - **Held-out tests are partial.** They refit the player ratings or the calibration layer, not the win model's outcome tables, pressure flags or leverage thresholds (section 9 introduction).
 - **No T20 World Cup matches** are in the data pack.
 - **Not modelled:** fielding, captaincy, crowd and rivalry. Match and venue conditions were tested and rejected (section 9.10). The knockout multiplier rests on only 24 knockout matches in the analysed data.
 - **Rain-shortened games are excluded** (24 matches).
-- **IPL availability is not a filter.** The rankings measure performance, as the brief asks. In the Readiness lists, Mujeeb Ur Rahman and Mohammad Nawaz have no IPL appearances in the data. Every other Readiness pick has IPL appearances in the data.
+- **IPL availability is not a filter.** The rankings measure performance, as the brief asks. In the Readiness lists, Mohammad Nawaz has no IPL appearances in the data. Every other Readiness pick has IPL appearances in the data.
 - **The data ends on 1 Nov 2026.** Injury and availability are not checked.
 
 ---
@@ -1088,6 +1176,8 @@ python experiments/additions_test.py out       # section 9.10, about 3.5 minutes
 python experiments/spin_edge_test.py out       # section 9.11, a few seconds
 python experiments/sensitivity_extra.py out    # section 9.12, about 15 seconds
 python experiments/review_test.py out          # section 9.13, about 1 minute
+python experiments/psych_retest.py out         # section 9.14, about 8 minutes
+python experiments/psych_retest.py out --confirm   # section 9.14 confirmation run, about 5 minutes
 ```
 
 **Figures.** After the pipeline and the three experiments that feed them, regenerate every README figure:
@@ -1133,8 +1223,10 @@ Written to `out/`. A copy of a full run is in `results/`. The README figures are
 | `additions_test.csv`, `additions_test.txt` | Held-out tests of conditions, required-rate band and team-level opponents (section 9.10) |
 | `spin_edge_test.csv`, `spin_edge_test.txt` | Spin-minus-pace estimates under each control (section 9.11) |
 | `sensitivity_extra.txt` | Extra sensitivity rows (section 9.12) |
+| `self_inflicted.txt` | Printed summary of the self-inflicted pressure check (section 9.8) |
 | `stakes_lists.txt` | Stakes-weighted alternative lists (section 9.7) |
 | `review_test.csv`, `review_test.txt` | Held-out tests of the v4 review fixes: execution score, clutch component, batting composite (section 9.13) |
+| `psych_retest.csv`, `psych_retest.txt`, `psych_retest_confirm.csv`, `psych_retest_confirm.txt` | Psychological factors retested on the v4 model, and the confirmation run with the random-ball control (section 9.14) |
 | `readiness_test.txt` | Printed summary of `readiness_test.csv` (section 9.2) |
 | `balls_state.pkl`, `balls_scored.pkl`, `V2.npy`, `ER.npy` | Intermediate files (large, git-ignored) |
 
@@ -1188,7 +1280,8 @@ Written to `out/`. A copy of a full run is in `results/`. The README figures are
 │   ├── additions_test.py      # held-out test of those additions: match, venue and cross-format splits (section 9.10)
 │   ├── spin_edge_test.py      # where the spin edge comes from (section 9.11)
 │   ├── sensitivity_extra.py   # eligibility floors, simpler composites, one threshold, additions (section 9.12)
-│   └── review_test.py         # v4 review fixes: execution score, clutch component, batting composite (section 9.13)
+│   ├── review_test.py         # v4 review fixes: execution score, clutch component, batting composite (section 9.13)
+│   └── psych_retest.py        # psychological factors retested; pooling adopted for bowlers (section 9.14)
 ├── figures/                 # fig01 ... fig11 (committed)
 ├── results/                 # outputs of a full run (committed)
 ├── requirements.txt
