@@ -50,6 +50,8 @@ def have(f):
 b = pd.read_pickle(f"{OUT}/balls_scored.pkl")
 fin = {(rt, r): pd.read_csv(f"{OUT}/{r}{'' if rt == 'readiness' else '_career'}_final.csv", index_col=0)
        for rt in ["readiness", "career"] for r in ["bat", "bowl"]}
+# the submitted lists exclude players who cannot play in the IPL (05_final_tables.py, README section 7)
+fin = {k: (v[v.ipl_eligible] if "ipl_eligible" in v.columns else v) for k, v in fin.items()}
 short = lambda n: n.replace("Namboori Tilak Varma", "Tilak Varma")
 
 # ---------- 1. win-probability calibration ----------
