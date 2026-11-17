@@ -50,8 +50,6 @@ def have(f):
 b = pd.read_pickle(f"{OUT}/balls_scored.pkl")
 fin = {(rt, r): pd.read_csv(f"{OUT}/{r}{'' if rt == 'readiness' else '_career'}_final.csv", index_col=0)
        for rt in ["readiness", "career"] for r in ["bat", "bowl"]}
-# the submitted lists exclude players who cannot play in the IPL (05_final_tables.py, README section 7)
-fin = {k: (v[v.ipl_eligible] if "ipl_eligible" in v.columns else v) for k, v in fin.items()}
 short = lambda n: n.replace("Namboori Tilak Varma", "Tilak Varma")
 
 # ---------- 1. win-probability calibration ----------
@@ -186,30 +184,33 @@ frame(fig, f"The two ratings agree: {counts['bat']} batters and {counts['bowl']}
       "Source: 03_ratings.py, out/*_final.csv and out/*_career_final.csv; rank correlation across all eligible players")
 save(fig, "fig06_readiness_vs_career.png")
 
-# ---------- 7. split-half reliability ----------
-info = json.load(open(f"{OUT}/ratings_info.json"))["reliability"]
-V1 = {"bat": {"press_skill": 0.318, "baseline": 0.281, "win_impact": 0.100, "consistency": -0.029, "clutch_delta": 0.075},   # previous version (v1),
-      "bowl": {"press_skill": 0.378, "baseline": 0.309, "win_impact": 0.207, "consistency": 0.214, "clutch_delta": 0.227}}  # from its ratings_info.json
+# ---------- 7. split-half reliability (20 random match splits) ----------
 comps = [("press_skill", "Pressure rating"), ("baseline", "Usual level"), ("win_impact", "Win impact"), ("consistency", "Consistency"), ("clutch_delta", "Clutch delta")]
-fig, axs = plt.subplots(1, 2, figsize=(10.4, 4.8), sharex=True, gridspec_kw=dict(wspace=0.08))
-fig.subplots_adjust(left=0.13, right=0.98, top=0.76, bottom=0.13)
-for ax, r in zip(axs, ["bat", "bowl"]):
-    ys = np.arange(len(comps))[::-1]
-    for k, (src, col, off) in enumerate([(V1[r], GREY, 0.26), (info["readiness"][r], BLUE, 0), (info["career"][r], ORANGE, -0.26)]):
-        vals = [src[c] for c, _ in comps]
-        ax.barh(ys + off, vals, height=0.24, color=col)
-        if k == 1:
-            for y, v_ in zip(ys, vals): ax.text(max(v_, 0) + 0.006, y, f"{v_:.2f}", va="center", fontsize=8, color=INK)
-    ax.axvline(0, color=GREY_D, linewidth=1); hgrid(ax, "x")
-    ax.set_yticks(ys, [l for _, l in comps] if r == "bat" else [""] * len(comps))
-    ax.set_title("Batters" if r == "bat" else "Bowlers", fontsize=10.5, fontweight="bold", color=INK, pad=6)
-    ax.set_xlabel("Split-half correlation (odd vs even matches)")
-fig.legend(handles=[Patch(color=c, label=l) for c, l in [(GREY, "Previous version (v1)"), (BLUE, "Current Readiness"), (ORANGE, "Career Ability")]],
-           loc="upper right", bbox_to_anchor=(0.98, 0.9), ncol=3, fontsize=9, labelcolor=INK)
-frame(fig, "Batting ratings repeat as well as v1; batting clutch delta is still mostly noise",
-      "One odd/even split, so noisy (bowler pressure rating averages 0.39 over 8 random splits, section 8.1); Readiness labelled",
-      "Source: 03_ratings.py, out/ratings_info.json (v1 values from the previous version's ratings_info.json)")
-save(fig, "fig07_reliability.png")
+if have("repeatability_20splits.csv"):
+    rep = pd.read_csv(f"{OUT}/repeatability_20splits.csv"); rep = rep[rep.floor == 50].set_index(["rating", "role"])
+    fig, axs = plt.subplots(1, 2, figsize=(10.4, 4.8), sharex=True, gridspec_kw=dict(wspace=0.08))
+    fig.subplots_adjust(left=0.13, right=0.98, top=0.76, bottom=0.13)
+    for ax, r in zip(axs, ["bat", "bowl"]):
+        ys = np.arange(len(comps))[::-1]
+        for k, (rating, col, off) in enumerate([("readiness", BLUE, 0.14), ("career", ORANGE, -0.14)]):
+            x = rep.loc[(rating, r)]
+            vals = np.array([x[c] for c, _ in comps]); lo = np.array([x[c + "_lo"] for c, _ in comps]); hi = np.array([x[c + "_hi"] for c, _ in comps])
+            ax.barh(ys + off, vals, height=0.26, color=col)
+            ax.errorbar(vals, ys + off, xerr=[vals - lo, hi - vals], fmt="none", ecolor=GREY_D, elinewidth=0.8, capsize=2)
+            if k == 0:
+                for y, v_, h_ in zip(ys, vals, hi): ax.text(max(h_, 0) + 0.01, y + off, f"{np.floor(v_ * 100 + 0.5) / 100:.2f}", va="center", fontsize=8, color=INK)
+        ax.axvline(0, color=GREY_D, linewidth=1); hgrid(ax, "x")
+        ax.set_yticks(ys, [l for _, l in comps] if r == "bat" else [""] * len(comps))
+        ax.set_title("Batters" if r == "bat" else "Bowlers", fontsize=10.5, fontweight="bold", color=INK, pad=6)
+        ax.set_xlabel("Split-half correlation (mean of 20 random splits)")
+    fig.legend(handles=[Patch(color=c, label=l) for c, l in [(BLUE, "Current Readiness (submitted)"), (ORANGE, "Career Ability")]],
+               loc="upper right", bbox_to_anchor=(0.98, 0.9), ncol=2, fontsize=9, labelcolor=INK)
+    frame(fig, "The pressure rating repeats moderately; clutch delta barely repeats",
+          "20 random match splits, each half rated separately; players with 50+ pressure balls in each half.\nLines span the lowest and highest split; Readiness values labelled",
+          "Source: experiments/repeatability_splits.py, out/repeatability_20splits.csv")
+    save(fig, "fig07_reliability.png")
+else:
+    print("skip fig07: run experiments/repeatability_splits.py first")
 
 # ---------- 8. held-out accuracy by older-match weight ----------
 if have("readiness_test.csv"):

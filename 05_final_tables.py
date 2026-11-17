@@ -1,14 +1,11 @@
-"""Step 5: final tables for both ratings (adds last team / last match, national team and IPL eligibility).
+"""Step 5: final tables for both ratings (adds last team / last match and national team).
 Usage: python -I 05_final_tables.py <out_dir> <data_dir>
 
-IPL eligibility (README section 7): the brief asks for players Rajasthan Royals could back at the IPL 2027
-auction, so a player who cannot play in the IPL at all is not submitted. Pakistan nationals have not been
-part of the IPL since 2008. Nationality is read from the data: the team a player represents in T20Is.
-`rank` is the performance rank among all eligible-by-sample players; `submitted_rank` is the rank after
-removing players who cannot play in the IPL (blank for them). The ratings themselves are unchanged."""
+The submitted top 10s are the pure performance ranking (`rank`): no player is removed for nationality or
+availability, because Round 1 asks who performs best under pressure, not who a franchise could pick.
+`national_team` (the team a player represents in T20Is in the data) is kept for reference only."""
 import sys, pandas as pd
 OUT, D = sys.argv[1], sys.argv[2]
-NOT_IN_IPL = {"Pakistan"}
 b = pd.read_pickle(f"{OUT}/balls_scored.pkl").sort_values("match_date")
 tn = pd.read_csv(f"{D}/teams.csv").drop_duplicates("team_id").set_index("team_id").team_name
 t20i = b[b.league == "T20I"]
@@ -22,9 +19,4 @@ for stem in ["", "_career"]:          # "" = Current Pressure Readiness (submitt
         e["last_match"] = last[r][0].reindex(e.index).dt.date
         e["last_team"] = last[r][1].reindex(e.index).map(tn)
         e["national_team"] = nat[r].reindex(e.index)
-        e["ipl_eligible"] = ~e.national_team.isin(NOT_IN_IPL)
-        e["submitted_rank"] = pd.Series(range(1, int(e.ipl_eligible.sum()) + 1), index=e.index[e.ipl_eligible]).reindex(e.index)
         e.to_csv(f"{OUT}/{r}{stem}_final.csv")
-        if stem == "":
-            out = e[~e.ipl_eligible].head(30)
-            if len(out): print(r, "not IPL-eligible in the top 30:", list(zip(out["name"], out["rank"])))

@@ -1,0 +1,15 @@
+model,role,measure,shift_pp,lo95,hi95,includes_zero
+v7,bat,dismissal,-3.25,-3.71,-3.06,False
+v7,bat,dot,-2.75,-3.61,-1.82,False
+v7,bat,boundary,-0.93,-1.69,-0.3,False
+v7,bowl,error,0.62,0.03,1.01,False
+v7,bowl,dot,-1.88,-2.59,-0.73,False
+v7,bowl,boundary conceded,-0.6,-1.42,-0.07,False
+v7,bowl,wicket,-0.23,-0.54,0.1,True
+v5,bat,dismissal,-0.04,-0.4,0.27,True
+v5,bat,dot,-1.98,-2.59,-1.14,False
+v5,bat,boundary,0.66,0.09,1.19,False
+v5,bowl,error,0.26,-0.21,0.7,True
+v5,bowl,dot,-1.96,-2.8,-1.23,False
+v5,bowl,boundary conceded,0.57,0.09,1.16,False
+v5,bowl,wicket,-0.09,-0.44,0.17,True

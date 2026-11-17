@@ -209,7 +209,7 @@ def composite(t, weights, elig=None):
 def descr(d, role, pid):
     """Readable stats under pressure vs otherwise."""
     rows = []
-    for p, g in d.groupby("pressure"):
+    for p, g in d.groupby("pressure_real"):   # real pressure balls only (pooled balls are not pressure balls)
         if role == "bat":
             s = g.groupby(pid).agg(balls=("legal", "size"), runs=("bat_runs", "sum"), outs=("striker_out", "sum"),
                                    dots=("bat_runs", lambda x: (x == 0).sum()), bnd=("is_four", "sum"), six=("is_six", "sum"))
@@ -247,7 +247,7 @@ if __name__ == "__main__":
             e.insert(0, "name", e.index.map(names))
             e = e.join(descr(d, role, pid), how="left")
             for lg in ["IPL", "T20I"]:   # league split, unshrunk descriptive
-                x = d[d.pressure & (d.league == lg)].groupby(pid).agg(v=("adj", "mean"), n=("adj", "size"))
+                x = d[d.pressure_real & (d.league == lg)].groupby(pid).agg(v=("adj", "mean"), n=("adj", "size"))
                 e[f"press_{lg}"] = x.v * 100; e[f"pb_{lg}"] = x.n
             e["rank"] = range(1, len(e) + 1)
             e.to_csv(f"{OUT}/{role}{STEM[rating]}_ratings.csv")

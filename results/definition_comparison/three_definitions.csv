@@ -1,0 +1,10 @@
+row,v5,v6,v7
+batter balls rated as pressure,25%,50%,14%
+free swings among them,40.6%,32.8%,8.3%
+from decided games (batters),2.2%,10.5%,0.0%
+behaviour change bat / bowl (pp),2.7 / 2.9,4.3 / 1.9,6.9 / 3.3
+"clutch repeat bat / bowl (20 splits, 50+)",0.07 / 0.12,0.19 / 0.21,0.07 / 0.08
+"rating repeat bat / bowl (20 splits, 50+)",0.33 / 0.39,0.33 / 0.42,0.37 / 0.41
+players in splits bat / bowl,115 / 115,162 / 110,50 / 107
+eligible bat / bowl,107 / 107,128 / 93,41 / 92
+top-10 bootstrap share bat / bowl,71% / 62%,66% / 69%,69% / 62%
